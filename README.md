@@ -1,0 +1,2 @@
+# eventfinder
+Event discovery application
