@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Event Finder</title>
+<style>
+body{font:16px/1.4 system-ui,sans-serif;margin:0;padding:12px;max-width:700px;margin:auto;background:#fafafa;color:#222}
+#status{font-size:12px;color:#666;margin-bottom:8px}
+input{width:100%;box-sizing:border-box;font-size:18px;padding:10px;border:1px solid #bbb;border-radius:8px}
+#terms{font-size:13px;color:#555;margin:6px 0}
+.card{background:#fff;border:1px solid #ddd;border-radius:8px;padding:10px;margin:8px 0}
+.card a{font-weight:600;color:#0645ad;text-decoration:none}
+.meta{font-size:14px;color:#555}
+.badge{font-size:11px;background:#eee;border-radius:4px;padding:1px 6px;text-transform:uppercase}
+</style></head><body>
+<div id="status">Loading…</div>
+<input id="q" type="search" placeholder="Interest, e.g. painting" autofocus>
+<div id="terms"></div>
+<div id="list"></div>
+<script>
+const $=id=>document.getElementById(id);
+let events=[],syn={};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const v=Date.now();
+Promise.all([fetch("events.json?v="+v).then(r=>r.json()),fetch("synonyms.json?v="+v).then(r=>r.json())]).then(([d,s])=>{
+  events=d.events;syn=s;
+  const c=Object.entries(d.counts).map(([k,n])=>k+": "+n).join(", ");
+  $("status").textContent="Updated "+new Date(d.last_updated).toLocaleString()+" | "+c;
+  render();
+}).catch(e=>$("status").textContent="Failed to load: "+e);
+function terms(q){
+  q=q.trim().toLowerCase();if(!q)return[];
+  const out=new Set([q]);
+  for(const[k,vs]of Object.entries(syn)){
+    if(k===q||q.includes(k)||k.includes(q))[k,...vs].forEach(t=>out.add(t));
+  }
+  return[...out];
+}
+function render(){
+  const q=$("q").value,ts=terms(q);
+  const related=ts.slice(1);
+  $("terms").textContent=related.length?"Also searching: "+related.join(", "):"";
+  const list=events.filter(e=>!ts.length||ts.some(t=>(e.title+" "+e.description).toLowerCase().includes(t)));
+  $("list").innerHTML=list.length?list.map(e=>`<div class="card"><a href="${esc(e.url)}" target="_blank" rel="noopener">${esc(e.title)}</a>
+<div class="meta">${new Date(e.start).toLocaleString("en-US",{timeZone:"America/Chicago",weekday:"short",month:"short",day:"numeric",hour:"numeric",minute:"2-digit"})}${e.venue?" | "+esc(e.venue):""} <span class="badge">${esc(e.source)}</span></div></div>`).join(""):"<p>No matches.</p>";
+}
+$("q").addEventListener("input",render);
+</script></body></html>

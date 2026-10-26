@@ -1,0 +1,17 @@
+{
+ "painting": ["paint and sip", "paint & sip", "watercolor", "art class", "pottery", "acrylic", "drawing", "canvas"],
+ "music": ["concert", "live music", "band", "jazz", "dj", "orchestra", "open mic"],
+ "food": ["tasting", "cooking class", "wine", "beer", "brunch", "food truck", "dinner"],
+ "fitness": ["yoga", "workout", "run club", "pilates", "hiit", "gym", "bootcamp"],
+ "running": ["5k", "run club", "marathon", "10k", "jog", "race"],
+ "comedy": ["stand-up", "standup", "improv", "open mic", "sketch"],
+ "tech": ["startup", "ai", "coding", "hackathon", "developer", "software"],
+ "kids": ["family", "children", "storytime", "toddler", "family friendly"],
+ "dance": ["salsa", "ballet", "swing", "ballroom", "bachata", "hip hop"],
+ "art": ["gallery", "exhibit", "museum", "painting", "sculpture", "pottery"],
+ "books": ["book club", "author", "reading", "poetry", "writing"],
+ "outdoors": ["hike", "hiking", "nature", "park", "garden", "kayak", "trail"],
+ "wellness": ["meditation", "mindfulness", "yoga", "sound bath", "breathwork", "self care"],
+ "networking": ["meetup", "mixer", "professional", "career", "happy hour"],
+ "crafts": ["knitting", "crochet", "sewing", "woodworking", "candle making", "workshop", "diy"]
+}
