@@ -1,47 +1,108 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark">
 <title>Event Finder</title>
 <style>
-body{font:16px/1.4 system-ui,sans-serif;margin:0;padding:12px;max-width:700px;margin:auto;background:#fafafa;color:#222}
-#status{font-size:12px;color:#666;margin-bottom:8px}
-input{width:100%;box-sizing:border-box;font-size:18px;padding:10px;border:1px solid #bbb;border-radius:8px}
-#terms{font-size:13px;color:#555;margin:6px 0}
-.card{background:#fff;border:1px solid #ddd;border-radius:8px;padding:10px;margin:8px 0}
-.card a{font-weight:600;color:#0645ad;text-decoration:none}
-.meta{font-size:14px;color:#555}
-.badge{font-size:11px;background:#eee;border-radius:4px;padding:1px 6px;text-transform:uppercase}
+:root{--bg:#f5f5f7;--card:#fff;--text:#1d1d1f;--muted:#6e6e73;--line:#e5e5ea;--shadow:0 1px 3px rgba(0,0,0,.08),0 4px 12px rgba(0,0,0,.04);--chip:#e9e9ee;--luma:#7c3aed;--eb:#e8590c;--accent:#0a64d8}
+@media(prefers-color-scheme:dark){:root{--bg:#000;--card:#1c1c1e;--text:#f5f5f7;--muted:#98989f;--line:#2c2c2e;--shadow:0 1px 3px rgba(0,0,0,.6);--chip:#2c2c2e;--luma:#a78bfa;--eb:#fb923c;--accent:#4c9aff}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:640px;margin:0 auto;padding:0 16px 40px}
+header{padding:24px 0 8px}
+h1{margin:0;font-size:28px;letter-spacing:-.5px}
+#status{margin-top:4px;font-size:13px;color:var(--muted)}
+.sticky{position:sticky;top:0;z-index:5;background:var(--bg);padding:8px 0 10px}
+.search{position:relative}
+.search svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:18px;height:18px;stroke:var(--muted);fill:none;stroke-width:2;stroke-linecap:round}
+input{width:100%;font:inherit;font-size:17px;padding:12px 14px 12px 42px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--text);box-shadow:var(--shadow);outline:none}
+input:focus{border-color:var(--accent)}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:10px 0 2px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;font:inherit;font-size:14px;padding:6px 14px;border:0;border-radius:999px;background:var(--chip);color:var(--text);cursor:pointer}
+.chip.on{background:var(--accent);color:#fff}
+#terms{font-size:13px;color:var(--muted);margin:8px 2px 0}
+h2{font-size:13px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);margin:24px 2px 8px;font-weight:600}
+a.card{display:flex;gap:14px;align-items:flex-start;padding:14px;margin:0 0 10px;background:var(--card);border-radius:14px;box-shadow:var(--shadow);color:inherit;text-decoration:none}
+a.card:active{opacity:.7}
+.time{flex:none;width:64px;font-weight:700;font-size:15px;padding-top:1px}
+.body{min-width:0;flex:1}
+.title{font-weight:600;overflow-wrap:anywhere}
+.row{display:flex;gap:8px;align-items:center;margin-top:6px;font-size:14px;color:var(--muted)}
+.venue{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.badge{flex:none;font-size:11px;font-weight:600;color:#fff;border-radius:6px;padding:2px 7px}
+.badge.luma{background:var(--luma)}.badge.eventbrite{background:var(--eb)}
+@media(prefers-color-scheme:dark){.badge{color:#000}}
+.empty{text-align:center;color:var(--muted);padding:48px 0}
 </style></head><body>
-<div id="status">Loading…</div>
-<input id="q" type="search" placeholder="Interest, e.g. painting" autofocus>
-<div id="terms"></div>
+<main>
+<header><h1>Event Finder</h1><div id="status">Loading…</div></header>
+<div class="sticky">
+  <div class="search">
+    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+    <input id="q" type="search" placeholder="Search events, e.g. painting" autocomplete="off">
+  </div>
+  <div class="chips" id="chips"></div>
+  <div id="terms"></div>
+</div>
 <div id="list"></div>
+</main>
 <script>
 const $=id=>document.getElementById(id);
+const CHIPS=["art","run club","comedy","food","music","networking","wellness","books"];
+const TZ="America/Chicago";
 let events=[],syn={};
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const dayKey=d=>d.toLocaleDateString("en-CA",{timeZone:TZ});
+const NAMES={luma:"Luma",eventbrite:"Eventbrite"};
+
 const v=Date.now();
 Promise.all([fetch("events.json?v="+v).then(r=>r.json()),fetch("synonyms.json?v="+v).then(r=>r.json())]).then(([d,s])=>{
   events=d.events;syn=s;
-  const c=Object.entries(d.counts).map(([k,n])=>k+": "+n).join(", ");
-  $("status").textContent="Updated "+new Date(d.last_updated).toLocaleString()+" | "+c;
+  const counts=Object.entries(d.counts).map(([k,n])=>(NAMES[k]||k)+" "+n).join(" · ");
+  const h=Math.max(0,Math.round((Date.now()-new Date(d.last_updated))/36e5));
+  $("status").textContent=events.length+" events · "+counts+" · updated "+(h<1?"just now":h+(h===1?" hour":" hours")+" ago");
   render();
-}).catch(e=>$("status").textContent="Failed to load: "+e);
+}).catch(e=>$("status").textContent="Failed to load events: "+e);
+
+$("chips").innerHTML=CHIPS.map(c=>`<button class="chip" data-q="${c}">${c}</button>`).join("");
+$("chips").addEventListener("click",e=>{
+  const b=e.target.closest(".chip");if(!b)return;
+  $("q").value=$("q").value.trim().toLowerCase()===b.dataset.q?"":b.dataset.q;render();
+});
+$("q").addEventListener("input",render);
+
 function terms(q){
   q=q.trim().toLowerCase();if(!q)return[];
   const out=new Set([q]);
-  for(const[k,vs]of Object.entries(syn)){
-    if(k===q||q.includes(k)||k.includes(q))[k,...vs].forEach(t=>out.add(t));
-  }
+  for(const[k,vs]of Object.entries(syn))if(k===q||q.includes(k)||k.includes(q))[k,...vs].forEach(t=>out.add(t));
   return[...out];
+}
+function venueName(s){
+  const parts=(s||"").split(",").map(p=>p.trim()).filter(Boolean);
+  return parts[0]||"";
+}
+function header(d){
+  const k=dayKey(d),now=new Date();
+  if(k===dayKey(now))return"Today";
+  if(k===dayKey(new Date(+now+864e5)))return"Tomorrow";
+  return d.toLocaleDateString("en-US",{timeZone:TZ,weekday:"short",month:"short",day:"numeric"});
 }
 function render(){
   const q=$("q").value,ts=terms(q);
-  const related=ts.slice(1);
-  $("terms").textContent=related.length?"Also searching: "+related.join(", "):"";
-  const list=events.filter(e=>!ts.length||ts.some(t=>(e.title+" "+e.description).toLowerCase().includes(t)));
-  $("list").innerHTML=list.length?list.map(e=>`<div class="card"><a href="${esc(e.url)}" target="_blank" rel="noopener">${esc(e.title)}</a>
-<div class="meta">${new Date(e.start).toLocaleString("en-US",{timeZone:"America/Chicago",weekday:"short",month:"short",day:"numeric",hour:"numeric",minute:"2-digit"})}${e.venue?" | "+esc(e.venue):""} <span class="badge">${esc(e.source)}</span></div></div>`).join(""):"<p>No matches.</p>";
+  document.querySelectorAll(".chip").forEach(c=>c.classList.toggle("on",c.dataset.q===q.trim().toLowerCase()));
+  $("terms").textContent=ts.length>1?"Also searching: "+ts.slice(1).join(", "):"";
+  const list=events.filter(e=>!ts.length||ts.some(t=>(e.title+" "+e.description).toLowerCase().includes(t)))
+    .sort((a,b)=>a.start<b.start?-1:1);
+  if(!list.length){$("list").innerHTML='<div class="empty">No matches. Try a broader word.</div>';return}
+  let html="",last="";
+  for(const e of list){
+    const d=new Date(e.start),h=header(d);
+    if(h!==last){html+=`<h2>${esc(h)}</h2>`;last=h}
+    const t=d.toLocaleTimeString("en-US",{timeZone:TZ,hour:"numeric",minute:"2-digit"});
+    const vn=venueName(e.venue);
+    html+=`<a class="card" href="${esc(e.url)}" target="_blank" rel="noopener"><div class="time">${t}</div><div class="body"><div class="title">${esc(e.title)}</div><div class="row">${vn?`<span class="venue">${esc(vn)}</span>`:""}<span class="badge ${esc(e.source)}">${esc(NAMES[e.source]||e.source)}</span></div></div></a>`;
+  }
+  $("list").innerHTML=html;
 }
-$("q").addEventListener("input",render);
 </script></body></html>
