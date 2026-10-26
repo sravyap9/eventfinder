@@ -86,7 +86,7 @@ a.main:active{opacity:.75}
 .row{display:flex;gap:8px;align-items:center;margin-top:7px;font-size:14px;color:var(--muted)}
 .venue{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
 .badge{flex:none;font-size:11px;font-weight:700;color:var(--badge-text);border-radius:999px;padding:3px 9px}
-.badge.luma{background:var(--peri)}.badge.eventbrite{background:var(--apricot)}
+.badge.luma{background:var(--peri)}.badge.eventbrite{background:var(--apricot)}.badge.partiful{background:var(--blush)}
 .empty{text-align:center;font:500 20px "Fraunces",Georgia,serif;padding:48px 0}
 .pad{height:40px}
 </style></head><body>
@@ -117,7 +117,7 @@ const BLOCKS=["blush","blue","peri","mustard"];
 const QUICK=[["tonight","Tonight"],["weekend","This weekend"],["free","Free only"]];
 const TZS={Chicago:"America/Chicago",NYC:"America/New_York"};
 const VTZ={"America/Chicago":["CST","-0600","CDT","-0500"],"America/New_York":["EST","-0500","EDT","-0400"]};
-const NAMES={luma:"Luma",eventbrite:"Eventbrite"};
+const NAMES={luma:"Luma",eventbrite:"Eventbrite",partiful:"Partiful"};
 const ICONS={
   heart:'<svg viewBox="0 0 24 24"><path d="M12 21s-7-4.4-9.3-9C1 8.6 3 5 6.5 5c2 0 3.5 1 5.5 3 2-2 3.5-3 5.5-3C21 5 23 8.6 21.3 12 19 16.6 12 21 12 21z"/></svg>',
   gcal:'<svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4M12 12.5v5M9.5 15h5"/></svg>',
@@ -277,6 +277,7 @@ function pills(e){
   else if(e.price_text)p.push(`<span class="pill">${esc(e.price_text)}</span>`);
   if(e.original_price_text)p.push(`<span class="pill"><s>${esc(e.original_price_text)}</s></span>`);
   if(e.few_left&&!e.sold_out)p.push('<span class="pill few">few left</span>');
+  if(e.interested_count>0){const n=e.interested_count;p.push(`<span class="pill">🔥 ${n>=1000?(n/1000).toFixed(1).replace(/\.0$/,"")+"k":n}</span>`)}
   return p.length?`<div class="pills">${p.join("")}</div>`:"";
 }
 const savedList=()=>events.filter(e=>saved.has(e.url)&&live(e));

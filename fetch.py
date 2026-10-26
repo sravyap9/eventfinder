@@ -8,9 +8,9 @@ from zoneinfo import ZoneInfo
 CHI = ZoneInfo("America/Chicago")
 CITIES = [
     {"name": "Chicago", "tz": "America/Chicago", "lat": 41.8781, "lon": -87.6298, "radius": 40,
-     "luma_place": "discplace-NdGm35qFD0vaXNF", "eb_place": "85940195", "eb_slug": "il--chicago"},
+     "luma_place": "discplace-NdGm35qFD0vaXNF", "eb_place": "85940195", "eb_slug": "il--chicago", "partiful": "chi"},
     {"name": "NYC", "tz": "America/New_York", "lat": 40.7128, "lon": -74.0060, "radius": 25,
-     "luma_place": "discplace-Izx1rQVSh8njYpP", "eb_place": "85977539", "eb_slug": "ny--new-york"},
+     "luma_place": "discplace-Izx1rQVSh8njYpP", "eb_place": "85977539", "eb_slug": "ny--new-york", "partiful": "nyc"},
 ]
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
 OUT = "events.json"
@@ -38,7 +38,8 @@ def ev(city, title, start, venue, url, source, desc, price=None):
     e = {"title": (title or "").strip(), "start": start.astimezone(ZoneInfo(city["tz"])).isoformat(timespec="minutes"),
          "venue": (venue or "").strip(), "url": url, "source": source, "city": city["name"],
          "description": re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", desc or "")).strip()[:300],
-         "is_free": None, "price_text": None, "original_price_text": None, "sold_out": None, "few_left": None}
+         "is_free": None, "price_text": None, "original_price_text": None, "sold_out": None, "few_left": None,
+         "interested_count": None}
     e.update(price or {})
     return e
 
@@ -185,13 +186,47 @@ def fetch_eventbrite(city):
     return eventbrite_html(city)
 
 
+# ---------- Partiful ----------
+def partiful_events(o):
+    """Collect every event dict (has id, title, startDate) from the page's embedded JSON."""
+    if isinstance(o, dict):
+        if o.get("startDate") and o.get("title") and o.get("id"):
+            yield o
+        else:
+            for v in o.values():
+                yield from partiful_events(v)
+    elif isinstance(o, list):
+        for v in o:
+            yield from partiful_events(v)
+
+
+def fetch_partiful(city):
+    out, seen = [], set()
+    for path in (f"explore/{city['partiful']}", f"explore/l/{city['partiful']}/events"):
+        try:
+            html = http(f"https://partiful.com/{path}")
+            data = json.loads(re.search(r'<script id="__NEXT_DATA__"[^>]*>(.*?)</script>', html, re.S).group(1))
+        except Exception as e:
+            print(f"partiful {path} failed: {e}", file=sys.stderr)
+            continue
+        for x in partiful_events(data["props"]["pageProps"]):
+            if x["id"] in seen or x.get("status", "PUBLISHED") != "PUBLISHED":
+                continue
+            seen.add(x["id"])
+            e = ev(city, x["title"], parse_dt(x["startDate"]), ((x.get("locationInfo") or {}).get("mapsInfo") or {}).get("name") or city["name"],
+                   "https://partiful.com/e/" + x["id"], "partiful", x.get("description"))
+            e["interested_count"] = x.get("interestedGuestCount")
+            out.append(e)
+    return out
+
+
 # ---------- main ----------
 def main():
     try:
         old = json.load(open(OUT))["events"]
     except Exception:
         old = []
-    sources = {"luma": fetch_luma, "eventbrite": fetch_eventbrite}
+    sources = {"luma": fetch_luma, "eventbrite": fetch_eventbrite, "partiful": fetch_partiful}
     events, any_fresh = [], False
     for city in CITIES:
         for name, fn in sources.items():
