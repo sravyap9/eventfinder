@@ -2,7 +2,7 @@
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="color-scheme" content="light dark">
-<title>Sidequest</title>
+<title>sidequests</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Fraunces:opsz,wght@9..144,500;9..144,700&display=swap" rel="stylesheet">
@@ -13,7 +13,7 @@
   --blush:#EFC3BC;--mustard:#F2C94C;--peri:#9EA7E3;--apricot:#F2A65A;--blue:#7FA6CB;
   --block-a:.38;--chip-text:#1B2E1B;--on-bg:#2E4A2E;--on-text:#F6F1E7;--focus:#F2C94C;
   --badge-text:#1B2E1B;
-  --city-off:#566424;--free:#B7D7A8;--few:#F2B8A2;--sold:#D9D5CB;--sold-text:#3A3A36;--pill-text:#1B2E1B;
+  --heart:#C4473A;--city-off:#566424;--free:#B7D7A8;--few:#F2B8A2;--sold:#D9D5CB;--sold-text:#3A3A36;--pill-text:#1B2E1B;
 }
 @media(prefers-color-scheme:dark){:root{
   --bg:#2E4A2E;--text:#F6F1E7;--muted:#C9D3BE;--card:#243B24;--line:#7E9A72;
@@ -21,14 +21,14 @@
   --blush:#B98A85;--mustard:#A98C2F;--peri:#8088C4;--apricot:#B8793E;--blue:#6B93B3;
   --block-a:.3;--chip-text:#0D170A;--on-bg:#F6F1E7;--on-text:#2E4A2E;--focus:#E2BC4A;
   --badge-text:#0D170A;
-  --city-off:#3C4717;--free:#7FA073;--few:#B8826F;--sold:#5C6658;--sold-text:#F6F1E7;--pill-text:#0D170A;
+  --heart:#E8998B;--city-off:#3C4717;--free:#7FA073;--few:#B8826F;--sold:#5C6658;--sold-text:#F6F1E7;--pill-text:#0D170A;
 }}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--text);font:16px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 .wrap{max-width:640px;margin:0 auto;padding:0 16px}
 header{background:var(--head);color:var(--head-text);padding:28px 0 22px}
-h1{margin:0;font:400 38px/1 "Archivo Black",system-ui,sans-serif;text-transform:uppercase;letter-spacing:.5px}
-.tag{margin:8px 0 0;font:700 20px "Fraunces",Georgia,serif;font-style:italic;text-transform:lowercase}
+h1{margin:0;font:400 38px/1 "Archivo Black",system-ui,sans-serif;text-transform:lowercase;letter-spacing:.5px}
+.tag{margin:8px 0 0;font:700 18px "Fraunces",Georgia,serif;font-style:italic;text-transform:lowercase}
 .cities{display:flex;gap:8px;margin-top:16px}
 .city{font:inherit;font-size:14px;font-weight:700;padding:6px 16px;border:2px solid var(--head-text);border-radius:999px;background:var(--city-off);color:var(--head-text);cursor:pointer}
 .city.on{background:var(--head-text);color:var(--text)}
@@ -47,7 +47,7 @@ h1{margin:0;font:400 38px/1 "Archivo Black",system-ui,sans-serif;text-transform:
 .chip{flex:none;font:inherit;font-size:14px;font-weight:600;padding:7px 15px;border:2px solid transparent;border-radius:999px;color:var(--chip-text);cursor:pointer}
 .chip.on{background:var(--on-bg)!important;color:var(--on-text)}
 
-.opts{display:flex;gap:4px;align-items:center;font-size:14px;margin:8px 4px 0}
+.opts{display:flex;gap:4px;align-items:center;font-size:14px}
 .opts label{display:flex;gap:6px;align-items:center;cursor:pointer}
 .opts a{color:var(--text);font-weight:700;text-decoration:none;padding:0 6px}
 .pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:7px}
@@ -56,13 +56,26 @@ h1{margin:0;font:400 38px/1 "Archivo Black",system-ui,sans-serif;text-transform:
 .pill.few{background:var(--few);border-color:transparent}
 .pill.sold{background:var(--sold);color:var(--sold-text);border-color:transparent}
 .pill s{font-weight:500;opacity:.8}
-a.card.soldout{opacity:.55}
+.card.soldout{opacity:.55}
 #footnote{font-size:13px;color:var(--muted);margin:24px 4px 0;border-top:1.5px solid var(--line);padding-top:12px}
 #terms{font-size:13px;color:var(--muted);margin:8px 4px 0}
 .day{border-radius:22px;padding:6px 14px 8px;margin:16px 0;background:color-mix(in srgb,var(--c) calc(var(--block-a)*100%),transparent)}
 h2{margin:12px 2px 10px;font:400 17px "Archivo Black",system-ui,sans-serif;text-transform:uppercase;letter-spacing:.8px;color:var(--text)}
-a.card{display:flex;gap:14px;align-items:flex-start;padding:13px 14px;margin:0 0 10px;background:var(--card);border:1.5px solid var(--line);border-radius:16px;color:inherit;text-decoration:none}
-a.card:active{transform:scale(.99)}
+.card{display:flex;margin:0 0 10px;background:var(--card);border:1.5px solid var(--line);border-radius:16px}
+a.main{display:flex;gap:14px;align-items:flex-start;flex:1;min-width:0;padding:13px 0 13px 14px;color:inherit;text-decoration:none}
+a.main:active{opacity:.75}
+.acts{display:flex;flex-direction:column;padding:6px 6px 6px 0}
+.ic{width:38px;height:38px;border:0;border-radius:50%;background:none;color:var(--text);cursor:pointer;display:grid;place-items:center;padding:0}
+.ic svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ic.on{color:var(--heart)}.ic.on svg{fill:currentColor}
+.pill.new{background:var(--mustard);border-color:transparent}
+.quick{display:flex;gap:8px;flex-wrap:wrap;margin:12px 2px 0}
+.qc,.tab{font:inherit;font-size:14px;font-weight:600;padding:6px 14px;border:2px solid var(--line);border-radius:999px;background:transparent;color:var(--text);cursor:pointer}
+.qc.on,.tab.on{background:var(--on-bg);color:var(--on-text);border-color:var(--on-bg)}
+.tab{font-weight:700}
+.count{display:inline-block;min-width:18px;padding:0 5px;margin-left:4px;border-radius:999px;background:var(--mustard);color:var(--pill-text);font-size:12px;text-align:center}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:12px 2px 0}
+.tabs{display:flex;gap:6px}
 .time{flex:none;width:66px;font-weight:800;font-size:15px;padding-top:2px}
 .body{min-width:0;flex:1}
 .title{font:700 18px/1.25 "Fraunces",Georgia,serif;overflow-wrap:anywhere}
@@ -73,7 +86,7 @@ a.card:active{transform:scale(.99)}
 .empty{text-align:center;font:500 20px "Fraunces",Georgia,serif;padding:48px 0}
 .pad{height:40px}
 </style></head><body>
-<header><div class="wrap"><h1>SIDEQUEST</h1><p class="tag">new adventures. new people.</p><div class="cities" id="cities"></div></div></header>
+<header><div class="wrap"><h1>sidequests</h1><p class="tag">find your next adventure (and your people)</p><div class="cities" id="cities"></div></div></header>
 <div class="band"><div class="wrap"><div id="status">Loading…</div></div>
 <svg viewBox="0 0 640 20" preserveAspectRatio="none" aria-hidden="true"><path d="M0 8 Q40 -4 80 8 T160 8 T240 8 T320 8 T400 8 T480 8 T560 8 T640 8 V20 H0Z"/></svg></div>
 <div class="sticky"><div class="wrap">
@@ -82,26 +95,80 @@ a.card:active{transform:scale(.99)}
     <input id="q" type="search" placeholder="search events, e.g. painting" autocomplete="off">
   </div>
   <div class="chips" id="chips"></div>
-  <div class="opts"><label><input type="checkbox" id="hide" checked> hide sold out</label><a href="#footnote" aria-label="about availability">*</a></div>
-  <div id="terms"></div>
 </div></div>
-<div class="wrap"><div id="list"></div><p id="footnote">* Availability updates every 12 hours, so an event may be sold out even if it isn't marked here. Check the event page before you go.</p><div class="pad"></div></div>
+<div class="wrap">
+  <div class="quick" id="quick"></div>
+  <div class="bar">
+    <div class="tabs"><button class="tab on" data-t="all">Results</button><button class="tab" data-t="saved">Saved<span class="count" id="sc">0</span></button></div>
+    <div class="opts"><label><input type="checkbox" id="hide" checked> hide sold out</label><a href="#footnote" aria-label="about availability">*</a></div>
+  </div>
+  <div id="terms"></div>
+  <div id="list"></div><p id="footnote">* Availability updates every 12 hours, so an event may be sold out even if it isn't marked here. Check the event page before you go.</p><div class="pad"></div></div>
 <script>
 const $=id=>document.getElementById(id);
 const CHIPS=["art","run club","comedy","food","music","networking","wellness","books"];
 const COLORS=["blush","blue","peri","mustard","apricot"];
 const BLOCKS=["blush","blue","peri","mustard"];
+const QUICK=[["tonight","Tonight"],["weekend","This weekend"],["free","Free only"]];
 const TZS={Chicago:"America/Chicago",NYC:"America/New_York"};
-let events=[],syn={},counts={},updated=null,city="Chicago";
+const VTZ={"America/Chicago":["CST","-0600","CDT","-0500"],"America/New_York":["EST","-0500","EDT","-0400"]};
+const NAMES={luma:"Luma",eventbrite:"Eventbrite"};
+const ICONS={
+  heart:'<svg viewBox="0 0 24 24"><path d="M12 21s-7-4.4-9.3-9C1 8.6 3 5 6.5 5c2 0 3.5 1 5.5 3 2-2 3.5-3 5.5-3C21 5 23 8.6 21.3 12 19 16.6 12 21 12 21z"/></svg>',
+  cal:'<svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>'};
+const ls={
+  get(k,d){try{const v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch(e){return d}},
+  set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+};
+let events=[],byUrl=new Map(),syn={},counts={},updated=null,city="Chicago",tab="all";
+const quick={tonight:false,weekend:false,free:false};
 try{const c=localStorage.getItem("city");if(TZS[c])city=c}catch(e){}
+let saved=new Set((a=>Array.isArray(a)?a:[])(ls.get("saved",[])));
+let fresh=new Set();
 const tzOf=e=>TZS[e.city]||TZS.Chicago;
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const dayKey=(d,tz)=>d.toLocaleDateString("en-CA",{timeZone:tz});
-const NAMES={luma:"Luma",eventbrite:"Eventbrite"};
+const live=e=>+new Date(e.start)+2*36e5>=Date.now();
+
+function parts(d,tz){
+  const o={};
+  for(const p of new Intl.DateTimeFormat("en-CA",{timeZone:tz,year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",second:"2-digit",hourCycle:"h23"}).formatToParts(d))o[p.type]=p.value;
+  return o;
+}
+const dayNum=(d,tz)=>{const p=parts(d,tz);return Date.UTC(p.year,p.month-1,p.day)/864e5};
+const dow=n=>new Date(n*864e5).getUTCDay();
+function inQuick(e){
+  const tz=tzOf(e),d=new Date(e.start),now=new Date();
+  if(quick.free&&!e.is_free)return false;
+  if(quick.tonight||quick.weekend){
+    if(!live(e))return false;
+    const day=dayNum(d,tz),today=dayNum(now,tz),h=+parts(d,tz).hour;
+    if(quick.tonight&&!(day===today&&h>=17))return false;
+    if(quick.weekend){
+      const w=dow(today),fri=w===0?today-2:w===6?today-1:w===5?today:today+(5-w);
+      if(!(day>=fri&&day<=fri+2&&(day>fri||h>=17)))return false;
+    }
+  }
+  return true;
+}
+
+// NEW pills: compare against the list stored at the previous visit. A visit within 30 minutes
+// of the stored one keeps that baseline so the pills survive a reload.
+function markNew(){
+  const s=ls.get("visit",null),now=Date.now(),cur=events.map(e=>e.url);
+  if(s&&Array.isArray(s.urls)){
+    if(now-s.t<30*6e4){fresh=new Set(s.fresh||[]);return}
+    const prev=new Set(s.urls);
+    fresh=new Set(cur.filter(u=>!prev.has(u)));
+  }
+  ls.set("visit",{t:now,urls:cur,fresh:[...fresh]});
+}
 
 const v=Date.now();
 Promise.all([fetch("events.json?v="+v).then(r=>r.json()),fetch("synonyms.json?v="+v).then(r=>r.json())]).then(([d,s])=>{
   events=d.events;syn=s;counts=d.counts;updated=new Date(d.last_updated);
+  byUrl=new Map(events.map(e=>[e.url,e]));
+  markNew();
   render();
 }).catch(e=>$("status").textContent="Failed to load events: "+e);
 
@@ -110,6 +177,15 @@ $("chips").addEventListener("click",e=>{
   const b=e.target.closest(".chip");if(!b)return;
   $("q").value=$("q").value.trim().toLowerCase()===b.dataset.q?"":b.dataset.q;render();
 });
+$("quick").innerHTML=QUICK.map(([k,l])=>`<button class="qc" data-k="${k}">${l}</button>`).join("");
+$("quick").addEventListener("click",e=>{
+  const b=e.target.closest(".qc");if(!b)return;
+  quick[b.dataset.k]=!quick[b.dataset.k];render();
+});
+document.querySelector(".tabs").addEventListener("click",e=>{
+  const b=e.target.closest(".tab");if(!b)return;
+  tab=b.dataset.t;render();
+});
 $("cities").innerHTML=Object.keys(TZS).map(c=>`<button class="city" data-c="${c}">${c}</button>`).join("");
 $("cities").addEventListener("click",e=>{
   const b=e.target.closest(".city");if(!b)return;
@@ -117,6 +193,35 @@ $("cities").addEventListener("click",e=>{
 });
 $("q").addEventListener("input",render);
 $("hide").addEventListener("change",render);
+$("list").addEventListener("click",e=>{
+  const b=e.target.closest("[data-act]");if(!b)return;
+  const ev=byUrl.get(b.closest(".card").dataset.u);if(!ev)return;
+  if(b.dataset.act==="cal")return download(ev);
+  saved.has(ev.url)?saved.delete(ev.url):saved.add(ev.url);
+  ls.set("saved",[...saved]);
+  tab==="saved"?render():(b.classList.toggle("on",saved.has(ev.url)),count());
+});
+
+// ---- calendar file (generated in the browser) ----
+const ical=t=>String(t||"").replace(/[\;,]/g,"\\$&").replace(/\r?\n/g,"\\n");
+const fold=l=>{let o="";while(l.length>74){o+=l.slice(0,74)+"\r\n ";l=l.slice(74)}return o+l};
+const stamp=(d,tz)=>{const p=parts(d,tz);return p.year+p.month+p.day+"T"+p.hour+p.minute+p.second};
+const hash=s=>{let x=0;for(const c of s)x=(x*31+c.charCodeAt(0))|0;return(x>>>0).toString(36)};
+function download(e){
+  const tz=tzOf(e),[sn,so,dn,dof]=VTZ[tz],s=new Date(e.start),en=new Date(+s+2*36e5);
+  const lines=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//sidequests//EN","CALSCALE:GREGORIAN",
+    "BEGIN:VTIMEZONE","TZID:"+tz,
+    "BEGIN:DAYLIGHT","TZOFFSETFROM:"+so,"TZOFFSETTO:"+dof,"TZNAME:"+dn,"DTSTART:19700308T020000","RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU","END:DAYLIGHT",
+    "BEGIN:STANDARD","TZOFFSETFROM:"+dof,"TZOFFSETTO:"+so,"TZNAME:"+sn,"DTSTART:19701101T020000","RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU","END:STANDARD",
+    "END:VTIMEZONE","BEGIN:VEVENT","UID:"+hash(e.url)+"@sidequests","DTSTAMP:"+stamp(new Date(),"UTC")+"Z",
+    `DTSTART;TZID=${tz}:${stamp(s,tz)}`,`DTEND;TZID=${tz}:${stamp(en,tz)}`,
+    "SUMMARY:"+ical(e.title),"LOCATION:"+ical(e.venue),"URL:"+e.url,"DESCRIPTION:"+ical(e.url),"END:VEVENT","END:VCALENDAR"];
+  const a=document.createElement("a");
+  a.href=URL.createObjectURL(new Blob([lines.map(fold).join("\r\n")+"\r\n"],{type:"text/calendar;charset=utf-8"}));
+  a.download=(e.title.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,40)||"event")+".ics";
+  document.body.appendChild(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+}
 
 function terms(q){
   q=q.trim().toLowerCase();if(!q)return[];
@@ -133,6 +238,7 @@ function header(d,tz){
 }
 function pills(e){
   const p=[];
+  if(fresh.has(e.url))p.push('<span class="pill new">NEW</span>');
   if(e.sold_out)p.push('<span class="pill sold">SOLD OUT</span>');
   if(e.is_free)p.push('<span class="pill free">FREE</span>');
   else if(e.price_text)p.push(`<span class="pill">${esc(e.price_text)}</span>`);
@@ -140,24 +246,29 @@ function pills(e){
   if(e.few_left&&!e.sold_out)p.push('<span class="pill few">few left</span>');
   return p.length?`<div class="pills">${p.join("")}</div>`:"";
 }
+const savedList=()=>events.filter(e=>saved.has(e.url)&&live(e));
+function count(){$("sc").textContent=savedList().length}
 function render(){
   document.querySelectorAll(".city").forEach(c=>c.classList.toggle("on",c.dataset.c===city));
+  document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("on",t.dataset.t===tab));
+  document.querySelectorAll(".qc").forEach(c=>c.classList.toggle("on",quick[c.dataset.k]));
+  count();
   const cc=counts[city]||{},total=events.filter(e=>e.city===city).length;
   const h=updated?Math.max(0,Math.round((Date.now()-updated)/36e5)):0;
   $("status").textContent=total+" events · "+Object.entries(cc).map(([k,v])=>(NAMES[k]||k)+" "+v).join(" · ")+" · updated "+(h<1?"just now":h+(h===1?" hour":" hours")+" ago");
   const q=$("q").value,ts=terms(q),hide=$("hide").checked;
   document.querySelectorAll(".chip").forEach(c=>c.classList.toggle("on",c.dataset.q===q.trim().toLowerCase()));
-  $("terms").textContent=ts.length>1?"also searching: "+ts.slice(1).join(", "):"";
-  const list=events.filter(e=>e.city===city&&!(hide&&e.sold_out)&&(!ts.length||ts.some(t=>(e.title+" "+e.description).toLowerCase().includes(t))))
+  $("terms").textContent=tab==="all"&&ts.length>1?"also searching: "+ts.slice(1).join(", "):"";
+  const list=(tab==="saved"?savedList():events.filter(e=>e.city===city&&!(hide&&e.sold_out)&&inQuick(e)&&(!ts.length||ts.some(t=>(e.title+" "+e.description).toLowerCase().includes(t)))))
     .sort((a,b)=>new Date(a.start)-new Date(b.start));
-  if(!list.length){$("list").innerHTML='<div class="empty">No matches. Try a broader word.</div>';return}
+  if(!list.length){$("list").innerHTML='<div class="empty">'+(tab==="saved"?"Nothing saved yet. Tap the heart on an event.":"No matches. Try a broader word.")+'</div>';return}
   let html="",last="",n=-1;
   for(const e of list){
-    const d=new Date(e.start),tz=tzOf(e),h=header(d,tz);
-    if(h!==last){if(last)html+="</section>";n++;html+=`<section class="day" style="--c:var(--${BLOCKS[n%BLOCKS.length]})"><h2>${esc(h)}</h2>`;last=h}
+    const d=new Date(e.start),tz=tzOf(e),hd=header(d,tz);
+    if(hd!==last){if(last)html+="</section>";n++;html+=`<section class="day" style="--c:var(--${BLOCKS[n%BLOCKS.length]})"><h2>${esc(hd)}</h2>`;last=hd}
     const t=d.toLocaleTimeString("en-US",{timeZone:tz,hour:"numeric",minute:"2-digit"});
     const vn=venueName(e.venue);
-    html+=`<a class="card${e.sold_out?" soldout":""}" href="${esc(e.url)}" target="_blank" rel="noopener"><div class="time">${t}</div><div class="body"><div class="title">${esc(e.title)}</div><div class="row">${vn?`<span class="venue">${esc(vn)}</span>`:""}<span class="badge ${esc(e.source)}">${esc(NAMES[e.source]||e.source)}</span></div>${pills(e)}</div></a>`;
+    html+=`<div class="card${e.sold_out?" soldout":""}" data-u="${esc(e.url)}"><a class="main" href="${esc(e.url)}" target="_blank" rel="noopener"><div class="time">${t}</div><div class="body"><div class="title">${esc(e.title)}</div><div class="row">${vn?`<span class="venue">${esc(vn)}</span>`:""}<span class="badge ${esc(e.source)}">${esc(NAMES[e.source]||e.source)}</span></div>${pills(e)}</div></a><div class="acts"><button class="ic${saved.has(e.url)?" on":""}" data-act="save" aria-label="save event" title="Save">${ICONS.heart}</button><button class="ic" data-act="cal" aria-label="add to calendar" title="Add to calendar">${ICONS.cal}</button></div></div>`;
   }
   $("list").innerHTML=html+"</section>";
 }
