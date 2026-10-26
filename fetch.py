@@ -8,9 +8,9 @@ from zoneinfo import ZoneInfo
 CHI = ZoneInfo("America/Chicago")
 CITIES = [
     {"name": "Chicago", "tz": "America/Chicago", "lat": 41.8781, "lon": -87.6298, "radius": 40,
-     "luma_place": "discplace-NdGm35qFD0vaXNF", "eb_place": "85940195", "eb_slug": "il--chicago", "partiful": "chi"},
+     "luma_place": "discplace-NdGm35qFD0vaXNF", "eb_place": "85940195", "eb_slug": "il--chicago", "partiful": "chi", "pie_market": "Chicago"},
     {"name": "NYC", "tz": "America/New_York", "lat": 40.7128, "lon": -74.0060, "radius": 25,
-     "luma_place": "discplace-Izx1rQVSh8njYpP", "eb_place": "85977539", "eb_slug": "ny--new-york", "partiful": "nyc"},
+     "luma_place": "discplace-Izx1rQVSh8njYpP", "eb_place": "85977539", "eb_slug": "ny--new-york", "partiful": "nyc", "pie_market": "New York"},
 ]
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
 OUT = "events.json"
@@ -220,13 +220,52 @@ def fetch_partiful(city):
     return out
 
 
+# ---------- Pie ----------
+PIE_API = "https://plans-service.getpie.app/api/public/"
+OLD = {}  # url -> event from the previous events.json
+
+
+def pie_price(d):
+    price = d.get("priceString") or None
+    free = price is not None and price.upper() == "FREE"
+    return {"is_free": True if free else None, "price_text": None if free else price,
+            "sold_out": (d.get("analytics") or {}).get("metadata", {}).get("at_capacity")}
+
+
+def fetch_pie(city):
+    """The public list only has a date; the exact start time, description and price come from the
+    per-plan details call, so plans already in the previous events.json are reused, not re-requested."""
+    plans = json.loads(http(PIE_API + "v1/plans?" + urllib.parse.urlencode({"limit": 100, "market": city["pie_market"]})))
+    out, fails = [], 0
+    for p in plans:
+        url = "https://getpie.app/plans/" + p["planId"]
+        if OLD.get(url, {}).get("source") == "pie":
+            out.append(OLD[url])
+            continue
+        if fails >= 3:
+            break
+        try:
+            d = json.loads(http(PIE_API + "v2/plans/details/" + p["planId"]))
+        except Exception as e:
+            fails += 1
+            print(f"pie details {p['planId']} failed: {e}", file=sys.stderr)
+            continue
+        if d.get("isCanceled") or not d.get("startAt"):
+            continue
+        out.append(ev(city, d.get("planTitle") or p["title"], parse_dt(d["startAt"]), d.get("venue") or p.get("venue") or city["name"],
+                      url, "pie", d.get("description"),
+                      pie_price(d)))
+    return out
+
+
 # ---------- main ----------
 def main():
     try:
         old = json.load(open(OUT))["events"]
     except Exception:
         old = []
-    sources = {"luma": fetch_luma, "eventbrite": fetch_eventbrite, "partiful": fetch_partiful}
+    OLD.update({e["url"]: e for e in old})
+    sources = {"luma": fetch_luma, "eventbrite": fetch_eventbrite, "partiful": fetch_partiful, "pie": fetch_pie}
     events, any_fresh = [], False
     for city in CITIES:
         for name, fn in sources.items():
