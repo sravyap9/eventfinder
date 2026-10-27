@@ -182,6 +182,7 @@ Promise.all([fetch("events.json?v="+v).then(r=>r.json()),fetch("synonyms.json?v=
   events=d.events;groups=buildGroups(s);counts=d.counts;updated=new Date(d.last_updated);
   byUrl=new Map(events.map(e=>[e.url,e]));
   markNew();
+  buildCities();
   render();
 }).catch(e=>$("status").textContent="Failed to load events: "+e);
 
@@ -199,7 +200,12 @@ document.querySelector(".tabs").addEventListener("click",e=>{
   const b=e.target.closest(".tab");if(!b)return;
   tab=b.dataset.t;page=1;render();
 });
-$("cities").innerHTML=Object.keys(TZS).map(c=>`<button class="city" data-c="${c}" aria-pressed="false">${c}</button>`).join("");
+function buildCities(){
+  const list=Object.keys(counts).filter(c=>TZS[c]);
+  if(!list.includes(city))city=list[0]||"Chicago";
+  $("cities").hidden=list.length<2;
+  $("cities").innerHTML=list.map(c=>`<button class="city" data-c="${c}" aria-pressed="false">${c}</button>`).join("");
+}
 $("cities").addEventListener("click",e=>{
   const b=e.target.closest(".city");if(!b)return;
   city=b.dataset.c;try{localStorage.setItem("city",city)}catch(e){}page=1;render();

@@ -6,7 +6,7 @@ from http.cookiejar import CookieJar
 from zoneinfo import ZoneInfo
 
 CHI = ZoneInfo("America/Chicago")
-CITIES = [
+ALL_CITIES = [
     {"name": "Chicago", "tz": "America/Chicago", "lat": 41.8781, "lon": -87.6298, "radius": 40,
      "luma_place": "discplace-NdGm35qFD0vaXNF", "eb_place": "85940195", "eb_slug": "il--chicago", "partiful": "chi", "pie_market": "Chicago",
      "dostuff": ("do312", "do312.com"), "ra_area": 17, "ch": "chicago", "ch_pages": 25, "cpl": True, "cpd": True},
@@ -14,6 +14,8 @@ CITIES = [
      "luma_place": "discplace-Izx1rQVSh8njYpP", "eb_place": "85977539", "eb_slug": "ny--new-york", "partiful": "nyc", "pie_market": "New York",
      "dostuff": ("donyc", "donyc.com"), "ra_area": 8, "ch": "nyc", "ch_pages": 40},
 ]
+ENABLED = {"Chicago"}  # NYC is paused: add "NYC" here to bring it back
+CITIES = [c for c in ALL_CITIES if c["name"] in ENABLED]
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
 OUT = "events.json"
 NOW = datetime.now(CHI)
