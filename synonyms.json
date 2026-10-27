@@ -42,5 +42,6 @@
  ["martial arts", "boxing", "kickboxing", "karate", "jiu jitsu", "bjj", "self defense", "judo", "muay thai"],
  ["climbing", "bouldering", "rock climbing", "climb", "climbing gym"],
  ["history", "historic", "tour", "architecture", "walking tour", "heritage", "landmark", "ghost tour", "chicago history"],
- ["science", "astronomy", "stargazing", "lecture", "planetarium", "stem", "discussion"]
+ ["science", "astronomy", "stargazing", "lecture", "planetarium", "stem", "discussion"],
+ ["classes", "class", "workshops", "workshop", "lessons", "lesson", "courses", "course", "101", "beginner", "beginners", "intro to", "hands on", "studio"]
 ]
