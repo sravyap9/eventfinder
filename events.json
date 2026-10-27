@@ -1,275 +1,20 @@
 {
- "last_updated": "2026-10-26T17:41:56-05:00",
+ "last_updated": "2026-10-26T20:53:20-05:00",
  "counts": {
   "Chicago": {
-   "luma": 18,
-   "eventbrite": 174,
+   "luma": 17,
+   "eventbrite": 175,
    "partiful": 41,
    "pie": 100
   },
   "NYC": {
-   "luma": 85,
-   "eventbrite": 183,
-   "partiful": 115,
+   "luma": 82,
+   "eventbrite": 182,
+   "partiful": 111,
    "pie": 100
   }
  },
  "events": [
-  {
-   "title": "free Cardio Sculpt",
-   "start": "2026-10-26T17:00-04:00",
-   "venue": "Chelsea Recreation Center",
-   "url": "https://getpie.app/plans/aefcbac0-c44e-42ca-8be6-0f2d177822a8",
-   "source": "pie",
-   "city": "NYC",
-   "description": "",
-   "is_free": null,
-   "price_text": "FREE with ticket",
-   "original_price_text": null,
-   "sold_out": false,
-   "few_left": null,
-   "interested_count": null
-  },
-  {
-   "title": "Build Your Content System: AI + Personal Brand Workshop (with Wispr Flow & Stanley)",
-   "start": "2026-10-26T17:30-04:00",
-   "venue": "New York",
-   "url": "https://lu.ma/gqkb1kgb",
-   "source": "luma",
-   "city": "NYC",
-   "description": "",
-   "is_free": true,
-   "price_text": null,
-   "original_price_text": null,
-   "sold_out": false,
-   "few_left": false,
-   "interested_count": null
-  },
-  {
-   "title": "Raj Chetty in Conversation",
-   "start": "2026-10-26T17:30-05:00",
-   "venue": "UIC Student Center East, 750 South Halsted Street, Chicago, IL 60607",
-   "url": "https://www.eventbrite.com/e/raj-chetty-in-conversation-registration-2001008365888",
-   "source": "eventbrite",
-   "city": "Chicago",
-   "description": "Join us for a conversation on economic mobility and housing justice featuring economist Raj Chetty",
-   "is_free": true,
-   "price_text": null,
-   "original_price_text": null,
-   "sold_out": false,
-   "few_left": null,
-   "interested_count": null
-  },
-  {
-   "title": "Volunteer With Good Humans",
-   "start": "2026-10-26T17:30-05:00",
-   "venue": "2023 W Carroll Ave",
-   "url": "https://getpie.app/plans/b1fae442-9781-4fcd-bb55-19eed6406b8a",
-   "source": "pie",
-   "city": "Chicago",
-   "description": "Edit: This event has reached capacity. Thank you for your interest! Want a good reason to get off the couch? We're a social club who get together at least once a week to volunteer somewhere new. On Monday, we'll be helping with some office space set-up while getting to know one another and socializi",
-   "is_free": null,
-   "price_text": "$15",
-   "original_price_text": null,
-   "sold_out": false,
-   "few_left": null,
-   "interested_count": null
-  },
-  {
-   "title": "Lumara Film Festival World Premiere",
-   "start": "2026-10-26T18:00-04:00",
-   "venue": "Roxy Cinema New York, 2 6th Avenue Cellar Level, New York, NY 10013, USA",
-   "url": "https://lu.ma/xqkmb9rg",
-   "source": "luma",
-   "city": "NYC",
-   "description": "",
-   "is_free": true,
-   "price_text": null,
-   "original_price_text": null,
-   "sold_out": true,
-   "few_left": null,
-   "interested_count": null
-  },
-  {
-   "title": "Mahjong with Jill Kargman and GOLDA 10/26",
-   "start": "2026-10-26T18:00-04:00",
-   "venue": "Breads Bakery, 1294 3rd Ave, New York, NY 10021, USA",
-   "url": "https://lu.ma/xtfeb4df",
-   "source": "luma",
-   "city": "NYC",
-   "description": "",
-   "is_free": false,
-   "price_text": "$72",
-   "original_price_text": null,
-   "sold_out": true,
-   "few_left": null,
-   "interested_count": null
-  },
-  {
-   "title": "October Shortlist Founder Showcase",
-   "start": "2026-10-26T18:00-04:00",
-   "venue": "gotta join to get the spot",
-   "url": "https://getpie.app/plans/c692a49a-b48e-4e28-a36f-c6bab9ddee7a",
-   "source": "pie",
-   "city": "NYC",
-   "description": "The Shortlist NYC \u2013 October Founder Showcase (#10) \u200bThe Shortlist is back for our monthly Founder Showcase and the room keeps getting better. \u200bThis is a monthly curated, application-only evening connecting early-stage founders with exceptional operators across New York. No panels. No pitches to VCs.",
-   "is_free": null,
-   "price_text": "FREE with ticket",
-   "original_price_text": null,
-   "sold_out": false,
-   "few_left": null,
-   "interested_count": null
-  },
-  {
-   "title": "Play Date: Game Night w/ Tinder \u2764\ufe0f\u200d\ud83d\udd25",
-   "start": "2026-10-26T18:00-05:00",
-   "venue": "Chicago",
-   "url": "https://lu.ma/playdatetinder",
-   "source": "luma",
-   "city": "Chicago",
-   "description": "",
-   "is_free": true,
-   "price_text": null,
-   "original_price_text": null,
-   "sold_out": true,
-   "few_left": null,
-   "interested_count": null
-  },
-  {
-   "title": "After5NewYork - Neuroplasticity: How Your Brain Changes With You",
-   "start": "2026-10-26T18:30-04:00",
-   "venue": "Hell's Kitchen, (address found in email confirmation), New York, NY 10019",
-   "url": "https://www.eventbrite.com/e/after5newyork-neuroplasticity-how-your-brain-changes-with-you-tickets-2000811048707",
-   "source": "eventbrite",
-   "city": "NYC",
-   "description": "Get ready for a fascinating journey into one of the most powerful and remarkable parts of who we are: the human brain.",
-   "is_free": false,
-   "price_text": "$29.99",
-   "original_price_text": null,
-   "sold_out": true,
-   "few_left": null,
-   "interested_count": null
-  },
-  {
-   "title": "Design is Haunted by History~Designing Experiences for Immersion",
-   "start": "2026-10-26T18:30-04:00",
-   "venue": "John L. Tishman Auditorium, The New School, University Center 63 5th Avenue, New York, NY 10003",
-   "url": "https://www.eventbrite.com/e/design-is-haunted-by-historydesigning-experiences-for-immersion-tickets-2002454334820",
-   "source": "eventbrite",
-   "city": "NYC",
-   "description": "How design turns history into somewhere you can stand.",
-   "is_free": false,
-   "price_text": "From $11.50",
-   "original_price_text": null,
-   "sold_out": false,
-   "few_left": null,
-   "interested_count": null
-  },
-  {
-   "title": "Ceramic Sculpting class",
-   "start": "2026-10-26T18:30-04:00",
-   "venue": "NYC",
-   "url": "https://partiful.com/e/eyOVn0IybYwsB97Hxrga",
-   "source": "partiful",
-   "city": "NYC",
-   "description": "Join us for an intimate exploration of the body and the language of the hands. This two-hour class will guide participants through the fundamentals of figurative sculpting, learning to observe, interpret, and shape movement and presence in clay. Held in my private studio in Greenpoint, Brooklyn nest",
-   "is_free": null,
-   "price_text": null,
-   "original_price_text": null,
-   "sold_out": null,
-   "few_left": null,
-   "interested_count": 115
-  },
-  {
-   "title": "FRIGHT NIGHT! Reading Rhythms Lower Manhattan: October 26",
-   "start": "2026-10-26T18:30-04:00",
-   "venue": "Fabrik NYC",
-   "url": "https://getpie.app/plans/80c6b1d7-6a11-4700-871a-7245972fe0e3",
-   "source": "pie",
-   "city": "NYC",
-   "description": "Nothing scarier than not reading...\ud83d\udcda\ud83c\udf83 Celebrate Halloween with us at Reading Rhythms! Along with our normal reading party flow, we'll have festive activities and treats for you to explore (if you dare). Come in costume, or just as you are, and get ready for a spooky night of pages and potions! Readi",
-   "is_free": null,
-   "price_text": "$25",
-   "original_price_text": null,
-   "sold_out": false,
-   "few_left": null,
-   "interested_count": null
-  },
-  {
-   "title": "Launching Your Lifestyle Creator Career | FREE PANEL",
-   "start": "2026-10-26T18:30-05:00",
-   "venue": "The Emily Hotel",
-   "url": "https://getpie.app/plans/205f82d4-0aef-4043-ac49-e1cf1f199aa9",
-   "source": "pie",
-   "city": "Chicago",
-   "description": "Lifestyle talent from Chicago share best practices for aspiring creators at this free panel at The Emily Hotel. Jordan Sweet (@jordanksweet), Karen Chaiane Dalapossa (@karenchaiane), Allysa Breanne Molder (@allysabreanne), and Jacklyn Keeley (@jacklynkeeleyy) come together to share best strategies f",
-   "is_free": null,
-   "price_text": "FREE with ticket",
-   "original_price_text": null,
-   "sold_out": false,
-   "few_left": null,
-   "interested_count": null
-  },
-  {
-   "title": "CEVORICE \u2022 2 MILE RUN BREAST CANCER AWARENESS MONTH \ud83d\udc93",
-   "start": "2026-10-26T18:45-05:00",
-   "venue": "1805 N Ridgeway Ave",
-   "url": "https://getpie.app/plans/f92fb2cd-3f06-4b72-86ad-ef9d48c8dc40",
-   "source": "pie",
-   "city": "Chicago",
-   "description": "In honor of Breast Cancer Awareness Month \ud83d\udc97 \ud83d\udcc5 Monday, October 26, 2026 \u23f0 6:45\u20137:00 PM \ud83d\udccd The 606 \u2014 1805 N Ridgeway Ave, Chicago, IL 60647 \ud83c\udfc3\u200d\u2642\ufe0f 2-mile run \ud83c\udd7f\ufe0f Free parking available! \ud83d\udc97 All paces welcome! Bring a friend and let\u2019s run together. \ud83d\udd17 RSVP link in my Instagram (@cevorice.run or @elandyem) bio",
-   "is_free": true,
-   "price_text": null,
-   "original_price_text": null,
-   "sold_out": false,
-   "few_left": null,
-   "interested_count": null
-  },
-  {
-   "title": "Jane Schoenbrun + Grace Byron: Public Access Afterworld",
-   "start": "2026-10-26T19:00-04:00",
-   "venue": "The Strand Building, 826 Broadway, New York, NY 10003",
-   "url": "https://www.eventbrite.com/e/jane-schoenbrun-grace-byron-public-access-afterworld-tickets-1996165249998",
-   "source": "eventbrite",
-   "city": "NYC",
-   "description": "Join us for a release event with award-winning filmmaker Jane Schoenbrun for a discussion of their debut novel PUBLIC ACCESS AFTERWORLD.",
-   "is_free": false,
-   "price_text": "$40.31",
-   "original_price_text": null,
-   "sold_out": false,
-   "few_left": null,
-   "interested_count": null
-  },
-  {
-   "title": "Golden Hour NYC: Breathtaking Sunset Cruise with Skyline & Statue Views",
-   "start": "2026-10-26T19:00-04:00",
-   "venue": "Pier 36 NYC, 299 South Street, New York, NY 10002",
-   "url": "https://www.eventbrite.com/e/golden-hour-nyc-breathtaking-sunset-cruise-with-skyline-statue-views-tickets-1520943014499",
-   "source": "eventbrite",
-   "city": "NYC",
-   "description": "Sail into golden hour on this unforgettable NYC sunset cruise! Relax on the water as you take in breathtaking views NYC 's harbor.",
-   "is_free": false,
-   "price_text": "$39.19",
-   "original_price_text": null,
-   "sold_out": true,
-   "few_left": null,
-   "interested_count": null
-  },
-  {
-   "title": "American Mahjong Beginner Lesson & Open Play",
-   "start": "2026-10-26T19:00-04:00",
-   "venue": "Sadie's",
-   "url": "https://getpie.app/plans/d5f9ce70-0fb4-4415-b054-840847a35ce1",
-   "source": "pie",
-   "city": "NYC",
-   "description": "Learn to play American Mahjong or come play in a fun, social setting in Seaport. Beginners can join a lesson, while more experienced players can drop in for open play and connect with other players. Come solo or with friends \u2014 it's all about having a great night out, whether you're learning or just ",
-   "is_free": null,
-   "price_text": "$45",
-   "original_price_text": null,
-   "sold_out": false,
-   "few_left": null,
-   "interested_count": null
-  },
   {
    "title": "game night: liar\u2019s night",
    "start": "2026-10-26T19:00-05:00",
@@ -301,21 +46,6 @@
    "interested_count": null
   },
   {
-   "title": "CRAZY BINGO - \"Walk In The Park\" Edition",
-   "start": "2026-10-26T19:00-05:00",
-   "venue": "Central Park Bar",
-   "url": "https://getpie.app/plans/160e84d8-4cbb-4de5-bae9-546aa7396540",
-   "source": "pie",
-   "city": "Chicago",
-   "description": "Love having fun, winning cool prizes, and getting to know your community? Then this is the event for you! \"It's a Good Time for Good\" What to expect at CRAZY BINGO: \u2022Big Bingo Wins \ud83c\udfc6\ud83d\ude0e Become an official CRAZY BINGO BADDIE when you win big. Sign your name in the BOOK OF BADDIES before collecting an a",
-   "is_free": true,
-   "price_text": null,
-   "original_price_text": null,
-   "sold_out": false,
-   "few_left": null,
-   "interested_count": null
-  },
-  {
    "title": "WSBC October 2026 Book Club",
    "start": "2026-10-26T19:00-05:00",
    "venue": "Solemn Oath Brewery Still Life",
@@ -331,30 +61,15 @@
    "interested_count": null
   },
   {
-   "title": "Pericles: In Concert",
-   "start": "2026-10-26T19:30-04:00",
-   "venue": "Concord Baptist Church in Christ, 833 Marcy Ave, Brooklyn, NY 11216",
-   "url": "https://www.eventbrite.com/e/pericles-in-concert-tickets-2001775319868",
-   "source": "eventbrite",
-   "city": "NYC",
-   "description": "Troy Anthony\u2019s Pericles comes to life with guest artists, a 90-person choir, and a gospel band in this one night only benefit concert.",
-   "is_free": false,
-   "price_text": "From $33.85",
-   "original_price_text": null,
-   "sold_out": false,
-   "few_left": null,
-   "interested_count": null
-  },
-  {
-   "title": "Writing Rhythms @Hotel Alameda",
-   "start": "2026-10-26T19:30-04:00",
-   "venue": "Hotel Alameda",
-   "url": "https://getpie.app/plans/1f058236-7a4f-4f4f-9e04-208e093815ed",
+   "title": "CRAZY BINGO - \"Walk In The Park\" Edition",
+   "start": "2026-10-26T19:00-05:00",
+   "venue": "Central Park Bar",
+   "url": "https://getpie.app/plans/160e84d8-4cbb-4de5-bae9-546aa7396540",
    "source": "pie",
-   "city": "NYC",
-   "description": "You're invited! A gathering for people who don't just love stories, but love to create them. Join us for Writing Rhythms, a new concept designed to bring writers together for an evening of creativity, connection, and focused writing time. Whether you're working on a novel, journaling, screenwriting,",
-   "is_free": null,
-   "price_text": "$32",
+   "city": "Chicago",
+   "description": "Love having fun, winning cool prizes, and getting to know your community? Then this is the event for you! \"It's a Good Time for Good\" What to expect at CRAZY BINGO: \u2022Big Bingo Wins \ud83c\udfc6\ud83d\ude0e Become an official CRAZY BINGO BADDIE when you win big. Sign your name in the BOOK OF BADDIES before collecting an a",
+   "is_free": true,
+   "price_text": null,
    "original_price_text": null,
    "sold_out": false,
    "few_left": null,
@@ -391,21 +106,6 @@
    "interested_count": null
   },
   {
-   "title": "ACOTAR 6 Midnight Release Party",
-   "start": "2026-10-26T20:30-04:00",
-   "venue": "ATOLYE NYC, 236b 6th Street, Brooklyn, NY 11215",
-   "url": "https://www.eventbrite.com/e/acotar-6-midnight-release-party-tickets-1985166605757",
-   "source": "eventbrite",
-   "city": "NYC",
-   "description": "Join us for a midnight release party to celebrate ACOTAR 6 (A COURT OF SPLINTERED HARMONY) by THE Sarah J Maas!",
-   "is_free": false,
-   "price_text": "From $161.90",
-   "original_price_text": null,
-   "sold_out": true,
-   "few_left": null,
-   "interested_count": null
-  },
-  {
    "title": "MIDNIGHT RELEASE PARTY for ACOTAR 6!",
    "start": "2026-10-26T22:00-04:00",
    "venue": "NYC",
@@ -417,21 +117,6 @@
    "price_text": null,
    "original_price_text": null,
    "sold_out": null,
-   "few_left": null,
-   "interested_count": null
-  },
-  {
-   "title": "Midnight Release Party: A Court of Splintered Harmony",
-   "start": "2026-10-26T22:30-04:00",
-   "venue": "Greenlight Bookstore in Fort Greene, 686 Fulton Street, Brooklyn, NY 11217",
-   "url": "https://www.eventbrite.com/e/midnight-release-party-a-court-of-splintered-harmony-tickets-1999270885036",
-   "source": "eventbrite",
-   "city": "NYC",
-   "description": "Celebrate the anticipated sixth book of Sarah J. Maas' #1 bestselling ACOTAR series and receive a copy the moment it's released!",
-   "is_free": false,
-   "price_text": "$43.38",
-   "original_price_text": null,
-   "sold_out": true,
    "few_left": null,
    "interested_count": null
   },
@@ -541,13 +226,13 @@
    "interested_count": 98
   },
   {
-   "title": "Group Wellness Sessions in Chicago | My Native Doctor",
+   "title": "Group Visits in Chicago \u00b7 Tuesdays with My Native Doctor\u00ae",
    "start": "2026-10-27T17:00-05:00",
    "venue": "My Native Doctor",
-   "url": "https://getpie.app/plans/ab735469-1ea8-4d75-9c0b-b7d5f2800395",
+   "url": "https://getpie.app/plans/835a174b-dfce-4459-b4f3-8af8dbd00f44",
    "source": "pie",
    "city": "Chicago",
-   "description": "Join group wellness sessions at My Native Doctor in Chicago. Explore health education, community support and practical guidance for $49. Tuesdays with MND is a 90 minute group wellness session held on the last Tuesday of each month at 5 p.m. Central Time in our Chicago office. Sessions provide educa",
+   "description": "Tuesdays with MND is a 90 minute group wellness session held on the last Tuesday of each month at 5 p.m. Central Time in our Chicago office. Sessions provide education and community support covering topics like integrative health, women's health, perimenopause & menopause, stress recovery, mental he",
    "is_free": null,
    "price_text": "$49",
    "original_price_text": null,
@@ -556,13 +241,13 @@
    "interested_count": null
   },
   {
-   "title": "Group Visits in Chicago \u00b7 Tuesdays with My Native Doctor\u00ae",
+   "title": "Group Wellness Sessions in Chicago | My Native Doctor",
    "start": "2026-10-27T17:00-05:00",
    "venue": "My Native Doctor",
-   "url": "https://getpie.app/plans/835a174b-dfce-4459-b4f3-8af8dbd00f44",
+   "url": "https://getpie.app/plans/ab735469-1ea8-4d75-9c0b-b7d5f2800395",
    "source": "pie",
    "city": "Chicago",
-   "description": "Tuesdays with MND is a 90 minute group wellness session held on the last Tuesday of each month at 5 p.m. Central Time in our Chicago office. Sessions provide education and community support covering topics like integrative health, women's health, perimenopause & menopause, stress recovery, mental he",
+   "description": "Join group wellness sessions at My Native Doctor in Chicago. Explore health education, community support and practical guidance for $49. Tuesdays with MND is a 90 minute group wellness session held on the last Tuesday of each month at 5 p.m. Central Time in our Chicago office. Sessions provide educa",
    "is_free": null,
    "price_text": "$49",
    "original_price_text": null,
@@ -581,8 +266,8 @@
    "is_free": true,
    "price_text": null,
    "original_price_text": null,
-   "sold_out": false,
-   "few_left": false,
+   "sold_out": true,
+   "few_left": null,
    "interested_count": null
   },
   {
@@ -611,8 +296,8 @@
    "is_free": true,
    "price_text": null,
    "original_price_text": null,
-   "sold_out": true,
-   "few_left": null,
+   "sold_out": false,
+   "few_left": false,
    "interested_count": null
   },
   {
@@ -643,7 +328,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 56
+   "interested_count": 58
   },
   {
    "title": "Fostr Salon Series: What if Friendship Was the Main Character in our Lives?",
@@ -655,36 +340,6 @@
    "description": "If you've been waiting for a sign to find your people in NYC, this is it. Grab your ticket and come as you are. This is a guided salon for New Yorkers who are done with surface level connections that go nowhere. We place you in a small group, hand you questions that skip straight past small talk, an",
    "is_free": null,
    "price_text": "$15",
-   "original_price_text": null,
-   "sold_out": false,
-   "few_left": null,
-   "interested_count": null
-  },
-  {
-   "title": "Full Moon Healing Release Sound Healing",
-   "start": "2026-10-27T18:00-05:00",
-   "venue": "South Shore Cultural Center",
-   "url": "https://getpie.app/plans/3d108690-1ca1-45d6-adc6-20dd50b622d8",
-   "source": "pie",
-   "city": "Chicago",
-   "description": "Full Moon Sound Healing | Release \u2022 Realign \u2022 Reconnect Come as you are and join Think Better Feel Better and Seven for an intimate evening of reflection, relaxation, and intentional release beneath the moonlit sky. Experience guided journaling, soothing sound healing led by Seven, and a welcoming s",
-   "is_free": null,
-   "price_text": "$7",
-   "original_price_text": null,
-   "sold_out": false,
-   "few_left": null,
-   "interested_count": null
-  },
-  {
-   "title": "chess at pennywhistle",
-   "start": "2026-10-27T18:00-05:00",
-   "venue": "The Giant Penny Whistle",
-   "url": "https://getpie.app/plans/ad2269f9-9b44-4bad-bec0-2290973a3b3f",
-   "source": "pie",
-   "city": "Chicago",
-   "description": "Calling all girls who chess. Come takeover the The Pennywhistle to play with the girls and chicago chess club members. Feel free to come to play or come to watch! Co-ed 21+ Open play from 6-9pm! Bring your friends or come solo! We are excited to see you there! P.s. The bar is a bit chilly inside, so",
-   "is_free": true,
-   "price_text": null,
    "original_price_text": null,
    "sold_out": false,
    "few_left": null,
@@ -706,6 +361,21 @@
    "interested_count": null
   },
   {
+   "title": "Full Moon Healing Release Sound Healing",
+   "start": "2026-10-27T18:00-05:00",
+   "venue": "South Shore Cultural Center",
+   "url": "https://getpie.app/plans/3d108690-1ca1-45d6-adc6-20dd50b622d8",
+   "source": "pie",
+   "city": "Chicago",
+   "description": "Full Moon Sound Healing | Release \u2022 Realign \u2022 Reconnect Come as you are and join Think Better Feel Better and Seven for an intimate evening of reflection, relaxation, and intentional release beneath the moonlit sky. Experience guided journaling, soothing sound healing led by Seven, and a welcoming s",
+   "is_free": null,
+   "price_text": "$7",
+   "original_price_text": null,
+   "sold_out": false,
+   "few_left": null,
+   "interested_count": null
+  },
+  {
    "title": "movie night: wicker",
    "start": "2026-10-27T18:00-05:00",
    "venue": "Crushed By Giants Brewing Company",
@@ -715,6 +385,21 @@
    "description": "we've all wished there was a wicker man instead of a real one, so let's go see wicker together! 6:00: meet at crushed by giants brewery for a quick bite, a drink, and some speed friending with crash out book conversation starters. favorite books, favorite unhinged characters, all of it. 7:00: wicker",
    "is_free": null,
    "price_text": "$9",
+   "original_price_text": null,
+   "sold_out": false,
+   "few_left": null,
+   "interested_count": null
+  },
+  {
+   "title": "chess at pennywhistle",
+   "start": "2026-10-27T18:00-05:00",
+   "venue": "The Giant Penny Whistle",
+   "url": "https://getpie.app/plans/ad2269f9-9b44-4bad-bec0-2290973a3b3f",
+   "source": "pie",
+   "city": "Chicago",
+   "description": "Calling all girls who chess. Come takeover the The Pennywhistle to play with the girls and chicago chess club members. Feel free to come to play or come to watch! Co-ed 21+ Open play from 6-9pm! Bring your friends or come solo! We are excited to see you there! P.s. The bar is a bit chilly inside, so",
+   "is_free": true,
+   "price_text": null,
    "original_price_text": null,
    "sold_out": false,
    "few_left": null,
@@ -732,7 +417,7 @@
    "price_text": null,
    "original_price_text": null,
    "sold_out": false,
-   "few_left": false,
+   "few_left": true,
    "interested_count": null
   },
   {
@@ -826,21 +511,6 @@
    "interested_count": null
   },
   {
-   "title": "a concert social",
-   "start": "2026-10-27T18:30-04:00",
-   "venue": "St. Mazie Bar & Supper Club",
-   "url": "https://getpie.app/plans/736a7bef-b99f-47d8-a40a-ba4b1b41c1fc",
-   "source": "pie",
-   "city": "NYC",
-   "description": "It\u2019s easy to meet people in NYC. Finding your people is another story. Concert Social is an evening of live music and conversation. Tuck your phone away, listen to chamber music, and meet someone new between musical sets. Music program includes works by the Beatles, Elgar, Mendelssohn, Haydn, and Pi",
-   "is_free": null,
-   "price_text": "$27",
-   "original_price_text": null,
-   "sold_out": false,
-   "few_left": null,
-   "interested_count": null
-  },
-  {
    "title": "ZOOMIES run club x Blueland",
    "start": "2026-10-27T18:30-04:00",
    "venue": "Barking Dog Hell\u2019s Kitchen",
@@ -850,6 +520,21 @@
    "description": "We're so excited to partner with Blueland for this week's run club! They're our fave sustainable home care brand, and are showing up with freebies for all of our Zoomies. Come ready to hang and meet with the team! We'll meet at 6:30pm there will be place to store your belongings Begin the run by 645",
    "is_free": true,
    "price_text": null,
+   "original_price_text": null,
+   "sold_out": false,
+   "few_left": null,
+   "interested_count": null
+  },
+  {
+   "title": "a concert social",
+   "start": "2026-10-27T18:30-04:00",
+   "venue": "St. Mazie Bar & Supper Club",
+   "url": "https://getpie.app/plans/736a7bef-b99f-47d8-a40a-ba4b1b41c1fc",
+   "source": "pie",
+   "city": "NYC",
+   "description": "It\u2019s easy to meet people in NYC. Finding your people is another story. Concert Social is an evening of live music and conversation. Tuck your phone away, listen to chamber music, and meet someone new between musical sets. Music program includes works by the Beatles, Elgar, Mendelssohn, Haydn, and Pi",
+   "is_free": null,
+   "price_text": "$27",
    "original_price_text": null,
    "sold_out": false,
    "few_left": null,
@@ -901,13 +586,13 @@
    "interested_count": null
   },
   {
-   "title": "Rogers Park DSA Bar Social",
+   "title": "Women Entrepreneurs Panelist Event",
    "start": "2026-10-27T18:30-05:00",
-   "venue": "Jarvis Square Tavern",
-   "url": "https://getpie.app/plans/608f0a99-e2db-45c4-ad50-685b2302bcc0",
+   "venue": "ALTAR Community",
+   "url": "https://getpie.app/plans/d2c6411e-f00f-4349-ae40-e08014dc6f54",
    "source": "pie",
    "city": "Chicago",
-   "description": "Come out to our Far Northside weekly DSA social! We\u2019re currently located at Jarvis Square Tavern, right next to the Jarvis Red Line stop! Food is available onsite, plus it\u2019s also Tasty Tuesday there (involving a food+drink deal). The bar is cash only (unless you order food from next door), but you g",
+   "description": "Connect, share stories, and learn about how microdosing mushrooms can optimize your creativity in business!",
    "is_free": true,
    "price_text": null,
    "original_price_text": null,
@@ -916,13 +601,13 @@
    "interested_count": null
   },
   {
-   "title": "Women Entrepreneurs Panelist Event",
+   "title": "Rogers Park DSA Bar Social",
    "start": "2026-10-27T18:30-05:00",
-   "venue": "ALTAR Community",
-   "url": "https://getpie.app/plans/d2c6411e-f00f-4349-ae40-e08014dc6f54",
+   "venue": "Jarvis Square Tavern",
+   "url": "https://getpie.app/plans/608f0a99-e2db-45c4-ad50-685b2302bcc0",
    "source": "pie",
    "city": "Chicago",
-   "description": "Connect, share stories, and learn about how microdosing mushrooms can optimize your creativity in business!",
+   "description": "Come out to our Far Northside weekly DSA social! We\u2019re currently located at Jarvis Square Tavern, right next to the Jarvis Red Line stop! Food is available onsite, plus it\u2019s also Tasty Tuesday there (involving a food+drink deal). The bar is cash only (unless you order food from next door), but you g",
    "is_free": true,
    "price_text": null,
    "original_price_text": null,
@@ -991,6 +676,21 @@
    "interested_count": null
   },
   {
+   "title": "Golden Hour NYC: Breathtaking Sunset Cruise with Skyline & Statue Views",
+   "start": "2026-10-27T19:00-04:00",
+   "venue": "Pier 36 NYC, 299 South Street, New York, NY 10002",
+   "url": "https://www.eventbrite.com/e/golden-hour-nyc-breathtaking-sunset-cruise-with-skyline-statue-views-tickets-1520943024529",
+   "source": "eventbrite",
+   "city": "NYC",
+   "description": "Sail into golden hour on this unforgettable NYC sunset cruise! Relax on the water as you take in breathtaking views NYC 's harbor.",
+   "is_free": false,
+   "price_text": "$39.19",
+   "original_price_text": null,
+   "sold_out": false,
+   "few_left": null,
+   "interested_count": null
+  },
+  {
    "title": "'Tis Autumn",
    "start": "2026-10-27T19:00-04:00",
    "venue": "Chelsea Table & Stage, 152 West 26th Street, New York, NY 10001",
@@ -1018,22 +718,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 102
-  },
-  {
-   "title": "Horror Movie Trivia Night",
-   "start": "2026-10-27T19:00-04:00",
-   "venue": "Fort Hamilton Distillery",
-   "url": "https://partiful.com/e/POBmYTXEpGJBe0iLTZqd",
-   "source": "partiful",
-   "city": "NYC",
-   "description": "Horror Movie Trivia Night is coming to Fort Hamilton! \ud83c\udf83\ud83d\udd2a Join us for a night of trivia, cocktails, and prizes. \ud83d\udc7b\ud83e\udd43",
-   "is_free": null,
-   "price_text": null,
-   "original_price_text": null,
-   "sold_out": null,
-   "few_left": null,
-   "interested_count": 0
+   "interested_count": 104
   },
   {
    "title": "American Mahjong Beginner Lesson",
@@ -1081,36 +766,6 @@
    "interested_count": null
   },
   {
-   "title": "Nick's Movie Club: Clayface",
-   "start": "2026-10-27T19:00-05:00",
-   "venue": "1500 N Clybourn Ave",
-   "url": "https://getpie.app/plans/a639435e-2ba2-44ed-897c-388148850d24",
-   "source": "pie",
-   "city": "Chicago",
-   "description": "For this installment of movie club, we will be watching the newest film in the newly rebooted DC universe, Clayface You can claim seats wherever in the theater you want, I'll be sitting near the back. We'll meet in the theater lounge afterwards to discuss what we thought! We will be attending the Oc",
-   "is_free": null,
-   "price_text": "$17",
-   "original_price_text": null,
-   "sold_out": false,
-   "few_left": null,
-   "interested_count": null
-  },
-  {
-   "title": "I Saw the TV Glow \ud83d\udcfa\ud83e\ude77\ud83d\udcfc Movie Night at Larry's",
-   "start": "2026-10-27T19:00-05:00",
-   "venue": "Larry's at The Lawrence House",
-   "url": "https://getpie.app/plans/a32d02b2-2201-4b22-af75-3f2b1c3379c0",
-   "source": "pie",
-   "city": "Chicago",
-   "description": "Teenager Owen is just trying to make it through life in the suburbs when his classmate Maddy introduces him to a mysterious TV show \u2014 a vision of a supernatural world beneath their own. In the pale glow of the television, Owen\u2019s view of reality begins to crack. Seating is first come first serve! Fee",
-   "is_free": true,
-   "price_text": null,
-   "original_price_text": null,
-   "sold_out": false,
-   "few_left": null,
-   "interested_count": null
-  },
-  {
    "title": "CRAZY BINGO - \"Full Throttle\" Edition",
    "start": "2026-10-27T19:00-05:00",
    "venue": "Tune-Up",
@@ -1141,15 +796,30 @@
    "interested_count": null
   },
   {
-   "title": "Virtual Fiber Arts Meetup - Prospect Park Knitting Club",
-   "start": "2026-10-27T19:30-04:00",
-   "venue": "Prospect Park",
-   "url": "https://getpie.app/plans/7d530ec1-6501-4921-a95d-bee4f750503f",
+   "title": "I Saw the TV Glow \ud83d\udcfa\ud83e\ude77\ud83d\udcfc Movie Night at Larry's",
+   "start": "2026-10-27T19:00-05:00",
+   "venue": "Larry's at The Lawrence House",
+   "url": "https://getpie.app/plans/a32d02b2-2201-4b22-af75-3f2b1c3379c0",
    "source": "pie",
-   "city": "NYC",
-   "description": "Join us for Prospect Park Knitting Club's first VIRTUAL fiber arts meetup! Now that it's getting chillier here in NY, we are exploring new formats for the community to keep gathering. This meetup is open to anyone, whether you've attended all the PPKC park meetups, or live somewhere entirely differe",
+   "city": "Chicago",
+   "description": "Teenager Owen is just trying to make it through life in the suburbs when his classmate Maddy introduces him to a mysterious TV show \u2014 a vision of a supernatural world beneath their own. In the pale glow of the television, Owen\u2019s view of reality begins to crack. Seating is first come first serve! Fee",
    "is_free": true,
    "price_text": null,
+   "original_price_text": null,
+   "sold_out": false,
+   "few_left": null,
+   "interested_count": null
+  },
+  {
+   "title": "Nick's Movie Club: Clayface",
+   "start": "2026-10-27T19:00-05:00",
+   "venue": "1500 N Clybourn Ave",
+   "url": "https://getpie.app/plans/a639435e-2ba2-44ed-897c-388148850d24",
+   "source": "pie",
+   "city": "Chicago",
+   "description": "For this installment of movie club, we will be watching the newest film in the newly rebooted DC universe, Clayface You can claim seats wherever in the theater you want, I'll be sitting near the back. We'll meet in the theater lounge afterwards to discuss what we thought! We will be attending the Oc",
+   "is_free": null,
+   "price_text": "$17",
    "original_price_text": null,
    "sold_out": false,
    "few_left": null,
@@ -1163,6 +833,21 @@
    "source": "pie",
    "city": "NYC",
    "description": "\ud83c\udf83 HALLOWEEN TRACK TUESDAY \ud83d\udc10\ud83d\udc7b We're bringing a little Halloween spirit to Astoria Park this Tuesday! With the NYC Marathon just around the corner, we're keeping things short and simple: a little running, some sweet treats, and time to unwind with the GOATS community. \ud83c\udfc3 TWO WORKOUT OPTIONS - Performan",
+   "is_free": true,
+   "price_text": null,
+   "original_price_text": null,
+   "sold_out": false,
+   "few_left": null,
+   "interested_count": null
+  },
+  {
+   "title": "Virtual Fiber Arts Meetup - Prospect Park Knitting Club",
+   "start": "2026-10-27T19:30-04:00",
+   "venue": "Prospect Park",
+   "url": "https://getpie.app/plans/7d530ec1-6501-4921-a95d-bee4f750503f",
+   "source": "pie",
+   "city": "NYC",
+   "description": "Join us for Prospect Park Knitting Club's first VIRTUAL fiber arts meetup! Now that it's getting chillier here in NY, we are exploring new formats for the community to keep gathering. This meetup is open to anyone, whether you've attended all the PPKC park meetups, or live somewhere entirely differe",
    "is_free": true,
    "price_text": null,
    "original_price_text": null,
@@ -1287,21 +972,6 @@
    "price_text": null,
    "original_price_text": null,
    "sold_out": false,
-   "few_left": null,
-   "interested_count": null
-  },
-  {
-   "title": "Hidden Forms of Domestic Violence",
-   "start": "2026-10-28T10:00-05:00",
-   "venue": "DePaul University - DePaul Center, 1 East Jackson Boulevard, Chicago, IL 60604",
-   "url": "https://www.eventbrite.com/e/hidden-forms-of-domestic-violence-tickets-1993709022355",
-   "source": "eventbrite",
-   "city": "Chicago",
-   "description": "Schiller DuCanto & Fleck Family Law Center Symposium: Hidden Forms of Domestic Violence (Hybrid)",
-   "is_free": false,
-   "price_text": "Free to $76.54",
-   "original_price_text": null,
-   "sold_out": true,
    "few_left": null,
    "interested_count": null
   },
@@ -1543,7 +1213,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 52
+   "interested_count": 53
   },
   {
    "title": "[Creator Lab] How To Host Events: The Business of IRL",
@@ -1693,7 +1363,22 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 33
+   "interested_count": 34
+  },
+  {
+   "title": "Life Drawing Session",
+   "start": "2026-10-28T18:30-04:00",
+   "venue": "NYC",
+   "url": "https://partiful.com/e/F9pUN07iye61GLZ8NsaP",
+   "source": "partiful",
+   "city": "NYC",
+   "description": "Join us for our reoccurring Wednesday night figure drawing session. We\u2019ve got a live model, art supplies, and refreshments (Popcorn and beverages!) Conveniently located in SoHo. Open to all levels. Tips and pointers can be given if wanted. Hope to see you there! & Please RSVP a minimum of 3 hours be",
+   "is_free": null,
+   "price_text": null,
+   "original_price_text": null,
+   "sold_out": null,
+   "few_left": null,
+   "interested_count": 1
   },
   {
    "title": "Halloween Embroidery with Craft Society",
@@ -1756,15 +1441,15 @@
    "interested_count": null
   },
   {
-   "title": "Sapphic First Time Home Buyers",
+   "title": "salsa on a school night: d\u00eda de los muertos edition",
    "start": "2026-10-28T18:30-05:00",
-   "venue": "4619 N Ravenswood Ave",
-   "url": "https://getpie.app/plans/651de1d8-d475-4d11-9eff-16207c144c45",
+   "venue": "Epiphany Center for the Arts",
+   "url": "https://getpie.app/plans/ce294311-160e-4cec-95c8-ccbe47ffc0b2",
    "source": "pie",
    "city": "Chicago",
-   "description": "\ud83c\udfe1 Home Buying but Make It Gay (and Fun!) \ud83c\udf08 A First-Time Home Buyer Workshop with Erin Feinerman from Cross Street & Shelly Ave from Rate Mortgage *when you arrive, buzz 101 and head down the hall* Buying your first home doesn\u2019t have to feel like you\u2019re signing up for a financial obstacle course. It\u2019",
-   "is_free": true,
-   "price_text": null,
+   "description": "salsa on a school night: d\u00eda de los muertos one night a year the dead come back. we're throwing them a party. wednesday, october 28 \u00b7 epiphany \u00b7 doors 6:30, lesson at 7:00pm, social + more till midnight. what's happening: \ud83d\udc83 salsa lesson. beginner friendly, no partner needed \ud83c\udfba live salsa band \ud83d\udc80 face ",
+   "is_free": null,
+   "price_text": "$20",
    "original_price_text": null,
    "sold_out": false,
    "few_left": null,
@@ -1786,6 +1471,21 @@
    "interested_count": null
   },
   {
+   "title": "Sapphic First Time Home Buyers",
+   "start": "2026-10-28T18:30-05:00",
+   "venue": "4619 N Ravenswood Ave",
+   "url": "https://getpie.app/plans/651de1d8-d475-4d11-9eff-16207c144c45",
+   "source": "pie",
+   "city": "Chicago",
+   "description": "\ud83c\udfe1 Home Buying but Make It Gay (and Fun!) \ud83c\udf08 A First-Time Home Buyer Workshop with Erin Feinerman from Cross Street & Shelly Ave from Rate Mortgage *when you arrive, buzz 101 and head down the hall* Buying your first home doesn\u2019t have to feel like you\u2019re signing up for a financial obstacle course. It\u2019",
+   "is_free": true,
+   "price_text": null,
+   "original_price_text": null,
+   "sold_out": false,
+   "few_left": null,
+   "interested_count": null
+  },
+  {
    "title": "LUNGE NYC marathon SHAKEOUT.",
    "start": "2026-10-28T18:45-04:00",
    "venue": "Columbus Circle",
@@ -1798,7 +1498,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 17
+   "interested_count": 20
   },
   {
    "title": "Murdoch\u2019s world: The empire that changed news",
@@ -1891,15 +1591,30 @@
    "interested_count": 42
   },
   {
-   "title": "free outdoor movie night Frankenweenie (2012)",
+   "title": "The Otherside of October \ud83e\udea9\ud83c\udf83\ud83c\udfb9\ud83d\udc7b",
    "start": "2026-10-28T19:00-04:00",
-   "venue": "Marine Park",
-   "url": "https://getpie.app/plans/01e227f4-6c95-4e46-8932-fa614ea0f55e",
+   "venue": "Pianos",
+   "url": "https://partiful.com/e/ieuqhQcgrTlY29mXGY9E",
+   "source": "partiful",
+   "city": "NYC",
+   "description": "\ud83c\udf83 THE OTHERSIDE OF OCTOBER \ud83d\udd78\ufe0f HALLOWEEKEND 2026 IS OFF TO A STRONG START \ud83d\udc7b\ud83c\udf83\ud83e\udea9\ud83d\ude2e\u200d\ud83d\udca8\ud83d\udd25 We\u2019re getting funky and spooky at Piano\u2019s \u2026 see you there \ud83d\ude08\ud83e\udea9 FEATURING: \ud83e\udd87 ANNA SUN \u2014 @annasunband \ud83e\udd87 WOOF \u2014 @woof.band.woof.band \ud83e\udd87 VUP \u2014 @vup.band \ud83e\udd87 OSG \u2014 @osgmusic_ \ud83d\udccd Piano\u2019s, NYC $20 cash at door, $17 online * TIX AVAI",
+   "is_free": null,
+   "price_text": null,
+   "original_price_text": null,
+   "sold_out": null,
+   "few_left": null,
+   "interested_count": 15
+  },
+  {
+   "title": "Halloween 6K Shakeout Run \ud83d\udc7b",
+   "start": "2026-10-28T19:00-04:00",
+   "venue": "Rosie O'Grady's",
+   "url": "https://getpie.app/plans/16343890-d69e-47ff-8e57-84e3713b6b97",
    "source": "pie",
    "city": "NYC",
-   "description": "",
-   "is_free": null,
-   "price_text": "FREE with ticket",
+   "description": "Get ready to shake it out, the NYC Marathon is only a few days away!!! Festive costumes highly encouraged - there will be prizes \ud83c\udf83 EVENT FORMAT & PACE: Easy 6k shakeout to some great party tunes Target pace will be between approx. 8:30/mile to 10:30min/mile. To truly enjoy the night, you must be cap",
+   "is_free": true,
+   "price_text": null,
    "original_price_text": null,
    "sold_out": false,
    "few_left": null,
@@ -1915,6 +1630,21 @@
    "description": "MOTHER is throwing a masquerade three nights before Halloween and you're invited. We're bringing together founders, executives, and builders from across NYC for a night of masks, caipirinhas, tarot readings, and the kind of conversations that only happen when nobody knows who you are. Come in a mask",
    "is_free": true,
    "price_text": null,
+   "original_price_text": null,
+   "sold_out": false,
+   "few_left": null,
+   "interested_count": null
+  },
+  {
+   "title": "free outdoor movie night Frankenweenie (2012)",
+   "start": "2026-10-28T19:00-04:00",
+   "venue": "Marine Park",
+   "url": "https://getpie.app/plans/01e227f4-6c95-4e46-8932-fa614ea0f55e",
+   "source": "pie",
+   "city": "NYC",
+   "description": "",
+   "is_free": null,
+   "price_text": "FREE with ticket",
    "original_price_text": null,
    "sold_out": false,
    "few_left": null,
@@ -1951,21 +1681,6 @@
    "interested_count": null
   },
   {
-   "title": "Halloween 6K Shakeout Run \ud83d\udc7b",
-   "start": "2026-10-28T19:00-04:00",
-   "venue": "Rosie O'Grady's",
-   "url": "https://getpie.app/plans/16343890-d69e-47ff-8e57-84e3713b6b97",
-   "source": "pie",
-   "city": "NYC",
-   "description": "Get ready to shake it out, the NYC Marathon is only a few days away!!! Festive costumes highly encouraged - there will be prizes \ud83c\udf83 EVENT FORMAT & PACE: Easy 6k shakeout to some great party tunes Target pace will be between approx. 8:30/mile to 10:30min/mile. To truly enjoy the night, you must be cap",
-   "is_free": true,
-   "price_text": null,
-   "original_price_text": null,
-   "sold_out": false,
-   "few_left": null,
-   "interested_count": null
-  },
-  {
    "title": "Pumpkin Carving Contest",
    "start": "2026-10-28T19:00-05:00",
    "venue": "Vaughan's Pub",
@@ -1978,7 +1693,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 11
+   "interested_count": 10
   },
   {
    "title": "Halloween Karaoke Party",
@@ -2006,8 +1721,8 @@
    "is_free": true,
    "price_text": null,
    "original_price_text": null,
-   "sold_out": false,
-   "few_left": true,
+   "sold_out": true,
+   "few_left": null,
    "interested_count": null
   },
   {
@@ -2023,7 +1738,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 69
+   "interested_count": 72
   },
   {
    "title": "Spelling Bee @ Iggy\u2019s",
@@ -2053,7 +1768,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 65
+   "interested_count": 66
   },
   {
    "title": "NIRVANA Halloween + Matt's Birthday Bash",
@@ -2416,21 +2131,6 @@
    "interested_count": null
   },
   {
-   "title": "VIP SAMPLING EVENT",
-   "start": "2026-10-29T17:30-04:00",
-   "venue": "22 Wooster St",
-   "url": "https://getpie.app/plans/bed80afb-517f-47d5-b89f-db8f69a74dde",
-   "source": "pie",
-   "city": "NYC",
-   "description": "CPG sampling event for those into health wellness and beauty. Take home a bag of the newest products. RSVP to have your name on the list.",
-   "is_free": true,
-   "price_text": null,
-   "original_price_text": null,
-   "sold_out": false,
-   "few_left": null,
-   "interested_count": null
-  },
-  {
    "title": "Free Tour History of the High Line",
    "start": "2026-10-29T17:30-04:00",
    "venue": "The High Line",
@@ -2440,6 +2140,21 @@
    "description": "at the top of the stairs at the Gansevoort Street entrance",
    "is_free": null,
    "price_text": "FREE with ticket",
+   "original_price_text": null,
+   "sold_out": false,
+   "few_left": null,
+   "interested_count": null
+  },
+  {
+   "title": "VIP SAMPLING EVENT",
+   "start": "2026-10-29T17:30-04:00",
+   "venue": "22 Wooster St",
+   "url": "https://getpie.app/plans/bed80afb-517f-47d5-b89f-db8f69a74dde",
+   "source": "pie",
+   "city": "NYC",
+   "description": "CPG sampling event for those into health wellness and beauty. Take home a bag of the newest products. RSVP to have your name on the list.",
+   "is_free": true,
+   "price_text": null,
    "original_price_text": null,
    "sold_out": false,
    "few_left": null,
@@ -2533,7 +2248,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 206
+   "interested_count": 207
   },
   {
    "title": "NYC Fuckboy \"Ghosted\" Tour",
@@ -2551,15 +2266,15 @@
    "interested_count": null
   },
   {
-   "title": "ASICS Run Club x Demos!",
+   "title": "Craft Movie Night",
    "start": "2026-10-29T18:00-04:00",
-   "venue": "ASICS",
-   "url": "https://getpie.app/plans/dca378c8-aeaa-4037-8d89-647731ffc787",
+   "venue": "Tribeca",
+   "url": "https://getpie.app/plans/bfe046ad-7614-4543-a9fd-902301b15ca4",
    "source": "pie",
    "city": "NYC",
-   "description": "Come through for Asics Run Club! We will run a 5K AND you will be able to Try out shoes such as Novablast 6 Super blast 3 Mega Blast and more :) Pace Groups: Flex of 9-11min. No one gets left behind :) BAG DROP OFF AVAIL.",
-   "is_free": true,
-   "price_text": null,
+   "description": "We will have some yarn supplies on hand for projects - or Bring your current fiber arts wip and join us for a themed craft movie night! October's theme is: HALLOWEEN! What to expect: \u200b\ud83e\uddf6 Good yarn people \ud83c\udfa5 Good movies \ud83c\udf7f Good snacks \u2728 Good vibes \u2728 a note on our vibe: GoSadi was built because makers de",
+   "is_free": null,
+   "price_text": "$12",
    "original_price_text": null,
    "sold_out": false,
    "few_left": null,
@@ -2581,15 +2296,15 @@
    "interested_count": null
   },
   {
-   "title": "Craft Movie Night",
+   "title": "ASICS Run Club x Demos!",
    "start": "2026-10-29T18:00-04:00",
-   "venue": "Tribeca",
-   "url": "https://getpie.app/plans/bfe046ad-7614-4543-a9fd-902301b15ca4",
+   "venue": "ASICS",
+   "url": "https://getpie.app/plans/dca378c8-aeaa-4037-8d89-647731ffc787",
    "source": "pie",
    "city": "NYC",
-   "description": "We will have some yarn supplies on hand for projects - or Bring your current fiber arts wip and join us for a themed craft movie night! October's theme is: HALLOWEEN! What to expect: \u200b\ud83e\uddf6 Good yarn people \ud83c\udfa5 Good movies \ud83c\udf7f Good snacks \u2728 Good vibes \u2728 a note on our vibe: GoSadi was built because makers de",
-   "is_free": null,
-   "price_text": "$12",
+   "description": "Come through for Asics Run Club! We will run a 5K AND you will be able to Try out shoes such as Novablast 6 Super blast 3 Mega Blast and more :) Pace Groups: Flex of 9-11min. No one gets left behind :) BAG DROP OFF AVAIL.",
+   "is_free": true,
+   "price_text": null,
    "original_price_text": null,
    "sold_out": false,
    "few_left": null,
@@ -2746,21 +2461,6 @@
    "interested_count": null
   },
   {
-   "title": "Lakeview DSA Social",
-   "start": "2026-10-29T18:30-05:00",
-   "venue": "Cheesie's Pub & Grub - Lakeview",
-   "url": "https://getpie.app/plans/be95824a-64a2-4ba2-8c3a-f5fc2aba6608",
-   "source": "pie",
-   "city": "Chicago",
-   "description": "Come out to our Lakeview monthly CDSA social! We\u2019re currently located at Cheesie's Pub & Grub - Lakeview, right next to the Belmont Red/Brown/Purple Line Station! Food is available onsite!",
-   "is_free": true,
-   "price_text": null,
-   "original_price_text": null,
-   "sold_out": false,
-   "few_left": null,
-   "interested_count": null
-  },
-  {
    "title": "Book Club Run of Summerdale with David Jay Collins",
    "start": "2026-10-29T18:30-05:00",
    "venue": "The Understudy Coffee and Books",
@@ -2770,6 +2470,21 @@
    "description": "Spend a spooky evening in Chicago's Andersonville neighborhood with author David Jay Collins inspired by Summerdale, his queer horror trilogy! This is a 2.5-mile guided running route with stops, followed by Summerdale-themed drinks at The Understudy and an intimate Q&A with David. Four gay men, four",
    "is_free": null,
    "price_text": "$25",
+   "original_price_text": null,
+   "sold_out": false,
+   "few_left": null,
+   "interested_count": null
+  },
+  {
+   "title": "Lakeview DSA Social",
+   "start": "2026-10-29T18:30-05:00",
+   "venue": "Cheesie's Pub & Grub - Lakeview",
+   "url": "https://getpie.app/plans/be95824a-64a2-4ba2-8c3a-f5fc2aba6608",
+   "source": "pie",
+   "city": "Chicago",
+   "description": "Come out to our Lakeview monthly CDSA social! We\u2019re currently located at Cheesie's Pub & Grub - Lakeview, right next to the Belmont Red/Brown/Purple Line Station! Food is available onsite!",
+   "is_free": true,
+   "price_text": null,
    "original_price_text": null,
    "sold_out": false,
    "few_left": null,
@@ -2833,7 +2548,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 53
+   "interested_count": 54
   },
   {
    "title": "Sixth Street Readings\u2014October 2026",
@@ -2849,6 +2564,21 @@
    "sold_out": null,
    "few_left": null,
    "interested_count": 11
+  },
+  {
+   "title": "Y2 SLAY baby one more time",
+   "start": "2026-10-29T19:00-04:00",
+   "venue": "Friends and Lovers",
+   "url": "https://partiful.com/e/OSUqvcu8qOkFKvxH0Wxi",
+   "source": "partiful",
+   "city": "NYC",
+   "description": "FREE! Happy hour starts at 7pm, dancing. Costume contest $$ and prizes for the best looks!! Drink specials Even better if you dress as any Britney! Vendors and candy!!",
+   "is_free": null,
+   "price_text": null,
+   "original_price_text": null,
+   "sold_out": null,
+   "few_left": null,
+   "interested_count": 1
   },
   {
    "title": "FREE HALLOWEEN EMO SHOW 21+\ud83e\udd87\ud83d\udc7b",
@@ -2896,17 +2626,17 @@
    "interested_count": null
   },
   {
-   "title": "Ain\u2019t It Fun Social Club: Black Girl Bowling Night (Halloween Edition) \ud83c\udf83\ud83d\udc7b\ud83e\udddf\ud83c\udfb3",
+   "title": "Replay Arcade x Chess",
    "start": "2026-10-29T19:00-05:00",
-   "venue": "Seven Ten Social",
-   "url": "https://getpie.app/plans/b138ab81-183c-46e7-a78b-74ab6e5a8db7",
+   "venue": "Replay Lincoln Park",
+   "url": "https://getpie.app/plans/721948fa-58b1-46d0-818a-2f741a5cae6e",
    "source": "pie",
    "city": "Chicago",
-   "description": "Black Girl Bowling Night is back, this time \u2013 Halloween edition!! \ud83c\udf83\ud83e\udddf\ud83d\udc7b\ud83c\udfb3 We\u2019re bringing in Halloweekend with this bowling costume party, so come dressed to impress. Best costume wins a prize! Your ticket includes 3 hours of unlimited bowling and shoe rental. Plus, the first 5 people to arrive will get",
-   "is_free": null,
-   "price_text": "$24",
+   "description": "Come meet us out at Replay Arcade Bar in Lincoln Park to play chess and arcade games! 7:00pm-10:00pm P.S. Pie is not the only platform this event is posted on so there may be a few more players than what the RSVP says \u2764\ufe0f",
+   "is_free": true,
+   "price_text": null,
    "original_price_text": null,
-   "sold_out": true,
+   "sold_out": false,
    "few_left": null,
    "interested_count": null
   },
@@ -2941,21 +2671,6 @@
    "interested_count": null
   },
   {
-   "title": "Live Acoustic Set with Irene Phillips",
-   "start": "2026-10-29T19:00-05:00",
-   "venue": "Nabala Cafe",
-   "url": "https://getpie.app/plans/24888e9c-ee44-45d6-a5c6-77a6c834f447",
-   "source": "pie",
-   "city": "Chicago",
-   "description": "",
-   "is_free": true,
-   "price_text": null,
-   "original_price_text": null,
-   "sold_out": false,
-   "few_left": null,
-   "interested_count": null
-  },
-  {
    "title": "Only Come Alone | 21-25 Y/O",
    "start": "2026-10-29T19:00-05:00",
    "venue": "4619 N Ravenswood Ave",
@@ -2971,13 +2686,28 @@
    "interested_count": null
   },
   {
-   "title": "Replay Arcade x Chess",
+   "title": "Ain\u2019t It Fun Social Club: Black Girl Bowling Night (Halloween Edition) \ud83c\udf83\ud83d\udc7b\ud83e\udddf\ud83c\udfb3",
    "start": "2026-10-29T19:00-05:00",
-   "venue": "Replay Lincoln Park",
-   "url": "https://getpie.app/plans/721948fa-58b1-46d0-818a-2f741a5cae6e",
+   "venue": "Seven Ten Social",
+   "url": "https://getpie.app/plans/b138ab81-183c-46e7-a78b-74ab6e5a8db7",
    "source": "pie",
    "city": "Chicago",
-   "description": "Come meet us out at Replay Arcade Bar in Lincoln Park to play chess and arcade games! 7:00pm-10:00pm P.S. Pie is not the only platform this event is posted on so there may be a few more players than what the RSVP says \u2764\ufe0f",
+   "description": "Black Girl Bowling Night is back, this time \u2013 Halloween edition!! \ud83c\udf83\ud83e\udddf\ud83d\udc7b\ud83c\udfb3 We\u2019re bringing in Halloweekend with this bowling costume party, so come dressed to impress. Best costume wins a prize! Your ticket includes 3 hours of unlimited bowling and shoe rental. Plus, the first 5 people to arrive will get",
+   "is_free": null,
+   "price_text": "$24",
+   "original_price_text": null,
+   "sold_out": true,
+   "few_left": null,
+   "interested_count": null
+  },
+  {
+   "title": "Live Acoustic Set with Irene Phillips",
+   "start": "2026-10-29T19:00-05:00",
+   "venue": "Nabala Cafe",
+   "url": "https://getpie.app/plans/24888e9c-ee44-45d6-a5c6-77a6c834f447",
+   "source": "pie",
+   "city": "Chicago",
+   "description": "",
    "is_free": true,
    "price_text": null,
    "original_price_text": null,
@@ -3013,7 +2743,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 389
+   "interested_count": 391
   },
   {
    "title": "halloween party",
@@ -3028,22 +2758,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 77
-  },
-  {
-   "title": "Fare Evasion Halloween Party",
-   "start": "2026-10-29T20:00-04:00",
-   "venue": "NYC",
-   "url": "https://partiful.com/e/3ywEAfMVIULLdUM5aReX",
-   "source": "partiful",
-   "city": "NYC",
-   "description": "We\u2019re throwing a Halloweekend rooftop party to celebrate the release of our new single, \u201cHad A Gun.\u201d Live music from Fare Evasion + friends, costumes, drinks, loud guitars, and a few surprises This is a small DIY space and capacity is limited, so RSVP early if you\u2019re coming. \ud83d\udda4 Presented with support",
-   "is_free": null,
-   "price_text": null,
-   "original_price_text": null,
-   "sold_out": null,
-   "few_left": null,
-   "interested_count": 72
+   "interested_count": 84
   },
   {
    "title": "Grace and Danny Split The Bill",
@@ -3118,7 +2833,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 114
+   "interested_count": 116
   },
   {
    "title": "Zero Four Release/ Halloween Party",
@@ -3316,21 +3031,6 @@
    "interested_count": 16
   },
   {
-   "title": "Chocolate & Coffee Pairing",
-   "start": "2026-10-30T14:00-04:00",
-   "venue": "Fabrik",
-   "url": "https://partiful.com/e/fd754h1LmkYZTVoUdown",
-   "source": "partiful",
-   "city": "NYC",
-   "description": "We are elevating Halloween treats with a sophisticated coffee and chocolate pairing. Subra Coffee and chocolate sommelier, Nettie Atkisson, have curated a chocolate and coffee tasting to commence your Halloween weekend. Here is a hint of what you can expect. A 70% Colombian bar with strong fudgy not",
-   "is_free": null,
-   "price_text": null,
-   "original_price_text": null,
-   "sold_out": null,
-   "few_left": null,
-   "interested_count": 9
-  },
-  {
    "title": "Thrift Box Pop Up",
    "start": "2026-10-30T14:00-04:00",
    "venue": "522 Jefferson St",
@@ -3386,8 +3086,8 @@
    "is_free": true,
    "price_text": null,
    "original_price_text": null,
-   "sold_out": false,
-   "few_left": true,
+   "sold_out": true,
+   "few_left": null,
    "interested_count": null
   },
   {
@@ -3583,7 +3283,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 816
+   "interested_count": 824
   },
   {
    "title": "Trick-or- Treat for Adults (Mixer + Bar Crawl)",
@@ -3598,7 +3298,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 155
+   "interested_count": 158
   },
   {
    "title": "Palmas Halloween Run & Party \ud83c\udf83\ud83c\udf34",
@@ -3688,7 +3388,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 18
+   "interested_count": 20
   },
   {
    "title": "The St7eets Are Watching: Knicks vs. Sixers Watch Party w/ Carmelo Anthony",
@@ -3736,6 +3436,21 @@
    "interested_count": null
   },
   {
+   "title": "Friday night Gaming",
+   "start": "2026-10-30T18:30-05:00",
+   "venue": "Portillo's Chicago - Addison",
+   "url": "https://getpie.app/plans/7dbe5db1-48c8-4fc3-9872-173cefb6f4ab",
+   "source": "pie",
+   "city": "Chicago",
+   "description": "Friday Night Gaming at Portillo's. Bring a friend for a good time gaming on a Friday night. It's casual and light, you can bring a game if you want. There are an average of 10 - 15 regulars who show up.",
+   "is_free": true,
+   "price_text": null,
+   "original_price_text": null,
+   "sold_out": false,
+   "few_left": null,
+   "interested_count": null
+  },
+  {
    "title": "Board Game Social with Chicago DSA",
    "start": "2026-10-30T18:30-05:00",
    "venue": "Nabala Cafe",
@@ -3758,21 +3473,6 @@
    "source": "pie",
    "city": "Chicago",
    "description": "Casual Board Game Social open for all! Hosted by Chicago DSA Feel free to bring your own beginner friendly games that you're willing to teach!",
-   "is_free": true,
-   "price_text": null,
-   "original_price_text": null,
-   "sold_out": false,
-   "few_left": null,
-   "interested_count": null
-  },
-  {
-   "title": "Friday night Gaming",
-   "start": "2026-10-30T18:30-05:00",
-   "venue": "Portillo's Chicago - Addison",
-   "url": "https://getpie.app/plans/7dbe5db1-48c8-4fc3-9872-173cefb6f4ab",
-   "source": "pie",
-   "city": "Chicago",
-   "description": "Friday Night Gaming at Portillo's. Bring a friend for a good time gaming on a Friday night. It's casual and light, you can bring a game if you want. There are an average of 10 - 15 regulars who show up.",
    "is_free": true,
    "price_text": null,
    "original_price_text": null,
@@ -3841,15 +3541,15 @@
    "interested_count": null
   },
   {
-   "title": "ZOMBIE RUN",
+   "title": "NEW YORK CITY ZOMBIE CRAWL - Halloween Bar Crawl - 10+ Bars - Oct. 30 & 31",
    "start": "2026-10-30T19:00-04:00",
-   "venue": "Bud & Honey NYC Dispensary",
-   "url": "https://getpie.app/plans/0a86ab66-cdcd-469a-8363-027f183c185a",
-   "source": "pie",
+   "venue": "Mama's Bar, 34 Avenue B, New York, NY 10009",
+   "url": "https://www.eventbrite.com/e/new-york-city-zombie-crawl-halloween-bar-crawl-10-bars-oct-30-31-tickets-1996252830955",
+   "source": "eventbrite",
    "city": "NYC",
-   "description": "the costumes are coming out & so are we \ud83d\udc7b spooky season, but make it a 5K bud & honey + ish + thriive run club + dj pipe are taking over flatiron for a halloween night out, run club edition! walk it. jog it. run it. just come dressed for the occasion \ud83c\udf83 \ud83d\udccd 241 fifth avenue | flatiron, nyc \u23f0 7pm meet |",
-   "is_free": null,
-   "price_text": "FREE with ticket",
+   "description": "Join the Halloween Bar Crawl to visit multiple Halloween parties on the same street with free entry and drink discounts at each stop!",
+   "is_free": false,
+   "price_text": "From $19.98",
    "original_price_text": null,
    "sold_out": false,
    "few_left": null,
@@ -3863,6 +3563,21 @@
    "source": "pie",
    "city": "NYC",
    "description": "Dolly Parton\u2019s tunes, wisdom, documentary and potluck with other fans channeling in our country femme power!",
+   "is_free": null,
+   "price_text": "FREE with ticket",
+   "original_price_text": null,
+   "sold_out": false,
+   "few_left": null,
+   "interested_count": null
+  },
+  {
+   "title": "ZOMBIE RUN",
+   "start": "2026-10-30T19:00-04:00",
+   "venue": "Bud & Honey NYC Dispensary",
+   "url": "https://getpie.app/plans/0a86ab66-cdcd-469a-8363-027f183c185a",
+   "source": "pie",
+   "city": "NYC",
+   "description": "the costumes are coming out & so are we \ud83d\udc7b spooky season, but make it a 5K bud & honey + ish + thriive run club + dj pipe are taking over flatiron for a halloween night out, run club edition! walk it. jog it. run it. just come dressed for the occasion \ud83c\udf83 \ud83d\udccd 241 fifth avenue | flatiron, nyc \u23f0 7pm meet |",
    "is_free": null,
    "price_text": "FREE with ticket",
    "original_price_text": null,
@@ -4036,6 +3751,21 @@
    "interested_count": null
   },
   {
+   "title": "Night of the Lifting Dead",
+   "start": "2026-10-30T19:00-05:00",
+   "venue": "1322 S Michigan Ave",
+   "url": "https://getpie.app/plans/98feabc9-2b72-4edd-a078-d0e549f258cb",
+   "source": "pie",
+   "city": "Chicago",
+   "description": "\ud83d\udc80 Night of the Lifting Dead Join us for a Halloween party at Chicago Strength Club! We\u2019re bringing together good people, friendly competition, costumes, and drinks for a fun night in the South Loop. What to Expect: * Lifting Contest * Costume Contest * Awards & Prizes * Cash Bar Whether you\u2019re compe",
+   "is_free": null,
+   "price_text": "FREE with ticket",
+   "original_price_text": null,
+   "sold_out": false,
+   "few_left": null,
+   "interested_count": null
+  },
+  {
    "title": "Find Your Boo! Halloween Singles Night: Sushi, Dumplings & Noodles! 30+",
    "start": "2026-10-30T19:00-05:00",
    "venue": "Itasca",
@@ -4060,21 +3790,6 @@
    "description": "Happy Halloween y'all, We're having a spooky fun time with drinking & eating at Revolution Brewing before the actual end of October. Dress up, bring food, & let's chill! Fun Fact: The year is almost over. Isn't that crazy? Anyone's free to come, whether or not you're confident in your cooking skills",
    "is_free": true,
    "price_text": null,
-   "original_price_text": null,
-   "sold_out": false,
-   "few_left": null,
-   "interested_count": null
-  },
-  {
-   "title": "Night of the Lifting Dead",
-   "start": "2026-10-30T19:00-05:00",
-   "venue": "1322 S Michigan Ave",
-   "url": "https://getpie.app/plans/98feabc9-2b72-4edd-a078-d0e549f258cb",
-   "source": "pie",
-   "city": "Chicago",
-   "description": "\ud83d\udc80 Night of the Lifting Dead Join us for a Halloween party at Chicago Strength Club! We\u2019re bringing together good people, friendly competition, costumes, and drinks for a fun night in the South Loop. What to Expect: * Lifting Contest * Costume Contest * Awards & Prizes * Cash Bar Whether you\u2019re compe",
-   "is_free": null,
-   "price_text": "FREE with ticket",
    "original_price_text": null,
    "sold_out": false,
    "few_left": null,
@@ -4132,7 +3847,7 @@
    "url": "https://partiful.com/e/h2aTCQJaR1AcU4GtyyRk",
    "source": "partiful",
    "city": "NYC",
-   "description": "CITADEL. hallows eve. come to dance. hip-hop. nolabounce. jersey club. ghetto tech. unique blends. world. retro sounds. spooky season. B2B all night featuring our family and community. Friday, October 30th, 8pm-2am Rodeo BK, 1134 Presidents St, Brooklyn, NY Featuring sounds by the gouls and goblins:",
+   "description": "CITADEL. hallows eve. come to dance. hip-hop. nolabounce. jersey club. ghetto tech. unique blends. world. retro sounds. 21+. spooky season. B2B all night featuring our family and community. Friday, October 30th, 8pm-2am Rodeo BK, 1134 Presidents St, Brooklyn, NY Featuring sounds by the gouls and gob",
    "is_free": null,
    "price_text": null,
    "original_price_text": null,
@@ -4153,7 +3868,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 57
+   "interested_count": 60
   },
   {
    "title": "Yesterday\u2019s Halloween: Tequila Open Bar & Pizza \u2014 Oct 30",
@@ -4216,13 +3931,13 @@
    "interested_count": null
   },
   {
-   "title": "Spooky Sets",
+   "title": "Dead on Devon 2",
    "start": "2026-10-30T20:00-05:00",
-   "venue": "BuckleDown Brewing",
-   "url": "https://getpie.app/plans/992056b6-4581-47b9-a4c9-2af01c615f81",
+   "venue": "Cary's Lounge",
+   "url": "https://getpie.app/plans/7b4d07f1-9aac-474b-b503-8534fb629076",
    "source": "pie",
    "city": "Chicago",
-   "description": "Spooky Sets is a FREE Comedy Show that takes place at BuckleDown Brewing in Lyons, Illinois featuring some of the funniest comedians in Chicago and the Midwest. There is a one drink minimum per guest at this show and donations are encouraged but not required.",
+   "description": "Local legends have been possessed by the spirit of their favorite bands, Misfits, Green Day, Suicide, and Barenaked Ladies.",
    "is_free": true,
    "price_text": null,
    "original_price_text": null,
@@ -4246,13 +3961,13 @@
    "interested_count": null
   },
   {
-   "title": "Dead on Devon 2",
+   "title": "Spooky Sets",
    "start": "2026-10-30T20:00-05:00",
-   "venue": "Cary's Lounge",
-   "url": "https://getpie.app/plans/7b4d07f1-9aac-474b-b503-8534fb629076",
+   "venue": "BuckleDown Brewing",
+   "url": "https://getpie.app/plans/992056b6-4581-47b9-a4c9-2af01c615f81",
    "source": "pie",
    "city": "Chicago",
-   "description": "Local legends have been possessed by the spirit of their favorite bands, Misfits, Green Day, Suicide, and Barenaked Ladies.",
+   "description": "Spooky Sets is a FREE Comedy Show that takes place at BuckleDown Brewing in Lyons, Illinois featuring some of the funniest comedians in Chicago and the Midwest. There is a one drink minimum per guest at this show and donations are encouraged but not required.",
    "is_free": true,
    "price_text": null,
    "original_price_text": null,
@@ -4333,7 +4048,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 102
+   "interested_count": 107
   },
   {
    "title": "Phantom Fete 2026",
@@ -4393,7 +4108,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 64
+   "interested_count": 67
   },
   {
    "title": "AMERICAN HORROR STORY: JC'S BIGGEST HALLOWEEN PARTY 2026 | OCT 30",
@@ -4498,7 +4213,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 234
+   "interested_count": 241
   },
   {
    "title": "eclipse 001",
@@ -4516,13 +4231,13 @@
    "interested_count": 7
   },
   {
-   "title": "Halloween Eve Party @ Penny with Protocol!",
+   "title": "Estilo Halloween \ud83e\udd87",
    "start": "2026-10-30T21:00-05:00",
-   "venue": "The Giant Penny Whistle",
-   "url": "https://getpie.app/plans/cc89c5a3-1cce-47c4-916d-d1f3bcb0ad9b",
+   "venue": "Blind Barber",
+   "url": "https://getpie.app/plans/2c64d25b-f4fd-49c3-afd6-bdad3d46c9fa",
    "source": "pie",
    "city": "Chicago",
-   "description": "\ud83e\udddf\u200d\u2642\ufe0f LOST IN TRANSLATION: HALLOWEEN EDITION \ud83d\udd78\ufe0f\ud83e\udde1 Protocol is back at The Giant Penny Whistle Friday, October 30th, with Latin, Afro, Hip-Hop, R&B, Juke, edits, house & global club sounds all night long. \ud83c\udfa7 Special guests: @mista_ricksta, @freddyphate & @timmy_v \ud83d\udd77\ufe0f Costumes highly encouraged. The freak",
+   "description": "Halloween weekend starts at Blind Barber \ud83c\udf83 \ud83d\udc88 @djmarino.wav \u2022 @dj.monchichi \u2022 @erick_too_dope on vibe duty, bringing you the best in Reggaet\u00f3n, Dembow, House y m\u00e1s. Costumes encouraged Email marino@ajuamedia.com for tables Ladies, contact me directly for guest list access.",
    "is_free": true,
    "price_text": null,
    "original_price_text": null,
@@ -4531,13 +4246,13 @@
    "interested_count": null
   },
   {
-   "title": "Estilo Halloween \ud83e\udd87",
+   "title": "Halloween Eve Party @ Penny with Protocol!",
    "start": "2026-10-30T21:00-05:00",
-   "venue": "Blind Barber",
-   "url": "https://getpie.app/plans/2c64d25b-f4fd-49c3-afd6-bdad3d46c9fa",
+   "venue": "The Giant Penny Whistle",
+   "url": "https://getpie.app/plans/cc89c5a3-1cce-47c4-916d-d1f3bcb0ad9b",
    "source": "pie",
    "city": "Chicago",
-   "description": "Halloween weekend starts at Blind Barber \ud83c\udf83 \ud83d\udc88 @djmarino.wav \u2022 @dj.monchichi \u2022 @erick_too_dope on vibe duty, bringing you the best in Reggaet\u00f3n, Dembow, House y m\u00e1s. Costumes encouraged Email marino@ajuamedia.com for tables Ladies, contact me directly for guest list access.",
+   "description": "\ud83e\udddf\u200d\u2642\ufe0f LOST IN TRANSLATION: HALLOWEEN EDITION \ud83d\udd78\ufe0f\ud83e\udde1 Protocol is back at The Giant Penny Whistle Friday, October 30th, with Latin, Afro, Hip-Hop, R&B, Juke, edits, house & global club sounds all night long. \ud83c\udfa7 Special guests: @mista_ricksta, @freddyphate & @timmy_v \ud83d\udd77\ufe0f Costumes highly encouraged. The freak",
    "is_free": true,
    "price_text": null,
    "original_price_text": null,
@@ -4567,7 +4282,7 @@
    "url": "https://partiful.com/e/Q31xn4PA0Qqm1H85he3s",
    "source": "partiful",
    "city": "NYC",
-   "description": "A Halloween Evening, presented by Supernova Vinyl sounds by Alpaca (@_alp_aca), photos by Tugcan Temizkan (@tugcanstemizkan), with special performances throughout the night by the Sexperience cast (@sexperience.nyc). Choreographed & directed by Jason Williams (@thejasonwilliamsexperience) $10 entry",
+   "description": "A Halloween Evening, presented by Supernova \ud83c\udf4c VELVET \u2014 Friday, October 30 A Halloween party and an homage to The Velvet Underground and the spirit of Andy Warhol\u2019s Factory\u2014a gathering of music, art, and underground expression inspired by New York in the \u201960s and \u201970s. Alpaca (@_alp_aca) will be DJin",
    "is_free": null,
    "price_text": null,
    "original_price_text": null,
@@ -4783,7 +4498,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 183
+   "interested_count": 191
   },
   {
    "title": "HALLOWJEAN\u2019S: PART I",
@@ -4963,7 +4678,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 26
+   "interested_count": 30
   },
   {
    "title": "HALLOWEEN CANDY/TREAT TRADE for big kids",
@@ -5026,6 +4741,21 @@
    "interested_count": null
   },
   {
+   "title": "NYC Marathon Shakeout Maybelline x Rendezvous",
+   "start": "2026-10-31T09:00-04:00",
+   "venue": "Festiv\u00e1l Caf\u00e9 NYC",
+   "url": "https://getpie.app/plans/e4f9614b-bb28-4799-9cb3-2391c25e06dd",
+   "source": "pie",
+   "city": "NYC",
+   "description": "Join Rendezvous and Maybelline New York for the perfect pre marathon race prep on October 31st \ud83c\udfc3\ud83c\udffd\u200d\u2640\ufe0f Palmas run club is rolling deep \ud83c\udf34\ud83c\udf34 What to expect: \ud83c\udfc3\ud83c\udffd\u200d\u2640\ufe0f A 3 mile shakeout run with Team Maybelline athletes \ud83d\udd76\ufe0f Free, limited edition Rendezvous X Maybelline running sunglasses \ud83d\udc84 Free, Superstay Matt",
+   "is_free": true,
+   "price_text": null,
+   "original_price_text": null,
+   "sold_out": false,
+   "few_left": null,
+   "interested_count": null
+  },
+  {
    "title": "Sat. Oct 31st - Cafe Run (TOASTIQUE) Montclair - 9am",
    "start": "2026-10-31T09:00-04:00",
    "venue": "Toastique",
@@ -5048,21 +4778,6 @@
    "source": "pie",
    "city": "NYC",
    "description": "Join us for one big shakeout to unite the NYC running community before the marathon! Whether you\u2019re racing, spectating, or just want to get a few easy miles in, this is the perfect way to loosen up and connect with fellow runners. Run Clubs: Cooldown & Zoomies Sponsored by: Fleet Feet Altra Garmin S",
-   "is_free": true,
-   "price_text": null,
-   "original_price_text": null,
-   "sold_out": false,
-   "few_left": null,
-   "interested_count": null
-  },
-  {
-   "title": "NYC Marathon Shakeout Maybelline x Rendezvous",
-   "start": "2026-10-31T09:00-04:00",
-   "venue": "Festiv\u00e1l Caf\u00e9 NYC",
-   "url": "https://getpie.app/plans/e4f9614b-bb28-4799-9cb3-2391c25e06dd",
-   "source": "pie",
-   "city": "NYC",
-   "description": "Join Rendezvous and Maybelline New York for the perfect pre marathon race prep on October 31st \ud83c\udfc3\ud83c\udffd\u200d\u2640\ufe0f Palmas run club is rolling deep \ud83c\udf34\ud83c\udf34 What to expect: \ud83c\udfc3\ud83c\udffd\u200d\u2640\ufe0f A 3 mile shakeout run with Team Maybelline athletes \ud83d\udd76\ufe0f Free, limited edition Rendezvous X Maybelline running sunglasses \ud83d\udc84 Free, Superstay Matt",
    "is_free": true,
    "price_text": null,
    "original_price_text": null,
@@ -5116,21 +4831,6 @@
    "interested_count": null
   },
   {
-   "title": "Demon Time 3",
-   "start": "2026-10-31T10:30-04:00",
-   "venue": "Night Club 101",
-   "url": "https://getpie.app/plans/3e7120d6-756b-42c8-b496-cc2586b518e4",
-   "source": "pie",
-   "city": "NYC",
-   "description": "Halloween on a Saturday... what more could you ask for? Were bringing it back to the city for this one. Third times a charm. Space is LIMITED and pricing is tiered so please cop tickets now if you know you're coming. Maybe grab a couple extra for your friends while you're at it. We don't want anyone",
-   "is_free": null,
-   "price_text": "$20",
-   "original_price_text": null,
-   "sold_out": false,
-   "few_left": null,
-   "interested_count": null
-  },
-  {
    "title": "NYCRUNSWILD 10/31",
    "start": "2026-10-31T10:30-04:00",
    "venue": "Haus of K",
@@ -5140,6 +4840,21 @@
    "description": "SPOOKY HALLOWEEN RUNNNNN\ud83c\udf83\ud83d\udc7b\ud83e\udd73 NYC RUNS WILD is SO excited to be partnering with Haus of K for a Halloween costume run!!! \ud83e\udde1 Join us for a beginner friendly 5K run and/or walk, show off your best Halloween costume, and celebrate with our running community! \ud83d\udc7b \u2728 All runners will receive: \ud83c\udf81 Complimentary g",
    "is_free": true,
    "price_text": null,
+   "original_price_text": null,
+   "sold_out": false,
+   "few_left": null,
+   "interested_count": null
+  },
+  {
+   "title": "Demon Time 3",
+   "start": "2026-10-31T10:30-04:00",
+   "venue": "Night Club 101",
+   "url": "https://getpie.app/plans/3e7120d6-756b-42c8-b496-cc2586b518e4",
+   "source": "pie",
+   "city": "NYC",
+   "description": "Halloween on a Saturday... what more could you ask for? Were bringing it back to the city for this one. Third times a charm. Space is LIMITED and pricing is tiered so please cop tickets now if you know you're coming. Maybe grab a couple extra for your friends while you're at it. We don't want anyone",
+   "is_free": null,
+   "price_text": "$20",
    "original_price_text": null,
    "sold_out": false,
    "few_left": null,
@@ -5161,13 +4876,13 @@
    "interested_count": 63
   },
   {
-   "title": "\ud83d\udda4 GIRLS WHO MEET: HALLOWEEN SCULPT IN CENTRAL PARK! \ud83c\udf83",
+   "title": "5th Annual Hudson County Fall Fest",
    "start": "2026-10-31T11:00-04:00",
-   "venue": "Central Park",
-   "url": "https://getpie.app/plans/220ebaaf-c704-47b3-80c9-237a5e07a638",
+   "venue": "101 Pacific Ave",
+   "url": "https://getpie.app/plans/3798c065-dc6a-4b42-a90d-dd8d8b248d95",
    "source": "pie",
    "city": "NYC",
-   "description": "Join us for a special Halloween edition of our outdoor sculpt class in Central Park with @lanzyfit! We're bringing the girls together for a fun morning of movement, fresh air, and new connections in one of NYC's most iconic settings. Led by @lanzyfit, this all-levels sculpt workout is designed to le",
+   "description": "Craig Guy, Hudson County Executive, invites you to join the 5th Hudson County Fall Fest for a day filled with family fun, live music & food.",
    "is_free": true,
    "price_text": null,
    "original_price_text": null,
@@ -5176,13 +4891,13 @@
    "interested_count": null
   },
   {
-   "title": "5th Annual Hudson County Fall Fest",
+   "title": "\ud83d\udda4 GIRLS WHO MEET: HALLOWEEN SCULPT IN CENTRAL PARK! \ud83c\udf83",
    "start": "2026-10-31T11:00-04:00",
-   "venue": "101 Pacific Ave",
-   "url": "https://getpie.app/plans/3798c065-dc6a-4b42-a90d-dd8d8b248d95",
+   "venue": "Central Park",
+   "url": "https://getpie.app/plans/220ebaaf-c704-47b3-80c9-237a5e07a638",
    "source": "pie",
    "city": "NYC",
-   "description": "Craig Guy, Hudson County Executive, invites you to join the 5th Hudson County Fall Fest for a day filled with family fun, live music & food.",
+   "description": "Join us for a special Halloween edition of our outdoor sculpt class in Central Park with @lanzyfit! We're bringing the girls together for a fun morning of movement, fresh air, and new connections in one of NYC's most iconic settings. Led by @lanzyfit, this all-levels sculpt workout is designed to le",
    "is_free": true,
    "price_text": null,
    "original_price_text": null,
@@ -5274,7 +4989,7 @@
    "city": "NYC",
    "description": "Celebrate Halloween on Stone Street with one wristband for participating bars, live DJs and exclusive drink specials in Lower Manhattan.",
    "is_free": false,
-   "price_text": "From $39.99",
+   "price_text": "From $49.99",
    "original_price_text": null,
    "sold_out": false,
    "few_left": null,
@@ -5308,7 +5023,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 153
+   "interested_count": 152
   },
   {
    "title": "McGhoulrick Halloween Party",
@@ -5323,7 +5038,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 41
+   "interested_count": 43
   },
   {
    "title": "PILSEN HALLOWEEN BAR CRAWL PARTY! 2026",
@@ -5476,6 +5191,21 @@
    "interested_count": null
   },
   {
+   "title": "New Classics Film Series: Ghostbusters",
+   "start": "2026-10-31T13:00-04:00",
+   "venue": "New York Public Library for the Performing Arts -Bruno Walter Auditorium, Enter via 111 Amsterdam Ave. between West 64th and 65th Street, New York, NY 10023-7498",
+   "url": "https://www.eventbrite.com/e/new-classics-film-series-ghostbusters-tickets-1999729807686",
+   "source": "eventbrite",
+   "city": "NYC",
+   "description": "Experience the beloved horror-comedy classic Ghostbusters as part of our New Classics series at the Library for Performing Arts.",
+   "is_free": true,
+   "price_text": null,
+   "original_price_text": null,
+   "sold_out": false,
+   "few_left": null,
+   "interested_count": null
+  },
+  {
    "title": "Currently Studios NYC26",
    "start": "2026-10-31T13:00-04:00",
    "venue": "NYC",
@@ -5488,7 +5218,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 7
+   "interested_count": 10
   },
   {
    "title": "ZOOMIES HALLOWEEN COSTUME + FUN RUN",
@@ -5641,6 +5371,21 @@
    "interested_count": null
   },
   {
+   "title": "Chicago's Biggest 2 Day Halloween Bar Crawl Boos & Booze West Loop",
+   "start": "2026-10-31T14:00-05:00",
+   "venue": "Carbon, 1204 West Lake Street, Chicago, IL 60607",
+   "url": "https://www.eventbrite.com/e/chicagos-biggest-2-day-halloween-bar-crawl-boos-booze-west-loop-tickets-1982803057320",
+   "source": "eventbrite",
+   "city": "Chicago",
+   "description": "Experience a 2 day Friday And Saturday event and the ultimate Halloween Bar Crawl right in the heart of West Loop, Chicago!",
+   "is_free": false,
+   "price_text": "From $13.64",
+   "original_price_text": null,
+   "sold_out": false,
+   "few_left": null,
+   "interested_count": null
+  },
+  {
    "title": "Paint by Number: HALLOWEEN PRE-PARTY",
    "start": "2026-10-31T14:00-05:00",
    "venue": "10654 S Michigan Ave",
@@ -5722,13 +5467,13 @@
    "url": "https://partiful.com/e/pdWbSlhVBPBIhUz435u1",
    "source": "partiful",
    "city": "NYC",
-   "description": "Come eat an apple with me BYOA \ud83c\udf4e Costumes are very welcomed Washington Square Park 3:00 It's HALLOWEEN. What better time to gather for a wicked harvest before the night? BRING A FRIEND, \ud83c\udf4e, AND BLAST THIS !!! The more the merrier! Hosted by 2 college students from NYU and Columbia who love bringing p",
+   "description": "Come eat an apple with me BYOA \ud83c\udf4e Costumes are very welcomed Washington Square Park 3:00 It's HALLOWEEN. What better time to gather for a wicked harvest before the night? BRING A FRIEND + \ud83c\udf4e !!! The more the merrier! Hosted by 2 college students from NYU and Columbia who love bringing people together.",
    "is_free": null,
    "price_text": null,
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 209
+   "interested_count": 214
   },
   {
    "title": "Superior Ingredients Halloween: Rooftop & Club \u2014 Oct 31",
@@ -5821,21 +5566,6 @@
    "interested_count": null
   },
   {
-   "title": "NIGHTMARE ON NORTH II! \u2728\ufe0f\ud83e\udd87\ud83c\udf83 10/31  at Chi\u2019Tiva Wicker Park",
-   "start": "2026-10-31T16:00-05:00",
-   "venue": "THC by Chitiva Wicker Park Bucktown",
-   "url": "https://getpie.app/plans/815e6bd1-4430-4c2b-a8bc-cc652a54f01e",
-   "source": "pie",
-   "city": "Chicago",
-   "description": "An event so nice, we had to host it TWICE\u2026 The most highly anticipated sequel is finally here\ud83d\udc7b Get ready for Nightmare on North Part 2 at Chi\u2019Tiva on Halloween 10/31 from 4PM-9PM \ud83c\udf83 Join us once again for a haunted open mic, killer live performances, spooky local vendors, Halloween themed games & a c",
-   "is_free": null,
-   "price_text": "FREE with ticket",
-   "original_price_text": null,
-   "sold_out": false,
-   "few_left": null,
-   "interested_count": null
-  },
-  {
    "title": "Andrea\u2019s Birthday/Halloween Party! \ud83c\udf83",
    "start": "2026-10-31T16:00-05:00",
    "venue": "2435 W McLean Ave",
@@ -5845,6 +5575,21 @@
    "description": "come celebrate Halloween and another trip around the sun for our beloved birthday ghoul! WEAR A COSTUME, DARLINGS! for the creatively stumped, a bunch of us are dressing as children\u2019s literature characters! a few other bits of party business: BYOB! we'll have some snacks to share. shareables welcome",
    "is_free": true,
    "price_text": null,
+   "original_price_text": null,
+   "sold_out": false,
+   "few_left": null,
+   "interested_count": null
+  },
+  {
+   "title": "NIGHTMARE ON NORTH II! \u2728\ufe0f\ud83e\udd87\ud83c\udf83 10/31  at Chi\u2019Tiva Wicker Park",
+   "start": "2026-10-31T16:00-05:00",
+   "venue": "THC by Chitiva Wicker Park Bucktown",
+   "url": "https://getpie.app/plans/815e6bd1-4430-4c2b-a8bc-cc652a54f01e",
+   "source": "pie",
+   "city": "Chicago",
+   "description": "An event so nice, we had to host it TWICE\u2026 The most highly anticipated sequel is finally here\ud83d\udc7b Get ready for Nightmare on North Part 2 at Chi\u2019Tiva on Halloween 10/31 from 4PM-9PM \ud83c\udf83 Join us once again for a haunted open mic, killer live performances, spooky local vendors, Halloween themed games & a c",
+   "is_free": null,
+   "price_text": "FREE with ticket",
    "original_price_text": null,
    "sold_out": false,
    "few_left": null,
@@ -6028,7 +5773,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 132
+   "interested_count": 133
   },
   {
    "title": "Halloween in Brooklyn",
@@ -6058,7 +5803,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 1450
+   "interested_count": 1463
   },
   {
    "title": "THE MONSTER MOSH!",
@@ -6073,7 +5818,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 105
+   "interested_count": 107
   },
   {
    "title": "Fundraiser Agaist Domestic Violence",
@@ -6148,7 +5893,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 41
+   "interested_count": 43
   },
   {
    "title": "Elsewhere Halloween: Cannelle, EQ, Tommy Fleece, Corridos Ketamina + more",
@@ -6238,7 +5983,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 103
+   "interested_count": 106
   },
   {
    "title": "Halloween Comedy Show & Roast Battle",
@@ -6313,7 +6058,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 236
+   "interested_count": 235
   },
   {
    "title": "VDM  Halloween After-Hours",
@@ -6346,13 +6091,13 @@
    "interested_count": 15
   },
   {
-   "title": "MOMMY ISSUES: Halloween comedy show \ud83e\udddf\u200d\u2640\ufe0f\ud83d\udd2a",
+   "title": "MOMMY ISSUES: Halloween comedy show & after party \ud83e\udddf\u200d\u2640\ufe0f\ud83d\udd2a",
    "start": "2026-10-31T19:00-05:00",
    "venue": "Lincoln Lodge",
    "url": "https://partiful.com/e/tuQ3EsPZyRg8uQ80GCin",
    "source": "partiful",
    "city": "Chicago",
-   "description": "Mommy Issues is a recurring themed standup show where comedians mine the most formative relationship of their lives for laughs. From unconditional love to emotional damage (and everything in between), no childhood memory is safe. Free bc therapy ain\u2019t cheap. **THIS IS A TICKETED EVENT** Purchase a t",
+   "description": "Mommy Issues is a recurring themed standup show where comedians mine the most formative relationship of their lives for laughs. From unconditional love to emotional damage (and everything in between), no childhood memory is safe. Free bc therapy ain\u2019t cheap. Join us for our Halloween edition of Momm",
    "is_free": null,
    "price_text": null,
    "original_price_text": null,
@@ -6568,7 +6313,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 215
+   "interested_count": 219
   },
   {
    "title": "HALLOWEEN ON THE ROOF!",
@@ -6736,21 +6481,6 @@
    "interested_count": null
   },
   {
-   "title": "Scorpio Season \u2014 31st Annual Celebration",
-   "start": "2026-10-31T20:00-05:00",
-   "venue": "3381 N Milwaukee Ave",
-   "url": "https://getpie.app/plans/d9f58326-49a5-4d29-abaf-ea01246dc5df",
-   "source": "pie",
-   "city": "Chicago",
-   "description": "Join us for an exclusive 31st Annual Birthday Celebration, presented by Masterful Conception. On Halloween night, a private Chicago location becomes the setting for an intimate and elevated masquerade experience\u2014where sophisticated style meets nightlife energy. Step into an evening of music, dancing",
-   "is_free": null,
-   "price_text": "$12",
-   "original_price_text": null,
-   "sold_out": false,
-   "few_left": null,
-   "interested_count": null
-  },
-  {
    "title": "Solo? Come Join the Crew Oct 31st @ Offshore Rooftop - Navy Pier \ud83d\udc7b",
    "start": "2026-10-31T20:00-05:00",
    "venue": "Navy Pier",
@@ -6760,6 +6490,21 @@
    "description": "Halloween at Offshore! Come hang, dress up, grab some drinks, dance, and enjoy the skyline. Whether you\u2019re coming solo or with friends, everyone\u2019s welcome. \ud83c\udf83\ud83e\udd42",
    "is_free": null,
    "price_text": "$35",
+   "original_price_text": null,
+   "sold_out": false,
+   "few_left": null,
+   "interested_count": null
+  },
+  {
+   "title": "Scorpio Season \u2014 31st Annual Celebration",
+   "start": "2026-10-31T20:00-05:00",
+   "venue": "3381 N Milwaukee Ave",
+   "url": "https://getpie.app/plans/d9f58326-49a5-4d29-abaf-ea01246dc5df",
+   "source": "pie",
+   "city": "Chicago",
+   "description": "Join us for an exclusive 31st Annual Birthday Celebration, presented by Masterful Conception. On Halloween night, a private Chicago location becomes the setting for an intimate and elevated masquerade experience\u2014where sophisticated style meets nightlife energy. Step into an evening of music, dancing",
+   "is_free": null,
+   "price_text": "$12",
    "original_price_text": null,
    "sold_out": false,
    "few_left": null,
@@ -6883,7 +6628,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 56
+   "interested_count": 57
   },
   {
    "title": "Mercer Halloween at The Crown Rooftop NYC \u2014 Oct 31",
@@ -6901,19 +6646,19 @@
    "interested_count": null
   },
   {
-   "title": "Angels After Dark: Moxy Williamsburg Halloween \u2014 Oct 31",
+   "title": "BARLUME SATURDAYS PRESENTS: HALLOWEEN",
    "start": "2026-10-31T21:00-04:00",
-   "venue": "Moxy Brooklyn Williamsburg",
-   "url": "https://partiful.com/e/8D32wX7gP5xYNl5O90ln",
+   "venue": "NYC",
+   "url": "https://partiful.com/e/tZYYMwOfnnftuLFZl0MQ",
    "source": "partiful",
    "city": "NYC",
-   "description": "ANGELS AFTER DARK NIGHT TWO From the team that brought you Amber Sunset Party... Ascend to heaven's gates and find yourself in a world where the divine meets the decadent - 5 unique rooms, each more surreal than the last. Join us for the biggest Halloween party in Williamsburg: a five-room takeover ",
+   "description": "BARLUME SATURDAYS PRESENTS: HALLOWEEN Saturday, October 31 | 9PM\u20132AM Halloween takes over Barlume Downstairs. Join us for a night of halloween inspired cocktails and sounds from DJ CLASSICNEWWAVE. Entry is available on first come, first service basis. For table bookings , please reach out to us at d",
    "is_free": null,
    "price_text": null,
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": null
+   "interested_count": 8
   },
   {
    "title": "gggayest Halloween party x House of Yes",
@@ -6939,7 +6684,7 @@
    "city": "Chicago",
    "description": "\"FREAK SHOW\" Halloween Edition LIMITED CAPACITY EVENT | EARLY VIBE; 9pm-2a",
    "is_free": false,
-   "price_text": "Free to $500",
+   "price_text": "Free to $535.38",
    "original_price_text": null,
    "sold_out": false,
    "few_left": null,
@@ -7078,7 +6823,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 179
+   "interested_count": 185
   },
   {
    "title": "TIL DEATH DO US PART 3",
@@ -7093,7 +6838,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 37
+   "interested_count": 38
   },
   {
    "title": "SAPPHIC HALLOWEEN - ON THE CROSS",
@@ -7348,7 +7093,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 165
+   "interested_count": 166
   },
   {
    "title": "Moondog HiFi presents: DISCO AFTERLIFE",
@@ -7363,7 +7108,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 85
+   "interested_count": 86
   },
   {
    "title": "HW - BOOM+LEBAIN",
@@ -7378,7 +7123,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 69
+   "interested_count": 71
   },
   {
    "title": "Afrobeats Saturdayz: Halloween costume party (Up to $1000 in prizes)",
@@ -7561,6 +7306,21 @@
    "interested_count": null
   },
   {
+   "title": "FUNK IT HALLOWEEN",
+   "start": "2026-10-31T22:30-04:00",
+   "venue": "Secret Room NYC, West 45th Street, New York, NY 10036",
+   "url": "https://www.eventbrite.com/e/funk-it-halloween-tickets-2000272497887",
+   "source": "eventbrite",
+   "city": "NYC",
+   "description": "FUNK IT HALLOWEEN 2026 \u2728 The Biggest & Most Traditional Brazilian Halloween Party in NYC! \u2728",
+   "is_free": false,
+   "price_text": "From $18",
+   "original_price_text": null,
+   "sold_out": false,
+   "few_left": null,
+   "interested_count": null
+  },
+  {
    "title": "dance 2 die",
    "start": "2026-10-31T22:30-04:00",
    "venue": "NYC",
@@ -7573,7 +7333,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 130
+   "interested_count": 131
   },
   {
    "title": "Nightmare on 36th Street Halloween Parrty at Nexo Nightclub",
@@ -7678,7 +7438,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 77
+   "interested_count": 86
   },
   {
    "title": "We\u2019re Bored So We\u2019re Throwing A Halloween Party",
@@ -7693,7 +7453,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 194
+   "interested_count": 197
   },
   {
    "title": "RENEGADE HALLOWEEN",
@@ -7828,7 +7588,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 60
+   "interested_count": 65
   },
   {
    "title": "Portrait Party! (Uptown)",
@@ -7873,7 +7633,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 23
+   "interested_count": 24
   },
   {
    "title": "The Freak Show: NYC Halloween Day Party 2026 | Big Apple Brunch",
@@ -7906,21 +7666,6 @@
    "interested_count": null
   },
   {
-   "title": "Move with Gratitude",
-   "start": "2026-11-01T17:00-05:00",
-   "venue": "gotta join to get the spot",
-   "url": "https://getpie.app/plans/f83cd2ca-5aa5-4ec7-84ae-ec670014025c",
-   "source": "pie",
-   "city": "NYC",
-   "description": "This November, we are moving with gratitude with a curated, restorative social wellness event that pairs 45 minutes of mat-based Pilates for core strength and mobility with a guided gratitude practice followed by a pickleball social and time for you to slow down, reflect, and write a handwritten not",
-   "is_free": null,
-   "price_text": "FREE with ticket",
-   "original_price_text": null,
-   "sold_out": true,
-   "few_left": null,
-   "interested_count": null
-  },
-  {
    "title": "Gotham FC knit & stitch night",
    "start": "2026-11-01T17:00-05:00",
    "venue": "Sports Illustrated Stadium",
@@ -7932,6 +7677,21 @@
    "price_text": null,
    "original_price_text": null,
    "sold_out": false,
+   "few_left": null,
+   "interested_count": null
+  },
+  {
+   "title": "Move with Gratitude",
+   "start": "2026-11-01T17:00-05:00",
+   "venue": "gotta join to get the spot",
+   "url": "https://getpie.app/plans/f83cd2ca-5aa5-4ec7-84ae-ec670014025c",
+   "source": "pie",
+   "city": "NYC",
+   "description": "This November, we are moving with gratitude with a curated, restorative social wellness event that pairs 45 minutes of mat-based Pilates for core strength and mobility with a guided gratitude practice followed by a pickleball social and time for you to slow down, reflect, and write a handwritten not",
+   "is_free": null,
+   "price_text": "FREE with ticket",
+   "original_price_text": null,
+   "sold_out": true,
    "few_left": null,
    "interested_count": null
   },
@@ -7960,6 +7720,21 @@
    "description": "Celebrate NYC animation at the 3rd Annual WIA NYC Animation Festival! Join us Nov. 1 at SVA Theatre for films, awards and networking.",
    "is_free": false,
    "price_text": "From $7.18",
+   "original_price_text": null,
+   "sold_out": false,
+   "few_left": null,
+   "interested_count": null
+  },
+  {
+   "title": "Funny in the age of AI",
+   "start": "2026-11-01T18:00-06:00",
+   "venue": "The Lincoln Lodge",
+   "url": "https://getpie.app/plans/90879cee-ee80-457a-8b96-1e6ccb5be4ed",
+   "source": "pie",
+   "city": "Chicago",
+   "description": "A quarterly live series bringing comedians, researchers, and people across Chicago together to learn and laugh about AI",
+   "is_free": null,
+   "price_text": "$19",
    "original_price_text": null,
    "sold_out": false,
    "few_left": null,
@@ -8011,21 +7786,6 @@
    "interested_count": null
   },
   {
-   "title": "Funny in the age of AI",
-   "start": "2026-11-01T18:00-06:00",
-   "venue": "The Lincoln Lodge",
-   "url": "https://getpie.app/plans/90879cee-ee80-457a-8b96-1e6ccb5be4ed",
-   "source": "pie",
-   "city": "Chicago",
-   "description": "A quarterly live series bringing comedians, researchers, and people across Chicago together to learn and laugh about AI",
-   "is_free": null,
-   "price_text": "$19",
-   "original_price_text": null,
-   "sold_out": false,
-   "few_left": null,
-   "interested_count": null
-  },
-  {
    "title": "the 100 songs project",
    "start": "2026-11-01T19:00-06:00",
    "venue": "Nabala Cafe",
@@ -8038,7 +7798,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 13
+   "interested_count": 14
   },
   {
    "title": "CRAZY BINGO - \"Just Wing It\" Edition",
@@ -8326,21 +8086,6 @@
    "interested_count": null
   },
   {
-   "title": "KASAT MATA / MACROSCOPIC: IFFest NY 2026 Pre-Event",
-   "start": "2026-11-02T19:00-05:00",
-   "venue": "Selva",
-   "url": "https://partiful.com/e/ZrSSfaBLCmywyXY1JNjr",
-   "source": "partiful",
-   "city": "NYC",
-   "description": "You heard it here first! To kick off Indonesian Film Festival New York 2026, come join us a night of documentary shorts, either by Indonesian diasporic filmmakers or about the Indonesian diaspora. The Body Remembers, 2026, Prameswari Mrajabwana Sumpah Pemuda, 2026, Aisha Servia a draft/adrift: tanah",
-   "is_free": null,
-   "price_text": null,
-   "original_price_text": null,
-   "sold_out": null,
-   "few_left": null,
-   "interested_count": 9
-  },
-  {
    "title": "free bodyweight power circuit training",
    "start": "2026-11-02T19:00-05:00",
    "venue": "Constance Baker Motley Recreation Center",
@@ -8380,6 +8125,36 @@
    "description": "Join us for a night out at the United Center as we cheer on the Chicago Blackhawks!",
    "is_free": false,
    "price_text": "$41.50",
+   "original_price_text": null,
+   "sold_out": false,
+   "few_left": null,
+   "interested_count": null
+  },
+  {
+   "title": "CRAZY BINGO - \"Walk In The Park\" Edition",
+   "start": "2026-11-02T19:00-06:00",
+   "venue": "Central Park Bar",
+   "url": "https://getpie.app/plans/4f9d1949-cb5c-41c3-b220-78e1d4443677",
+   "source": "pie",
+   "city": "Chicago",
+   "description": "Love having fun, winning cool prizes, and getting to know your community? Then this is the event for you! \"It's a Good Time for Good\" What to expect at CRAZY BINGO: \u2022Big Bingo Wins \ud83c\udfc6\ud83d\ude0e Become an official CRAZY BINGO BADDIE when you win big. Sign your name in the BOOK OF BADDIES before collecting an a",
+   "is_free": true,
+   "price_text": null,
+   "original_price_text": null,
+   "sold_out": false,
+   "few_left": null,
+   "interested_count": null
+  },
+  {
+   "title": "DEAD A$$ TUCANAZO",
+   "start": "2026-11-02T19:00-06:00",
+   "venue": "Bookclub Chicago",
+   "url": "https://getpie.app/plans/1137d6fb-ea2f-499d-998e-f2a3e7c6a192",
+   "source": "pie",
+   "city": "Chicago",
+   "description": "ANNOUNCEMENT! Coming this November 2026, join us for our special celebration of D\u00eda De Los Muertos DEAD A$$ TUCANAZO This musical showcase doubles as a birthday celebration for RR alum @eltucangrams with merch features from @deadtucansociety & performances/sounds by: @media_luna_chicago @neverreally",
+   "is_free": true,
+   "price_text": null,
    "original_price_text": null,
    "sold_out": false,
    "few_left": null,
@@ -8533,7 +8308,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 117
+   "interested_count": 119
   },
   {
    "title": "Meet IRL | Curated Speed Dating | Ages 26-34 ~Men's tickets sold out~",
@@ -8608,6 +8383,21 @@
    "original_price_text": null,
    "sold_out": false,
    "few_left": false,
+   "interested_count": null
+  },
+  {
+   "title": "Rhapsody in SPRING Bar",
+   "start": "2026-11-04T17:30-05:00",
+   "venue": "NYC",
+   "url": "https://partiful.com/e/mkELRfXjYzsf05jk3Cgs",
+   "source": "partiful",
+   "city": "NYC",
+   "description": "Fun lil autumn bar menu! cranberry squash & squash salad, pork sausage with red cabbage on a potato roll, crab cavatelli inspired by Thai coconut soup! It\u2019s in Wednesday November 4th at 5:30pm until we sell out ! Bring some friends enjoy some drink ! See you soon!",
+   "is_free": null,
+   "price_text": null,
+   "original_price_text": null,
+   "sold_out": null,
+   "few_left": null,
    "interested_count": null
   },
   {
@@ -8941,21 +8731,6 @@
    "interested_count": 6
   },
   {
-   "title": "Chess Night @ Bibliotheque",
-   "start": "2026-11-05T19:00-05:00",
-   "venue": "Bibliotheque",
-   "url": "https://partiful.com/e/Ky2SnY2NKkocRctqhlx6",
-   "source": "partiful",
-   "city": "NYC",
-   "description": "Boards will be there, so just pull up. Whether you have never played before or have been playing for years, all levels are welcome. This is social chess, not competitive chess. Come meet some new friends, play a few games, and enjoy the good vibes and drinks at Bibliotheque! There\u2019s no cover charge ",
-   "is_free": null,
-   "price_text": null,
-   "original_price_text": null,
-   "sold_out": null,
-   "few_left": null,
-   "interested_count": 28
-  },
-  {
    "title": "Meet IRL x Feather & Tail: Singles Only Social (30+) ~Ladies tix sold out~",
    "start": "2026-11-05T19:00-06:00",
    "venue": "Feather & Tail, 4020 North Rockwell Street, Chicago, IL 60618",
@@ -9121,21 +8896,6 @@
    "interested_count": null
   },
   {
-   "title": "I WANT TO WATCH THE WORLD BURN",
-   "start": "2026-11-06T17:00-05:00",
-   "venue": "NYC",
-   "url": "https://partiful.com/e/IfyKLqjYZjQ5PgeXNWbl",
-   "source": "partiful",
-   "city": "NYC",
-   "description": "BYEBYE: I WANT TO WATCH THE WORLD BURN An immersive experience curated with audio and visuals from beginning to end the title sets the tone for the night\u2014building in intensity and high energy. Featuring sounds of Trance, Schranz, Hard Techno POP UP GALLERY/ RAVE SHOW From 5PM - 10PM Live DJ\u2019S playin",
-   "is_free": null,
-   "price_text": null,
-   "original_price_text": null,
-   "sold_out": null,
-   "few_left": null,
-   "interested_count": 10
-  },
-  {
    "title": "free silent disco",
    "start": "2026-11-06T17:00-05:00",
    "venue": "Pelham Fritz Recreation Center",
@@ -9226,21 +8986,6 @@
    "interested_count": null
   },
   {
-   "title": "LYING PARTY (Blood on the Clocktower)",
-   "start": "2026-11-06T18:30-05:00",
-   "venue": "gotta join to get the spot",
-   "url": "https://getpie.app/plans/62a53fec-ff4e-4588-ae93-f182bc92b150",
-   "source": "pie",
-   "city": "NYC",
-   "description": "Joust's next Lying Party will be the long-awaited session of Blood on the Clocktower. Blood on the Clocktower is a social deception game set in the town of Ravenswood Bluff. This town is under attack from a wicked demon hiding amongst you. They have recruited evil-doers, your fellow citizens, to hel",
-   "is_free": null,
-   "price_text": "$64",
-   "original_price_text": null,
-   "sold_out": true,
-   "few_left": null,
-   "interested_count": null
-  },
-  {
    "title": "Outliers Summit: Closing Party",
    "start": "2026-11-06T18:30-05:00",
    "venue": "gotta join to get the spot",
@@ -9252,6 +8997,36 @@
    "price_text": null,
    "original_price_text": null,
    "sold_out": false,
+   "few_left": null,
+   "interested_count": null
+  },
+  {
+   "title": "diwali social",
+   "start": "2026-11-06T18:30-05:00",
+   "venue": "Midtown Manhattan",
+   "url": "https://getpie.app/plans/245ffd1d-190f-4b29-b2dc-489786d63111",
+   "source": "pie",
+   "city": "NYC",
+   "description": "\u200bwelcome to adda ep06 \u2764\ufe0e for those of us who have a little less family around to celebrate with. for those who miss the familiar chaos of diwali back home. and for anyone who just wants to dress up, eat some chaat, and celebrate with good people. what's included: - diya decorating + a little creativ",
+   "is_free": null,
+   "price_text": "$30",
+   "original_price_text": null,
+   "sold_out": false,
+   "few_left": null,
+   "interested_count": null
+  },
+  {
+   "title": "LYING PARTY (Blood on the Clocktower)",
+   "start": "2026-11-06T18:30-05:00",
+   "venue": "gotta join to get the spot",
+   "url": "https://getpie.app/plans/62a53fec-ff4e-4588-ae93-f182bc92b150",
+   "source": "pie",
+   "city": "NYC",
+   "description": "Joust's next Lying Party will be the long-awaited session of Blood on the Clocktower. Blood on the Clocktower is a social deception game set in the town of Ravenswood Bluff. This town is under attack from a wicked demon hiding amongst you. They have recruited evil-doers, your fellow citizens, to hel",
+   "is_free": null,
+   "price_text": "$64",
+   "original_price_text": null,
+   "sold_out": true,
    "few_left": null,
    "interested_count": null
   },
@@ -9314,6 +9089,21 @@
    "sold_out": null,
    "few_left": null,
    "interested_count": 7
+  },
+  {
+   "title": "New Brunswick Party",
+   "start": "2026-11-06T19:00-05:00",
+   "venue": "New Brunswick",
+   "url": "https://partiful.com/e/I8d5gNBlTabHf5mXufUa",
+   "source": "partiful",
+   "city": "NYC",
+   "description": "come make some new friends. midwest emo on aux first come, first served respect the space and your peers! music by doolittle and others study up on my bands music and sing along! join the discord for the discussion about shows like this!",
+   "is_free": null,
+   "price_text": null,
+   "original_price_text": null,
+   "sold_out": null,
+   "few_left": null,
+   "interested_count": null
   },
   {
    "title": "Taco Tuesday in CHICAGO - Stevie Mackey & Friends",
@@ -9418,7 +9208,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 151
+   "interested_count": 154
   },
   {
    "title": "AEREA, Alex Farell",
@@ -9466,13 +9256,13 @@
    "interested_count": null
   },
   {
-   "title": "bollywood house music pilates",
+   "title": "Medals & Mimosas: NYC Marathon Victory Brunch",
    "start": "2026-11-07T11:00-05:00",
-   "venue": "gotta join to get the spot",
-   "url": "https://getpie.app/plans/cdc1b4b8-2f19-44eb-b1dd-43e45be954e3",
+   "venue": "Domino Park Dog Run",
+   "url": "https://getpie.app/plans/2acc19b5-73a5-46ef-88fa-7fb7d7cf2fff",
    "source": "pie",
    "city": "NYC",
-   "description": "",
+   "description": "You did the miles, now it's time to celebrate! \ud83c\udfc3\u200d\u2640\ufe0f\ud83c\udf7e Join Sprint & Sip and Ten Bells BK for an easy 5K straight into brunch. Whether you just conquered the NYC Marathon or are coming to celebrate your running friends, everyone\u2019s welcome! \ud83e\udd42 Bring your marathon medal and enjoy a FREE glass of bubbly! ",
    "is_free": true,
    "price_text": null,
    "original_price_text": null,
@@ -9481,13 +9271,13 @@
    "interested_count": null
   },
   {
-   "title": "Medals & Mimosas: NYC Marathon Victory Brunch",
+   "title": "bollywood house music pilates",
    "start": "2026-11-07T11:00-05:00",
-   "venue": "Domino Park Dog Run",
-   "url": "https://getpie.app/plans/2acc19b5-73a5-46ef-88fa-7fb7d7cf2fff",
+   "venue": "gotta join to get the spot",
+   "url": "https://getpie.app/plans/cdc1b4b8-2f19-44eb-b1dd-43e45be954e3",
    "source": "pie",
    "city": "NYC",
-   "description": "You did the miles, now it's time to celebrate! \ud83c\udfc3\u200d\u2640\ufe0f\ud83c\udf7e Join Sprint & Sip and Ten Bells BK for an easy 5K straight into brunch. Whether you just conquered the NYC Marathon or are coming to celebrate your running friends, everyone\u2019s welcome! \ud83e\udd42 Bring your marathon medal and enjoy a FREE glass of bubbly! ",
+   "description": "",
    "is_free": true,
    "price_text": null,
    "original_price_text": null,
@@ -9508,22 +9298,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 814
-  },
-  {
-   "title": "Martha Graham: The Mother of Psychological Dance Gallery Tour",
-   "start": "2026-11-07T13:00-05:00",
-   "venue": "New York Public Library for the Performing Arts - Oenslager Gallery, 40 Lincoln Center Plaza, between the Metropolitan Opera and Lincoln Center Theater or enter via 111 Amsterdam Ave. between West 64th and 65th Street, New York, NY 10023-7498",
-   "url": "https://www.eventbrite.com/e/martha-graham-the-mother-of-psychological-dance-gallery-tour-tickets-1993558615484",
-   "source": "eventbrite",
-   "city": "NYC",
-   "description": "Gallery Tour for our new exhibition Martha Graham: The Mother of Psychological Dance.",
-   "is_free": true,
-   "price_text": null,
-   "original_price_text": null,
-   "sold_out": false,
-   "few_left": null,
-   "interested_count": null
+   "interested_count": 841
   },
   {
    "title": "Nathan Fielder Look-Alike Contest",
@@ -9538,7 +9313,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 137
+   "interested_count": 154
   },
   {
    "title": "Elizabeth Holmes Look-Alike Contest",
@@ -9553,7 +9328,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 314
+   "interested_count": 323
   },
   {
    "title": "OTSP Book Club Meeting",
@@ -9598,7 +9373,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 137
+   "interested_count": 142
   },
   {
    "title": "Refuge Saturday Daytime w/ Coco & Breezy, Lincoln Jesser, Ksenyeah and L3Ni",
@@ -9691,6 +9466,21 @@
    "interested_count": null
   },
   {
+   "title": "Diwali Cruise Party Desi Dinner Buffet  Saturday Night Nov 7",
+   "start": "2026-11-07T18:00-05:00",
+   "venue": "Skyport Marina, FdR drive & E 23rd St, New York, NY 10010",
+   "url": "https://www.eventbrite.com/e/diwali-cruise-party-desi-dinner-buffet-saturday-night-nov-7-tickets-1998398730398",
+   "source": "eventbrite",
+   "city": "NYC",
+   "description": "Multi Level Bollywood Cruise Party in New York City. Complementary Dinner Buffet. Dance Floors, Drinks and Lounges with Skyline views NYC",
+   "is_free": false,
+   "price_text": "$43.45",
+   "original_price_text": null,
+   "sold_out": false,
+   "few_left": null,
+   "interested_count": null
+  },
+  {
    "title": "Albaner C Eugene Jr \"Momentum\" Book Discussion and Signing",
    "start": "2026-11-07T18:00-06:00",
    "venue": "Everybody's Coffee (Wilson Abbey), 935 West Wilson Avenue, Chicago, IL 60640",
@@ -9733,7 +9523,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 20
+   "interested_count": 21
   },
   {
    "title": "Cake Decorating Workshop \ud83c\udf70",
@@ -10018,7 +9808,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 101
+   "interested_count": 103
   },
   {
    "title": "JUST A GIRL'S DECLUTTERING SERIES: PERFUME SWAP",
@@ -10198,7 +9988,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 16
+   "interested_count": 25
   },
   {
    "title": "Yung Pueblo + Terri Cole: Journey",
@@ -10396,21 +10186,6 @@
    "interested_count": null
   },
   {
-   "title": "Book Launch: West Side Highway by William Howell",
-   "start": "2026-11-10T19:00-05:00",
-   "venue": "Afterword Bookshop",
-   "url": "https://partiful.com/e/uJTNKnNCssLvxCYoA2qL",
-   "source": "partiful",
-   "city": "NYC",
-   "description": "Join us for the launch of West Side Highway by William Howell! Throughout the 1970s and \u201980s, the abandoned piers running along New York\u2019s West Side Highway served as a hotbed of gay cruising activity as well as a haven for the broader LGBT community. By the mid-1990s, abutting neighborhoods were un",
-   "is_free": null,
-   "price_text": null,
-   "original_price_text": null,
-   "sold_out": null,
-   "few_left": null,
-   "interested_count": 6
-  },
-  {
    "title": "Book Event: Anxietyland by Gemma Correll",
    "start": "2026-11-10T19:00-06:00",
    "venue": "Swedish American Museuem, 5211 N. Clark, Chicago, IL 60646",
@@ -10439,21 +10214,6 @@
    "sold_out": null,
    "few_left": null,
    "interested_count": 48
-  },
-  {
-   "title": "Tiger Sisters x Shopify | Library Caf\u00e9 NYC",
-   "start": "2026-11-11T10:00-05:00",
-   "venue": "NYC",
-   "url": "https://partiful.com/e/85Hg4LVIT4dLDBIVVVKm",
-   "source": "partiful",
-   "city": "NYC",
-   "description": "Presented by Tiger Sisters, Sisters Matcha & Shopify Cherie Brooke Luo and Jean Luo, the sisters behind the Tiger Sisters podcast (a Top 10 business podcast on Spotify \u2014 and now, a part of the Vox Media podcast network), are turning SoHo into a cozy library caf\u00e9 for one day only. Pull up a chair, gr",
-   "is_free": null,
-   "price_text": null,
-   "original_price_text": null,
-   "sold_out": null,
-   "few_left": null,
-   "interested_count": null
   },
   {
    "title": "RR Queens Books & Blankets:Sweater Weather",
@@ -10993,7 +10753,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 210
+   "interested_count": 211
   },
   {
    "title": "Meet IRL | Friday Night Pickleball for Singles | SPF Lincoln Park",
@@ -11071,6 +10831,21 @@
    "interested_count": 14
   },
   {
+   "title": "RINGSIDE",
+   "start": "2026-11-13T21:00-05:00",
+   "venue": "Church Street Boxing Gym",
+   "url": "https://partiful.com/e/g2MyhlRdIcaTpWX41mSb",
+   "source": "partiful",
+   "city": "NYC",
+   "description": "ELL\u00c9IRE PRESENTS RINGSIDE FASHION SHOW \u00b7 LIVE FIGHT DJs \u00b7 AFTERPARTY DATE: FRIDAY, NOVEMBER 13 TIME: 9PM - 2AM VENUE: CHURCH STREET BOXING GYM ADDRESS: 25 PARK PLACE, NYC AGE: 21+ \u00b7 VALID ID REQUIRED TICKETS EARLY ACCESS \u00b7 $25 GENERAL ADMISSION \u00b7 $35 LIMITED CAPACITY. @BYELLEIRE \u00b7 BYELLEIRE.COM",
+   "is_free": null,
+   "price_text": null,
+   "original_price_text": null,
+   "sold_out": null,
+   "few_left": null,
+   "interested_count": 3
+  },
+  {
    "title": "Soundscape: 11/13",
    "start": "2026-11-13T22:00-05:00",
    "venue": "LilliStar",
@@ -11083,7 +10858,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 54
+   "interested_count": 55
   },
   {
    "title": "Cast Iron, On Foot with Tom Dixon + MILER RUNNING",
@@ -11143,7 +10918,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 0
+   "interested_count": 1
   },
   {
    "title": "Taylor Swift Bar Crawl: Eras, Ex's and Everything Taylor",
@@ -11206,6 +10981,21 @@
    "interested_count": null
   },
   {
+   "title": "Rafa Barrios",
+   "start": "2026-11-14T14:00-05:00",
+   "venue": "Superior Ingredients",
+   "url": "https://partiful.com/e/lOdedKZCWi4MLEKBWQNw",
+   "source": "partiful",
+   "city": "NYC",
+   "description": "Rafa Barrios and Ferra Black join forces for a daytime-to-evening session at Superior Ingredients Rooftop in Brooklyn. tables - Nightout@groundcontrolny.com \ud83d\udccd Superior Ingredients Rooftop - Rain or Shine - retracable roof",
+   "is_free": null,
+   "price_text": null,
+   "original_price_text": null,
+   "sold_out": null,
+   "few_left": null,
+   "interested_count": 0
+  },
+  {
    "title": "Chicago - Holiday Cocktail Tasting Festival - November 14",
    "start": "2026-11-14T14:30-06:00",
    "venue": "Utopian Tailgate, 1610 N Wells St LL-4, Chicago, IL 60610",
@@ -11233,7 +11023,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 61
+   "interested_count": 63
   },
   {
    "title": "The Hours: A Dreamscape Soundbath",
@@ -11263,7 +11053,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 23
+   "interested_count": 25
   },
   {
    "title": "Jalsa Social: A Festival Of Lights",
@@ -11428,7 +11218,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 218
+   "interested_count": 219
   },
   {
    "title": "Chicago Sprint Club",
@@ -11563,7 +11353,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 9
+   "interested_count": 10
   },
   {
    "title": "Solange Candlelit Yoga Flow & Guided Journaling with Tea Service",
@@ -11579,6 +11369,21 @@
    "sold_out": false,
    "few_left": true,
    "interested_count": null
+  },
+  {
+   "title": "DANCING WITH POETS Book Launch",
+   "start": "2026-11-15T18:30-05:00",
+   "venue": "Rodeo",
+   "url": "https://partiful.com/e/Kw8RTi5orK8RXqUTMIQB",
+   "source": "partiful",
+   "city": "NYC",
+   "description": "Holy smokes, folks! Here it is \u2014 a launch party / reading / dance party for DANCING WITH POETS, my day-bew collection of poems, selected for the 2026 Colorado Prize for Poetry. We will have a great reading (see lineup below), and then we will dance!! Let\u2019s celebrate! Readers and readings\u2026 Maja Lukic",
+   "is_free": null,
+   "price_text": null,
+   "original_price_text": null,
+   "sold_out": null,
+   "few_left": null,
+   "interested_count": 40
   },
   {
    "title": "Terence Tao: Six Math Essentials",
@@ -11608,7 +11413,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 172
+   "interested_count": 173
   },
   {
    "title": "Refuge Sunday: Neil Frances (DJ set) & Fundido",
@@ -11641,19 +11446,34 @@
    "interested_count": null
   },
   {
-   "title": "Pen to Paper Writing Room",
+   "title": "American Mahjong Beginner Lesson & Open Play",
    "start": "2026-11-16T19:00-05:00",
-   "venue": "Poetica Coffee",
-   "url": "https://partiful.com/e/V9lrxCNqC8xJzj9wmvyB",
-   "source": "partiful",
+   "venue": "Sadie's",
+   "url": "https://getpie.app/plans/646ec64f-3dd4-4f93-b325-8109963f89bc",
+   "source": "pie",
    "city": "NYC",
-   "description": "Calling all writers! \u270d\ufe0f Whether you\u2019re currently in the middle of a project, deciding what to work on next, or you\u2019re new to writing and don\u2019t know where to start, this is a space for you. \ud83e\udef6 Grab your laptop or notebook, connect with other writers, and get some ideas on paper. \ud83d\udcd3 The night will start",
+   "description": "Learn to play American Mahjong or come play in a fun, social setting in Seaport. Beginners can join a lesson, while more experienced players can drop in for open play and connect with other players. Come solo or with friends \u2014 it's all about having a great night out, whether you're learning or just ",
    "is_free": null,
-   "price_text": null,
+   "price_text": "$45",
    "original_price_text": null,
-   "sold_out": null,
+   "sold_out": false,
    "few_left": null,
-   "interested_count": 7
+   "interested_count": null
+  },
+  {
+   "title": "American Mahjong Beginner Lesson & Open Play",
+   "start": "2026-11-16T19:00-05:00",
+   "venue": "Time Out Market Union Square",
+   "url": "https://getpie.app/plans/dd423587-6eeb-45c3-844f-ab0de5ca5ccf",
+   "source": "pie",
+   "city": "NYC",
+   "description": "Enjoy an evening of wine, cocktails, great company, and American Mahjong! Beginners can join a lesson, while more experienced players can drop in for open play and connect with other players. Come solo or with friends \u2014 it's all about having a great night out, whether you're learning or playing.",
+   "is_free": null,
+   "price_text": "$25",
+   "original_price_text": null,
+   "sold_out": false,
+   "few_left": null,
+   "interested_count": null
   },
   {
    "title": "Impact AI Chicago",
@@ -11755,6 +11575,21 @@
    "description": "Celebrate River North at the amazing NAIA ! Hear from 42nd Ward Alderman Reilly, 18th District Commander Bielfeldt and RNRA Leaders.",
    "is_free": false,
    "price_text": "From $71.21",
+   "original_price_text": null,
+   "sold_out": false,
+   "few_left": null,
+   "interested_count": null
+  },
+  {
+   "title": "American Mahjong Beginner Lesson & Open Play",
+   "start": "2026-11-18T19:00-05:00",
+   "venue": "Soho Diner",
+   "url": "https://getpie.app/plans/57c24962-6905-41e2-a38d-baf725ceb899",
+   "source": "pie",
+   "city": "NYC",
+   "description": "Learn to play American Mahjong or come play in a fun, social setting at Soho Diner. Beginners can join a lesson, while more experienced players can drop in for open play and connect with other players. Come solo or with friends \u2014 it's all about having a great night out, whether you're learning or ju",
+   "is_free": null,
+   "price_text": "$45",
    "original_price_text": null,
    "sold_out": false,
    "few_left": null,
@@ -11866,6 +11701,21 @@
    "interested_count": null
   },
   {
+   "title": "James Ivy, Harry Teardrop",
+   "start": "2026-11-19T19:00-05:00",
+   "venue": "Elsewhere - Zone One, 599 Johnson Avenue, Brooklyn, NY 11237",
+   "url": "https://www.eventbrite.com/e/james-ivy-harry-teardrop-tickets-2001020213324",
+   "source": "eventbrite",
+   "city": "NYC",
+   "description": "A concert w/ James Ivy in Zone One @ Elsewhere in Bushwick on 11.19! Tickets start at $20 \u2022 7pm \u2022 16+ | Genre: Indie",
+   "is_free": false,
+   "price_text": "From $27.84",
+   "original_price_text": null,
+   "sold_out": false,
+   "few_left": null,
+   "interested_count": null
+  },
+  {
    "title": "Book Launch: Graveyard by Kyle Kouri with Adam Wilson and Molly McGhee",
    "start": "2026-11-19T19:00-05:00",
    "venue": "NYC",
@@ -11879,6 +11729,21 @@
    "sold_out": null,
    "few_left": null,
    "interested_count": 6
+  },
+  {
+   "title": "Intro to Crochet with Knot Okay Club",
+   "start": "2026-11-19T19:00-05:00",
+   "venue": "Acorn Craft Shop",
+   "url": "https://getpie.app/plans/de6908de-e62f-4341-bb9c-0473f03545a4",
+   "source": "pie",
+   "city": "NYC",
+   "description": "Ready to start your crochet journey? Camryn from Knot Okay Club will teach you the basics of crochet and help you create a handmade crochet coaster: the perfect resting place for your glasses and mugs! What to expect: - All materials provided (crochet hooks and yarn) - Crochet 101 Overview - the his",
+   "is_free": null,
+   "price_text": "$45",
+   "original_price_text": null,
+   "sold_out": false,
+   "few_left": null,
+   "interested_count": null
   },
   {
    "title": "Yung Pueblo Book Discussion for \"Journey\" with Dr. Alexandra H. Solomon",
@@ -12046,21 +11911,6 @@
    "interested_count": null
   },
   {
-   "title": "Yalla Fest 2026",
-   "start": "2026-11-21T12:00-05:00",
-   "venue": "NYC",
-   "url": "https://partiful.com/e/4tf7s8zsAmGkjD4qsNiY",
-   "source": "partiful",
-   "city": "NYC",
-   "description": "3rd Annual Yalla Fest - A Celebration of Lebanese Food, Music, & Culture. Welcome to Yalla Fest! Yalla Fest is back for the 3rd year and we\u2019re going bigger than ever! Join us on Saturday, November 21st, for our annual Lebanese Festival in New York City, a night of food, music, art, and community, al",
-   "is_free": null,
-   "price_text": null,
-   "original_price_text": null,
-   "sold_out": null,
-   "few_left": null,
-   "interested_count": 37
-  },
-  {
    "title": "Book Swap @ Cues",
    "start": "2026-11-21T14:00-05:00",
    "venue": "NYC",
@@ -12103,7 +11953,7 @@
    "original_price_text": null,
    "sold_out": null,
    "few_left": null,
-   "interested_count": 53
+   "interested_count": 61
   },
   {
    "title": "Sunday In The Park With George",
@@ -12181,6 +12031,21 @@
    "interested_count": null
   },
   {
+   "title": "PONY RAVE NYC NEW YORK CITY",
+   "start": "2026-11-21T22:00-05:00",
+   "venue": "Sugar Mouse NYC, 47 3rd Avenue, New York, NY 10003",
+   "url": "https://www.eventbrite.com/e/pony-rave-nyc-new-york-city-tickets-1991790167007",
+   "source": "eventbrite",
+   "city": "NYC",
+   "description": "FRIENDSHIP IS MAGIC",
+   "is_free": false,
+   "price_text": "From $5",
+   "original_price_text": null,
+   "sold_out": false,
+   "few_left": null,
+   "interested_count": null
+  },
+  {
    "title": "Snakehips, TWOFACED",
    "start": "2026-11-21T22:30-05:00",
    "venue": "Elsewhere, 599 Johnson Avenue ##1, Brooklyn, NY 11237",
@@ -12194,21 +12059,6 @@
    "sold_out": false,
    "few_left": null,
    "interested_count": null
-  },
-  {
-   "title": "Work & Brew \nSocial No. 001",
-   "start": "2026-11-22T12:00-05:00",
-   "venue": "NYC",
-   "url": "https://partiful.com/e/cPYbb7XjXOWAduEq2w4T",
-   "source": "partiful",
-   "city": "NYC",
-   "description": "Come hang with us Sunday afternoon to let us help you find your new WFH cafe, meet some amazing people + fun activities and enjoy our signature drink and pastry, curated by Work & Brew Team Members (ex-culinary chefs), themselves! We're throwing our very first public pop-up to celebrate the launch o",
-   "is_free": null,
-   "price_text": null,
-   "original_price_text": null,
-   "sold_out": null,
-   "few_left": null,
-   "interested_count": 106
   },
   {
    "title": "The Evil Genius Tour - CHICAGO",
@@ -12241,6 +12091,21 @@
    "interested_count": 50
   },
   {
+   "title": "SUNDAY NOVEMBER 22: SARPER",
+   "start": "2026-11-22T16:00-06:00",
+   "venue": "The Comedy Bar - Chicago Main Stage, 162 E Superior St, 3rd floor 3rd floor, Chicago, IL 60611",
+   "url": "https://www.eventbrite.com/e/sunday-november-22-sarper-tickets-2003551591745",
+   "source": "eventbrite",
+   "city": "Chicago",
+   "description": "Sarper (As seen on 90 Day Fianc\u00e9) headlines a night of laughs at The Comedy Bar, right off the Magnificent Mile!",
+   "is_free": false,
+   "price_text": "From $46.72",
+   "original_price_text": null,
+   "sold_out": false,
+   "few_left": null,
+   "interested_count": null
+  },
+  {
    "title": "Sprig of That at The Red Room",
    "start": "2026-11-22T19:00-06:00",
    "venue": "Chicago",
@@ -12254,6 +12119,21 @@
    "sold_out": null,
    "few_left": null,
    "interested_count": 1
+  },
+  {
+   "title": "The Turkey Crawl - Wrigleyville's Blackout Wednesday Bar Crawl",
+   "start": "2026-11-25T19:00-06:00",
+   "venue": "Wrigleyville's Best Bars (Full List in Details), 3655 N. Sheffield Ave., Chicago, IL 60613",
+   "url": "https://www.eventbrite.com/e/the-turkey-crawl-wrigleyvilles-blackout-wednesday-bar-crawl-tickets-1975626675569",
+   "source": "eventbrite",
+   "city": "Chicago",
+   "description": "Tix include admission, free dinner buffets, gift cards to use on the crawl & more! Chicago's BIGGEST Blackout Wednesday party!",
+   "is_free": false,
+   "price_text": "From $10",
+   "original_price_text": null,
+   "sold_out": false,
+   "few_left": null,
+   "interested_count": null
   }
  ]
 }
