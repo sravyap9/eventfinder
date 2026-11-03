@@ -17,3 +17,20 @@ export const QUESTIONS = [
   { id: "adults", kind: "single", title: "Are 21+ events okay?",
     options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No, keep it all ages" }] },
 ];
+
+// Quiz answers can arrive in a shared link, so only accept values the quiz itself offers.
+export function sanitizeAnswers(raw) {
+  if (!raw || typeof raw !== "object") return null;
+  const out = {};
+  for (const qn of QUESTIONS) {
+    const allowed = new Set(qn.options.map((o) => o.value)), v = raw[qn.id];
+    if (qn.kind === "multi") out[qn.id] = Array.isArray(v) ? v.filter((x) => allowed.has(x)) : [];
+    else if (allowed.has(v)) out[qn.id] = v;
+    else return null;
+  }
+  return out;
+}
+export const answersToHash = (a) => "#a=" + btoa(unescape(encodeURIComponent(JSON.stringify(a))));
+export function answersFromHash(h) {
+  try { return sanitizeAnswers(JSON.parse(decodeURIComponent(escape(atob((h || "").replace(/^#a=/, "")))))); } catch { return null; }
+}

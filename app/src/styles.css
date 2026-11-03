@@ -79,3 +79,22 @@ button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var
 }
 @media (max-width:359px){h1{font-size:32px}.opt{padding:8px 14px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* browse, tabs, details */
+.tabs{display:flex;gap:8px;margin:14px 0 0}
+.tabs button{min-height:44px;padding:8px 20px;border:2px solid var(--text);border-radius:14px;background:var(--bg);font-weight:600}
+.tabs button.on{background:var(--text);color:var(--bg);font-weight:800}
+.tabs button:active{transform:scale(.97)}
+.stale{margin:12px 0 0;padding:10px 14px;border:1.5px dashed var(--text);border-radius:12px;background:color-mix(in srgb,var(--band) 40%,var(--bg));font-size:14px}
+.search{width:100%;min-height:48px;font:inherit;font-size:16px;padding:10px 18px;border:2px solid var(--text);border-radius:999px;background:var(--bg);color:var(--text);outline:none;-webkit-appearance:none;appearance:none}
+.search:focus{box-shadow:0 0 0 4px var(--band)}
+.options.small{gap:8px;margin:12px 0 4px}.options.small .opt{min-height:44px;font-size:14px;padding:6px 14px}
+.nav.center{justify-content:center;margin:20px 0}
+.more{display:block;width:100%;min-height:44px;border:0;border-top:1.5px solid var(--text);background:var(--bg);font-size:14px;font-weight:700;text-align:left;padding:0 14px}
+.details{padding:4px 14px 12px;font-size:14px}.details p{margin:6px 0}
+.acts{display:flex;flex-wrap:wrap;gap:8px}
+.ghost.small{min-height:44px;padding:6px 14px;font-size:14px;text-decoration:none;display:inline-flex;align-items:center;color:var(--text)}
+.linklike{border:0;background:none;padding:0;font:inherit;font-size:14px;font-weight:700;text-decoration:underline;color:var(--text);min-height:0}
+.pill.sold{background:#D9D5CB;border-color:transparent}.pill.wait{background:var(--peri);border-color:transparent}
+.bar{flex-wrap:wrap}
+@media (hover:hover){.more:hover,.tabs button:hover:not(.on){background:color-mix(in srgb,var(--band) 55%,var(--bg))}}

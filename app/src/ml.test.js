@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
-import { setGroups, buildIndex, newModel, fromQuiz, learn, score, eligible, recommend, why, sigmoid } from "./ml.js";
+import { setGroups, buildIndex, newModel, fromQuiz, learn, score, eligible, recommend, why, sigmoid, searchKeys, matchesKeys } from "./ml.js";
 
 setGroups(JSON.parse(readFileSync(new URL("../../synonyms.json", import.meta.url))));
 
@@ -72,3 +72,11 @@ test("why() explains with readable labels", () => {
 });
 
 test("sigmoid sanity", () => { assert.equal(sigmoid(0), 0.5); });
+
+test("search: stems, and expands to the synonym group", () => {
+  const find = (q) => items.filter((i) => matchesKeys(i, searchKeys(q))).map((i) => i.e.title);
+  assert.ok(find("paint").includes("Watercolor painting night"));
+  assert.ok(find("ceramics").includes("Open studio pottery wheel"));   // ceramics is in the pottery group
+  assert.equal(find("").length, items.length);                         // empty query matches everything
+  assert.equal(find("zzzz").length, 0);
+});

@@ -401,44 +401,117 @@ def fetch_pie(city):
 
 
 # ---------- Do312 / DoNYC ----------
+def devalue(arr):
+    """Decode SvelteKit's __data.json node format: a flat array where objects and lists hold indexes into it."""
+    memo = {}
+
+    def rev(i):
+        if i < 0:
+            return None
+        if i in memo:
+            return memo[i]
+        v = arr[i]
+        if isinstance(v, dict):
+            memo[i] = out = {}
+            for k, j in v.items():
+                out[k] = rev(j)
+        elif isinstance(v, list):
+            if v and isinstance(v[0], str) and v[0] in ("Date", "Set", "Map", "BigInt", "RegExp", "Object", "null"):
+                memo[i] = out = v[1] if len(v) > 1 else None
+            else:
+                memo[i] = out = []
+                out.extend(rev(j) for j in v)
+        else:
+            memo[i] = out = v
+        return out
+    return rev(0)
+
+
+def sveltekit_nodes(url):
+    for n in json.loads(http(url))["nodes"]:
+        if n and n.get("type") == "data":
+            yield devalue(n["data"])
+
+
+def find_key(o, key):
+    if isinstance(o, dict):
+        if key in o:
+            return o
+        o = list(o.values())
+    if isinstance(o, list):
+        for v in o:
+            hit = find_key(v, key)
+            if hit:
+                return hit
+
+
 def dostuff_price(x):
     ti = x.get("ticket_info") or ""
     amts = [float(a) for a in re.findall(r"\$(\d+(?:\.\d+)?)", ti)]
-    if amts and max(amts) == 0 or not amts and (re.search(r"\bfree\b", ti, re.I) or x.get("is_free")):
+    if amts and max(amts) == 0 or not amts and (re.search(r"\bfree\b", ti, re.I) or x.get("free_event") or x.get("is_free")):
         return {"is_free": True}
     if amts:
         return {"is_free": False, "price_text": ("From " if max(amts) > min(amts) else "") + dollars(min(amts))}
     return {}
 
 
+DS_FIELDS = ("description", "is_free", "price_text", "price_source", "sold_out", "age_min", "detail_checked")
+
+
+def dostuff_details(events, host):
+    """The day listings carry no price, description or sold out flag; each event's own __data.json does.
+    At most DETAIL_CAP requests per run, soonest first; events checked on an earlier run are reused."""
+    for e in events:
+        old = OLD.get(e["url"], {})
+        if old.get("detail_checked"):
+            e.update({k: old[k] for k in DS_FIELDS if k in old})
+            e["_d"] = old.get("description", "")
+    fails = 0
+    soon = [e for e in events if not e.get("detail_checked") and datetime.fromisoformat(e["start"]) >= NOW - timedelta(hours=3)]
+    for e in sorted(soon, key=lambda e: e["start"])[:DETAIL_CAP]:
+        try:
+            x = next(n for n in sveltekit_nodes(e["url"].replace("#", "") + "/__data.json") if find_key(n, "ticket_info"))
+            x = find_key(x, "ticket_info")
+        except Exception as ex:
+            fails += 1
+            print(f"{host} detail {e['url']} failed: {ex}", file=sys.stderr)
+            if fails >= 3:
+                break
+            continue
+        full = clean(x.get("description"))
+        e.update(dostuff_price(x))
+        e.update(detail_checked=True, sold_out=bool(x.get("tickets_sold_out")), description=full[:300], _d=full)
+        e["_age"] += " " + (x.get("ticket_info") or "")
+
+
 def fetch_dostuff(city):
-    """The sites' own JSON feeds, one day at a time (the only way they page): /events/Y/M/D.json?page=N."""
+    """Day listings from the sites' SvelteKit data: /events/Y/M/D/__data.json?page=N (20 events a page)."""
     source, host = city["dostuff"]
     out, seen, fails = [], set(), 0
     for i in range(DO_DAYS):
         day = (NOW + timedelta(days=i)).date()
         for page in range(1, 16):
             try:
-                d = json.loads(http(f"https://{host}/events/{day.year}/{day.month}/{day.day}.json?page={page}"))
+                b = next(n["browse"] for n in sveltekit_nodes(f"https://{host}/events/{day.year}/{day.month}/{day.day}/__data.json?page={page}")
+                         if isinstance(n, dict) and "browse" in n)
             except Exception as e:
                 fails += 1
                 print(f"{host} {day} p{page} failed: {e}", file=sys.stderr)
                 if fails >= 3:
                     return out
                 break
-            for x in d.get("events", []):
-                k = (x["permalink"], x["begin_time"])
-                if k in seen:
-                    continue
-                seen.add(k)
-                v = x.get("venue") or {}
-                p = dostuff_price(x)
-                p["sold_out"] = bool(x.get("sold_out"))
-                out.append(ev(city, x["title"], parse_dt(x["begin_time"]), ", ".join(s for s in [v.get("title"), v.get("full_address")] if s),
-                              f"https://{host}{x['permalink']}", source, x.get("description") or x.get("excerpt"), p,
-                              age_text=(x.get("ticket_info") or "") + " " + (x.get("category") or "")))
-            if page >= d.get("paging", {}).get("total_pages", page):
+            for grp in b.get("data", []):
+                for x in grp.get("events", []):
+                    if not x.get("tz_adjusted_begin_time") or not x.get("permalink") or (x["permalink"], x["tz_adjusted_begin_time"]) in seen:
+                        continue
+                    seen.add((x["permalink"], x["tz_adjusted_begin_time"]))
+                    v = x.get("venue") or {}
+                    out.append(ev(city, x["title"], parse_dt(x["tz_adjusted_begin_time"]),
+                                  ", ".join(p for p in [v.get("title"), v.get("area_name")] if p),
+                                  f"https://{host}{x['permalink']}", source, "", age_text=x.get("category") or ""))
+            if not (b.get("_meta") or {}).get("has_next"):
                 break
+    dostuff_details(out, host)
     return out
 
 
@@ -657,10 +730,17 @@ def norm_title(t):
 
 def main():
     try:
-        old = json.load(open(OUT))["events"]
+        prev_data = json.load(open(OUT))
+        old = prev_data["events"]
     except Exception:
-        old = []
+        prev_data, old = {}, []
     OLD.update({e["url"]: e for e in old})
+    warnings = []
+
+    def warn(msg):
+        print("WARNING:", msg, file=sys.stderr)
+        print(f"::warning::{msg}")  # shows as an annotation on the GitHub Actions run
+        warnings.append(msg)
     events, any_fresh = [], False
     for city in CITIES:
         for name, (fn, applies) in SOURCES.items():
@@ -676,8 +756,7 @@ def main():
             any_fresh |= bool(got)
             # a failed or suspiciously small fetch keeps this city+source's previous events
             if not got or (len(prev) >= 20 and len(got) < len(prev) * 0.25):
-                if got:
-                    print(f"{city['name']} / {name}: only {len(got)} vs {len(prev)} before, keeping previous", file=sys.stderr)
+                warn(f"{city['name']} {name}: {'returned nothing' if not got else f'only {len(got)} vs {len(prev)} before'}, kept the previous {len(prev)} events")
                 got = prev
             events += got
     if not any_fresh:
@@ -714,8 +793,13 @@ def main():
     drops = {n: {s: dropped.get((n, s), 0) for s in counts[n]} for n in cities}
     steps = {n: {s: {k: sum(e["source"] == s and e["city"] == n and e["price_source"] == k for e in merged) for k in "abcd"}
                  for s in counts[n]} for n in cities}
+    for n, per in counts.items():  # a source that shrank a lot since the last run, even if it still returned something
+        for sname, c in per.items():
+            before = (prev_data.get("counts", {}).get(n, {}) or {}).get(sname, 0)
+            if before >= 30 and c < before * 0.6:
+                warn(f"{n} {sname}: {c} events now vs {before} last run")
     json.dump({"last_updated": NOW.isoformat(timespec="seconds"), "counts": counts, "kids_dropped": drops, "price_steps": steps,
-               "events": merged}, open(OUT, "w"), indent=1)
+               "warnings": warnings, "events": merged}, open(OUT, "w"), indent=1)
     print("counts:", json.dumps(counts))
     print("kids dropped:", json.dumps(drops))
     print("price steps:", json.dumps(steps))

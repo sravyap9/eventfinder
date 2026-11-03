@@ -109,7 +109,7 @@ export function buildIndex(events) {
     f[isWeekend(e) ? "day:weekend" : "day:weekday"] = 1;
     if (e.age_min) f["age:" + e.age_min] = 1;
     f["src:" + e.source] = 1;
-    return { id: e.url, e, f, vec, tkey: normTitle(e.title) };
+    return { id: e.url, e, f, vec, hay, tkey: normTitle(e.title) };
   });
   return { items, surface };
 }
@@ -215,3 +215,13 @@ export function topWeights(model, surface, n = 6) {
   const neg = all.filter(([, v]) => v < 0).sort((a, b) => a[1] - b[1]).slice(0, n);
   return { pos: pos.map(([k, v]) => [label(k, surface), v]), neg: neg.map(([k, v]) => [label(k, surface), v]) };
 }
+
+// ---------- search (same idea as the classic page: stemmed words, plus the other words in the same synonym group) ----------
+export function searchKeys(q) {
+  const k = phraseKey(q);
+  if (!k) return [];
+  const keys = new Set([k]);
+  for (const g of GROUPS) if (g.keys.includes(k)) g.keys.forEach((x) => keys.add(x));
+  return [...keys];
+}
+export const matchesKeys = (item, keys) => !keys.length || keys.some((k) => item.hay.includes(" " + k + " "));
