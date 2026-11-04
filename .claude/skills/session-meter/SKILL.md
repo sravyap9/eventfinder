@@ -20,6 +20,7 @@ Options:
 What it reports:
 - Context fill: size of the last request (input plus cache tokens), which is what drives cost and quality decay
 - Tokens: cumulative fresh input, output, and cheap cache reads
+- Cost: API equivalent dollars from per model rates (input, output, 5m and 1h cache writes, cache reads), dollars per hour and per prompt, and what the next call costs if the cache is warm versus expired. Subscription plans are not billed per token, so treat this as relative weight. Rates live in the PRICES table in meter.py
 - Time: wall clock since the first message, and active time (gaps over 10 minutes excluded)
 - Pace: average context growth per turn and estimated turns until the window is full
 - Verdict: CONTINUE, WRAP UP, or NEW SESSION, with the reason
