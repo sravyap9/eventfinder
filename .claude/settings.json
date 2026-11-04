@@ -1,0 +1,7 @@
+{
+  "statusLine": {
+    "type": "command",
+    "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/skills/session-meter/meter.py\" --line",
+    "padding": 0
+  }
+}

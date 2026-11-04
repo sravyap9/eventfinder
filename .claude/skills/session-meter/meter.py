@@ -195,7 +195,15 @@ def main():
     ap.add_argument("--json", action="store_true")
     a = ap.parse_args()
 
-    path = Path(a.file) if a.file else find_transcript(os.getcwd())
+    path = Path(a.file) if a.file else None
+    if path is None and not sys.stdin.isatty():
+        # Status line mode: Claude Code pipes JSON with the exact transcript path
+        try:
+            tp = json.load(sys.stdin).get("transcript_path")
+            path = Path(tp) if tp else None
+        except Exception:
+            path = None
+    path = path or find_transcript(os.getcwd())
     if not path or not path.exists():
         print("No transcript found.", file=sys.stderr)
         return 1
