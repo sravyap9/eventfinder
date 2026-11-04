@@ -25,7 +25,7 @@ export default function Results({ index, model, filters, rated, answers, canUndo
       {trackingAvailable && consent === null && (
         <div className="consent" role="region" aria-label="Help improve recommendations">
           <p><strong>Help improve the picks?</strong> If you say yes, your quiz answers and thumbs up or down are saved anonymously
-            (no name, no email) and used to train a better model. You can say no and everything still works.</p>
+            (no name, no email) and used to train a better model. You can say no and everything still works. <a href="../privacy.html" target="_blank" rel="noopener">Privacy details</a></p>
           <div className="acts">
             <button className="primary small" onClick={() => { setConsent("yes"); setC("yes"); logSession(answers); }}>Yes, share anonymously</button>
             <button className="ghost small" onClick={() => { setConsent("no"); setC("no"); }}>No thanks</button>

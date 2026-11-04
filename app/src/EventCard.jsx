@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { why } from "./ml.js";
-import { NAMES, when, gcalUrl, share } from "./util.js";
+import { NAMES, when, gcalUrl, share, safeHref } from "./util.js";
 
 function Pill({ e }) {
   if (e.waitlist) return <span className="pill wait">WAITLIST</span>;
@@ -15,7 +15,7 @@ export default function EventCard({ c, model, surface, onRate, position }) {
   const reasons = model ? why(model, c.it, surface) : [];
   return (
     <li className="card">
-      <a className="main" href={e.url} target="_blank" rel="noopener">
+      <a className="main" href={safeHref(e.url)} target="_blank" rel="noopener noreferrer">
         <div className="when">{when(e)}</div>
         <div className="title">{e.title}</div>
         <div className="row">
@@ -39,8 +39,8 @@ export default function EventCard({ c, model, surface, onRate, position }) {
           <p>{e.description || "No description listed. Open the event page for more."}</p>
           {e.venue && <p className="hint">{e.venue}</p>}
           <div className="acts">
-            <a className="ghost small" href={gcalUrl(e)} target="_blank" rel="noopener">Add to Google Calendar</a>
-            <button className="ghost small" onClick={async () => setMsg(await share(e.title, e.url))}>{msg || "Share"}</button>
+            <a className="ghost small" href={gcalUrl(e)} target="_blank" rel="noopener noreferrer">Add to Google Calendar</a>
+            <button className="ghost small" onClick={async () => setMsg(await share(e.title, safeHref(e.url)))}>{msg || "Share"}</button>
           </div>
         </div>
       )}

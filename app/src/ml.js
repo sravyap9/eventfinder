@@ -31,7 +31,24 @@ export const normTitle = (t) => words(t).join(" ").replace(/^the /, "");
 
 // ---------- interest groups (reuse synonyms.json; "kids" is not a taste) ----------
 export let GROUPS = [];
-export function setGroups(syn) { GROUPS = syn.filter((g) => g[0] !== "kids").map((g) => ({ name: g[0], keys: g.map(phraseKey) })); }
+// Inverted lookups, built once: stemmed word -> the groups it belongs to, and the few multi word phrases to search for.
+// Matching an event is then about one Map lookup per word it contains, instead of 367 substring searches.
+let WORD_GROUPS = new Map(), PHRASES = [];
+export function setGroups(syn) {
+  GROUPS = syn.filter((g) => g[0] !== "kids").map((g) => ({ name: g[0], keys: g.map(phraseKey) }));
+  WORD_GROUPS = new Map(); PHRASES = [];
+  for (const g of GROUPS) for (const k of g.keys) {
+    if (!k.includes(" ")) { if (!WORD_GROUPS.has(k)) WORD_GROUPS.set(k, new Set()); WORD_GROUPS.get(k).add(g.name); }
+    else PHRASES.push({ group: g.name, key: k, first: k.split(" ")[0] });
+  }
+}
+// Names of the groups an event belongs to. words: Set of its stems; hay: " stem stem stem ".
+function groupsOf(words, hay) {
+  const hit = new Set();
+  for (const w of words) { const gs = WORD_GROUPS.get(w); if (gs) for (const g of gs) hit.add(g); }
+  for (const p of PHRASES) if (words.has(p.first) && hay.includes(" " + p.key + " ")) hit.add(p.group);
+  return hit;
+}
 
 // quiz chip -> the synonym groups it switches on
 export const INTERESTS = {
@@ -82,15 +99,16 @@ export function buildIndex(events) {
     const dt = stems(e.description).filter((s) => s.length > 2 && !STOP.has(s));
     const counts = new Map();
     for (const s of [...tt, ...tt, ...dt]) counts.set(s, (counts.get(s) || 0) + 1);  // title counts double
-    return { e, counts, hay: " " + stems(e.title + " " + e.description).join(" ") + " " };
+    const all = stems(e.title + " " + e.description);   // every word of the event, stemmed, for matching groups and search
+    return { e, counts, hay: " " + all.join(" ") + " ", words: new Set(all) };
   });
   const df = new Map();
   for (const d of docs) for (const s of d.counts.keys()) df.set(s, (df.get(s) || 0) + 1);
   const N = docs.length;
   const surface = new Map();  // stem -> a readable word, for the "why" line
-  for (const e of events) for (const w of words(e.title)) if (!surface.has(stem(w))) surface.set(stem(w), w);
+  for (const e of events) for (const w of words(e.title)) { const k = stem(w); if (!surface.has(k)) surface.set(k, w); }
 
-  const items = docs.map(({ e, counts, hay }) => {
+  const items = docs.map(({ e, counts, hay, words }) => {
     const vec = new Map();
     let norm = 0;
     for (const [s, c] of counts) {
@@ -103,7 +121,7 @@ export function buildIndex(events) {
 
     const f = {};
     for (const [s, w] of vec) f["w:" + s] = w * 2;  // scaled so words can move the score as much as the structured features
-    for (const g of GROUPS) if (g.keys.some((k) => hay.includes(" " + k + " "))) f["g:" + g.name] = 1;
+    for (const g of groupsOf(words, hay)) f["g:" + g] = 1;
     f["price:" + priceBucket(e)] = 1;
     f["time:" + timeBucket(localHour(e))] = 1;
     f[isWeekend(e) ? "day:weekend" : "day:weekday"] = 1;
@@ -228,3 +246,22 @@ export function searchKeys(q) {
   return [...keys];
 }
 export const matchesKeys = (item, keys) => !keys.length || keys.some((k) => item.hay.includes(" " + k + " "));
+
+// ---------- validation of anything that comes from outside the code ----------
+// A model arrives from ../model.json (a committed file) and from localStorage (editable by anyone with the browser, or by
+// another script on the same origin). Check shape and size before it can touch scoring: only known feature name patterns,
+// only finite numbers in a sane range, a bounded count, and no keys like __proto__.
+const FEATURE_RE = /^(w|g|price|time|day|age|src):[\w &'.+-]{1,60}$/;
+export function sanitizeModel(m) {
+  if (!m || typeof m !== "object" || !m.w || typeof m.w !== "object" || Array.isArray(m.w)) return null;
+  const w = Object.create(null);
+  let n = 0;
+  for (const [k, v] of Object.entries(m.w)) {
+    if (!FEATURE_RE.test(k) || typeof v !== "number" || !Number.isFinite(v) || Math.abs(v) > 12) continue;
+    if (++n > 3000) break;
+    w[k] = v;
+  }
+  const bias = typeof m.bias === "number" && Number.isFinite(m.bias) && Math.abs(m.bias) <= 12 ? m.bias : -1;
+  const count = Number.isInteger(m.n) && m.n >= 0 && m.n < 1e7 ? m.n : 0;
+  return { bias, w: { ...w }, n: count };
+}

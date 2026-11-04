@@ -1,0 +1,13 @@
+# Dependabot opens a pull request when a dependency or a pinned action has a new version or a security fix.
+# Actions are pinned to commit hashes (see .github/workflows), so without this they would never update.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+  - package-ecosystem: npm
+    directory: /app
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5

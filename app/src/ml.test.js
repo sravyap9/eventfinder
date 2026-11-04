@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
-import { setGroups, buildIndex, newModel, fromQuiz, learn, score, eligible, recommend, why, sigmoid, searchKeys, matchesKeys } from "./ml.js";
+import { setGroups, buildIndex, newModel, fromQuiz, learn, score, eligible, recommend, why, sigmoid, searchKeys, matchesKeys, sanitizeModel } from "./ml.js";
 
 setGroups(JSON.parse(readFileSync(new URL("../../synonyms.json", import.meta.url))));
 
@@ -88,4 +88,21 @@ test("fromQuiz starts from the shared model and the quiz still adds on top", () 
   assert.ok(model.w["g:art"] > 1.4 * 0.9);                  // 0.8 * shared + the quiz's +1.4
   assert.ok(model.w["price:free"] > fromQuiz({ interests: [], budget: "free" }).model.w["price:free"] - 2.5 + 0.3);
   assert.equal(fromQuiz({ interests: [] }).model.bias, -1);  // no shared model: unchanged behaviour
+});
+
+test("sanitizeModel rejects hostile or malformed models", () => {
+  assert.equal(sanitizeModel(null), null);
+  assert.equal(sanitizeModel({ w: [1, 2] }), null);
+  assert.equal(sanitizeModel("x"), null);
+  const m = sanitizeModel(JSON.parse(`{"bias": 999, "n": -5, "w": {"g:art": 1.5, "__proto__": 5, "constructor": 1, "g:x": 1e9, "g:y": "7", "price:free": null, "<script>": 1, "w:ok word": -2}}`));
+  assert.deepEqual(Object.keys(m.w).sort(), ["g:art", "w:ok word"]);   // only well formed, finite, bounded entries survive
+  assert.equal(m.bias, -1); assert.equal(m.n, 0);
+  assert.equal(({}).polluted, undefined);                                // nothing leaked onto Object.prototype
+  const big = { w: Object.fromEntries(Array.from({ length: 6000 }, (_, i) => ["w:t" + i, 1])) };
+  assert.ok(Object.keys(sanitizeModel(big).w).length <= 3000);
+});
+
+test("sanitizeModel keeps a legitimate trained model intact", () => {
+  const ok = { bias: -0.4, n: 12, w: { "g:comedy": 1.1, "price:free": 0.7, "time:evening": 0.2, "w:stand-up": 0.5 } };
+  assert.deepEqual(sanitizeModel(ok), { bias: -0.4, n: 12, w: ok.w });
 });

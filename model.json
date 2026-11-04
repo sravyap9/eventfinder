@@ -1,0 +1,7 @@
+{
+ "version": 0,
+ "_comment": "Placeholder: no shared model has been trained yet. ml/train.py overwrites this once there is enough data. See docs/SUPABASE.md.",
+ "n_ratings": 0,
+ "bias": -1,
+ "w": {}
+}

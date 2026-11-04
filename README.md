@@ -29,6 +29,10 @@ Each event records how its price was found in `price_source`:
 
 `app/src/ml.js` is a logistic regression over TF-IDF words, interest groups, price, time of day and weekday. The quiz sets starting weights, each thumbs up or down is one step of online gradient descent, and the top results are re-ranked with MMR so near copies do not crowd the list. It runs entirely in the browser. See `app/README.md`.
 
+## Security
+
+Scraped data is treated as hostile: it is cleaned and link checked when it is fetched, escaped again when it is shown, and a strict Content Security Policy blocks inline script as a last line. The optional database accepts anonymous inserts only. See `docs/SECURITY.md` for the full threat model and a short list of GitHub settings only the owner can turn on, `SECURITY.md` for reporting a problem, and `privacy.html` for what visitors are told.
+
 ## When a source breaks
 
 Scrapers break when sites change. This repo is built to fail safely: the last good events are kept, junk and silently missing fields are detected, two bad runs in a row open a GitHub issue, and every parser has an offline test against a recorded real response. See `docs/SOURCES.md` for how stable each source is, the repair steps, and how to turn on the official Ticketmaster API.

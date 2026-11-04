@@ -1,4 +1,4 @@
-import { defineConfig } from "vite";
+import { defineConfig, loadEnv } from "vite";
 import react from "@vitejs/plugin-react";
 import { readFileSync } from "node:fs";
 
@@ -14,9 +14,18 @@ const devData = () => ({
   },
 });
 
-export default defineConfig({
+// The CSP lists exactly one external origin: the Supabase project, and only if this build was configured with one.
+const cspOrigin = (env) => {
+  try { const u = new URL(env.VITE_SUPABASE_URL || ""); return u.protocol === "https:" ? u.origin : ""; } catch { return ""; }
+};
+const csp = (env) => ({
+  name: "csp-connect-src",
+  transformIndexHtml: (html) => html.replace("__SUPABASE_ORIGIN__", cspOrigin(env)).replace("'self' ;", "'self';"),
+});
+
+export default defineConfig(({ mode }) => ({
   base: "./",
-  plugins: [react(), devData()],
+  plugins: [react(), devData(), csp(loadEnv(mode, process.cwd(), "VITE_"))],
   build: { outDir: "../v2", emptyOutDir: true },
   server: { fs: { allow: [".."] } },
-});
+}));

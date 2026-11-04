@@ -1,6 +1,26 @@
 #!/usr/bin/env python3
-"""Fetch Chicago and NYC events from several public sources into events.json."""
-import html as htmllib, json, math, os, random, re, sys, time, urllib.parse, urllib.request
+"""Fetch upcoming events from several public sources and write them to events.json.
+
+Standard library only. Runs on a schedule in GitHub Actions (see .github/workflows/fetch.yml).
+
+How the file is laid out
+  helpers      http(), ev(), safe_url(), settle_price(), is_kids(), age_min()
+  fetchers     fetch_<source>(city) -> [event]: luma, eventbrite, partiful, pie, do312/donyc, cpl, cpd,
+               coursehorse, ra, and ticketmaster (official API, only when TICKETMASTER_API_KEY is set)
+  main()       runs every fetcher, then: validates, keeps the last good events for any source that failed,
+               drops kids events, fills in prices, merges duplicates across sites, writes events.json
+
+Ground rules (the reasons behind the code)
+  * Everything scraped is untrusted. ev() cleans text, caps lengths, removes emails and phone numbers, and only accepts
+    a link that is plain http(s) and on the source's own domain (ALLOWED_HOSTS). See docs/SECURITY.md.
+  * Be polite: a random 1 to 3 second pause before every request, a cap on detail page requests per source per run
+    (DETAIL_CAP), no logins, no tricks around bot walls. Only https is ever fetched, and responses are size capped.
+  * Fail safely and loudly: a source that breaks keeps its previous events, raises a warning (and a GitHub issue if it
+    persists), and never takes the whole run down. See docs/SOURCES.md.
+  * Every event records how its price was found in price_source: a structured, b always free, c guessed from the
+    description (shown with a "~"), d nothing found ("Click for $").
+"""
+import html as htmllib, json, math, os, random, re, sys, time, urllib.error, urllib.parse, urllib.request
 from datetime import datetime, timedelta, timezone
 from http.cookiejar import CookieJar
 from zoneinfo import ZoneInfo
@@ -28,11 +48,25 @@ CPD_PAGES = 45
 LUMA_CALENDARS = 60  # host calendars followed per city
 DETAIL_CAP = 60      # detail page requests per source per run
 
+MAX_BYTES = 15_000_000  # no single response is larger than this; a bigger one is an error, not something to buffer
+
+
+class HttpsOnly(urllib.request.HTTPRedirectHandler):
+    """Follow redirects, but never to a plain http:// address."""
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        if not newurl.startswith("https://"):
+            raise urllib.error.URLError(f"refusing redirect to a non https address ({code})")
+        return super().redirect_request(req, fp, code, msg, headers, newurl)
+
+
 jar = CookieJar()
-opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(jar))
+opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(jar), HttpsOnly)
 
 
 def http(url, data=None, headers=None):
+    """GET, or POST when data is given (sent as JSON). Polite: a random 1 to 3 second pause before every request."""
+    if not url.startswith("https://"):
+        raise ValueError("only https URLs are fetched")
     h = {"User-Agent": UA, "Accept": "application/json, text/html, */*"}
     h.update(headers or {})
     body = json.dumps(data).encode() if data is not None else None
@@ -40,19 +74,76 @@ def http(url, data=None, headers=None):
         h["Content-Type"] = "application/json"
     time.sleep(random.uniform(1, 3))
     with opener.open(urllib.request.Request(url, body, h), timeout=20) as r:
-        return r.read().decode("utf-8", "replace")
+        raw = r.read(MAX_BYTES + 1)
+    if len(raw) > MAX_BYTES:
+        raise ValueError("response too large")
+    return raw.decode("utf-8", "replace")
+
+
+SECRET_ENV = ("TICKETMASTER_API_KEY", "GH_TOKEN", "GITHUB_TOKEN")
+
+
+def scrub(text):
+    """Keep secrets out of logs: replace any secret value that appears in a message."""
+    text = str(text)
+    for name in SECRET_ENV:
+        v = os.environ.get(name)
+        if v and len(v) > 3:
+            text = text.replace(v, "***")
+    return text
 
 
 def clean(s):
-    return re.sub(r"\s+", " ", htmllib.unescape(re.sub(r"<[^>]+>", " ", s or ""))).strip()
+    """Plain text from scraped HTML: tags removed, entities decoded, control characters dropped, whitespace collapsed."""
+    text = htmllib.unescape(re.sub(r"<[^>]+>", " ", s or ""))
+    return re.sub(r"\s+", " ", re.sub(r"[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]", "", text)).strip()
+
+
+# Where each source's event links may point. Scraped data is untrusted: a compromised or buggy source must not be able
+# to put a javascript: link, or a link to some other site, on the page. Unlisted sources get the scheme check only.
+ALLOWED_HOSTS = {
+    "luma": ("lu.ma", "luma.com"),
+    # Eventbrite serves organizers on country domains too (seen live: .co.uk, .ca). An explicit list, not a wildcard:
+    # a wildcard like "eventbrite.*" would also accept a lookalike someone registered.
+    "eventbrite": tuple("eventbrite." + tld for tld in ("com", "ca", "co.uk", "com.au", "ie", "de", "es", "fr", "it", "nl", "at", "be", "ch",
+                                                       "dk", "fi", "no", "pt", "se", "pl", "cz", "hk", "sg", "in", "co.nz", "com.br",
+                                                       "com.mx", "com.ar", "cl", "co", "com.co", "com.pe")), "partiful": ("partiful.com",), "pie": ("getpie.app",),
+    "do312": ("do312.com",), "donyc": ("donyc.com",), "cpl": ("chipublib.bibliocommons.com",),
+    "cpd": ("chicagoparkdistrict.com",), "coursehorse": ("coursehorse.com",), "ra": ("ra.co",),
+    "ticketmaster": ("ticketmaster.com", "ticketweb.com", "livenation.com", "universe.com"),
+}
+
+
+def safe_url(url, source):
+    """The url if it is a plain http(s) link to the source's own site, else an empty string."""
+    u = (url or "").strip()
+    if not u or len(u) > 500 or re.search(r"[\x00-\x20\x7f]", u):
+        return ""
+    p = urllib.parse.urlsplit(u)
+    if p.scheme not in ("http", "https") or not p.hostname or p.username or p.password:
+        return ""
+    hosts = ALLOWED_HOSTS.get(source)
+    if hosts and not any(p.hostname == h or p.hostname.endswith("." + h) for h in hosts):
+        return ""
+    return u
+
+
+EMAIL_RE = re.compile(r"[\w.+-]+@[\w-]+(?:\.[\w-]+)+")
+PHONE_RE = re.compile(r"(?<!\d)(?:\+?1[ .-]?)?\(?\d{3}\)?[ .-]\d{3}[ .-]\d{4}(?!\d)")
+
+
+def redact(text):
+    """Organizers put personal emails and phone numbers in descriptions. The public page does not need them."""
+    return PHONE_RE.sub("[phone]", EMAIL_RE.sub("[email]", text))
 
 
 def ev(city, title, start, venue, url, source, desc, price=None, always_free=False, kids=None, age_text=""):
-    """kids: True/False when the source's own audience or age field decides it, None to use keywords.
+    """Build one event record. Every text field is scraped, so it is cleaned, length capped and, for the link, checked.
+    kids: True/False when the source's own audience or age field decides it, None to use keywords.
     The full description and age text are kept in _d / _age until main() has used them."""
-    full = clean(desc)
-    e = {"title": clean(title), "start": start.astimezone(ZoneInfo(city["tz"])).isoformat(timespec="minutes"),
-         "venue": clean(venue), "url": url, "source": source, "city": city["name"], "description": full[:300],
+    full = clean(desc)[:5000]
+    e = {"title": clean(title)[:200], "start": start.astimezone(ZoneInfo(city["tz"])).isoformat(timespec="minutes"),
+         "venue": clean(venue)[:200], "url": safe_url(url, source), "source": source, "city": city["name"], "description": redact(full[:300]),
          "is_free": None, "price_text": None, "original_price_text": None, "price_source": None,
          "sold_out": None, "waitlist": None, "few_left": None, "interested_count": None, "age_min": None,
          "_d": full, "_kids": kids, "_age": age_text}
@@ -303,6 +394,9 @@ def partiful_events(o):
             yield from partiful_events(v)
 
 
+ID_RE = re.compile(r"[A-Za-z0-9_-]{4,64}")  # what an id taken from scraped data must look like before it goes into a URL
+
+
 def fetch_partiful(city):
     out, seen = [], set()
     for path in (f"explore/{city['partiful']}", f"explore/l/{city['partiful']}/events"):
@@ -313,7 +407,7 @@ def fetch_partiful(city):
             print(f"partiful {path} failed: {e}", file=sys.stderr)
             continue
         for x in partiful_events(data["props"]["pageProps"]):
-            if x["id"] in seen or x.get("status", "PUBLISHED") != "PUBLISHED":
+            if x["id"] in seen or x.get("status", "PUBLISHED") != "PUBLISHED" or not ID_RE.fullmatch(str(x["id"])):
                 continue
             seen.add(x["id"])
             e = ev(city, x["title"], parse_dt(x["startDate"]), ((x.get("locationInfo") or {}).get("mapsInfo") or {}).get("name") or city["name"],
@@ -380,6 +474,8 @@ def fetch_pie(city):
     plans = json.loads(http(PIE_API + "v1/plans?" + urllib.parse.urlencode({"limit": 100, "market": city["pie_market"]})))
     out, fails, checked = [], 0, 0
     for p in plans:
+        if not ID_RE.fullmatch(str(p.get("planId", ""))):
+            continue  # plan ids are UUIDs; anything else is not something to put in a URL
         url = "https://getpie.app/plans/" + p["planId"]
         if OLD.get(url, {}).get("source") == "pie":
             out.append(OLD[url])
@@ -503,7 +599,9 @@ def fetch_dostuff(city):
                 break
             for grp in b.get("data", []):
                 for x in grp.get("events", []):
-                    if not x.get("tz_adjusted_begin_time") or not x.get("permalink") or (x["permalink"], x["tz_adjusted_begin_time"]) in seen:
+                    # the permalink is joined onto the host below, so it must be a plain path ("/events/..."), never "//", "@" or "."
+                    if not x.get("tz_adjusted_begin_time") or not re.fullmatch(r"/[A-Za-z0-9][^\s@]*", str(x.get("permalink"))) \
+                            or (x["permalink"], x["tz_adjusted_begin_time"]) in seen:
                         continue
                     seen.add((x["permalink"], x["tz_adjusted_begin_time"]))
                     v = x.get("venue") or {}
@@ -808,6 +906,7 @@ def main():
 
     def warn(msg, key):
         """key is "City/source". A key that warns on consecutive runs is a source that is really broken (see tools/alert.py)."""
+        msg = scrub(msg)
         print("WARNING:", msg, file=sys.stderr)
         print(f"::warning::{msg}")  # shows as an annotation on the GitHub Actions run
         warnings.append(msg)
@@ -820,7 +919,7 @@ def main():
             try:
                 got = fn(city)
             except Exception as e:
-                print(f"{city['name']} {name} failed: {e}", file=sys.stderr)
+                print(f"{city['name']} {name} failed: {scrub(e)}", file=sys.stderr)
                 got = []
             prev = [e for e in old if e["source"] == name and e.get("city", "Chicago") == city["name"]]
             key = f"{city['name']}/{name}"
