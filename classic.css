@@ -1,0 +1,103 @@
+/* Classic page layout. Colour, type, spacing and motion come from ui/tokens.css; badges, pills, buttons and card
+   motion from ui/components.css. This file only says where things go.
+
+   Vertical rhythm, top to bottom of the first screen:
+     header (brand + tagline)  ->  mustard band (status)  ->  sticky search  ->  one scroll row of filters
+     ->  tabs + sold out toggle  ->  day blocks of cards
+   Only the search box is sticky: the old sticky block held search AND topic chips (121px of every screen). */
+
+:root { --wrap: 40rem; }
+
+/* ---------- header and band ---------- */
+.head { background: var(--head); color: var(--head-text); padding: var(--sp-5) 0 var(--sp-4); }
+.head h1 { font: 400 var(--fs-display) / var(--lh-tight) var(--font-display); letter-spacing: .02em; text-transform: uppercase; }
+.tag { margin-top: var(--sp-2); font: italic var(--fw-strong) var(--fs-md) / var(--lh-snug) var(--font-serif); text-transform: lowercase; }
+
+/* city switch: only shown when more than one city has data. Both labels visible; the selected one is filled and ticked. */
+.cities { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-2); margin-top: var(--sp-4); }
+.cities[hidden] { display: none; }
+.city { -webkit-appearance: none; appearance: none; min-height: var(--tap); padding: 0 var(--sp-4); border: 2px solid var(--text);
+        border-radius: var(--r-sm); background: var(--bg); color: var(--text); font-size: var(--fs-md); font-weight: var(--fw-ui);
+        transition: transform var(--dur-fast) var(--ease), background-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease); }
+.city.on { background: var(--text); color: var(--bg); font-weight: var(--fw-black); }
+.city:active { transform: scale(.97); }
+
+.band { position: relative; background: var(--band); color: var(--band-text); padding-bottom: var(--sp-5); }
+#status { display: flex; align-items: center; width: 100%; min-height: var(--tap); padding: 0; border: 0; background: none;
+          font-size: var(--fs-sm); font-weight: var(--fw-ui); text-align: left; }
+#status::after { content: "\25BE"; margin-left: var(--sp-2); font-size: var(--fs-xs); transition: transform var(--dur-base) var(--ease); }
+#status[aria-expanded="true"]::after { transform: rotate(180deg); }
+#srcs { display: flex; flex-wrap: wrap; gap: var(--sp-2); padding-bottom: var(--sp-2); }
+#srcs[hidden] { display: none; }
+#srcs .badge { border: 1.5px solid var(--text); }
+.band svg { position: absolute; left: 0; bottom: -1px; width: 100%; height: 1.25rem; display: block; }
+.band path { fill: var(--bg); }
+
+/* ---------- search (sticky) and the filter row ---------- */
+.sticky { position: sticky; top: 0; z-index: 5; background: var(--bg); padding: var(--sp-2) 0 var(--sp-3); }
+.search { position: relative; }
+.search svg { position: absolute; left: var(--sp-4); top: 50%; width: 1.125rem; height: 1.125rem; transform: translateY(-50%);
+              stroke: var(--text); fill: none; stroke-width: 2.2; stroke-linecap: round; pointer-events: none; }
+#q { width: 100%; min-height: var(--tap); padding: 0 var(--sp-4) 0 2.75rem; border: 2px solid var(--line); border-radius: var(--r-pill);
+     background: var(--bg); color: var(--text); font: var(--fs-md) / 1 var(--font-ui); -webkit-appearance: none; appearance: none; }
+#q::placeholder { color: var(--muted); }
+
+/* Quick filters and topic chips share ONE horizontally scrolling row (they used to be two rows). The right edge fades
+   to show there is more. The wrappers #quick and #chips are transparent to layout so their buttons flow together. */
+.filters { display: flex; gap: var(--sp-2); overflow-x: auto; scrollbar-width: none; padding: var(--sp-1) 0 var(--sp-2);
+           -webkit-mask-image: linear-gradient(to right, #000 calc(100% - var(--sp-5)), transparent);
+                   mask-image: linear-gradient(to right, #000 calc(100% - var(--sp-5)), transparent); }
+.filters::-webkit-scrollbar { display: none; }
+#quick, #chips { display: contents; }
+.filters > button, .filters > * > button { flex: none; }
+
+/* ---------- tabs and the sold out toggle ---------- */
+.bar { margin-top: var(--sp-1); }
+.tabs { display: flex; gap: var(--sp-2); }
+#hide.on { background: color-mix(in srgb, var(--mustard) 55%, var(--bg)); color: var(--text); }   /* a toggle that is on: tinted and ticked, quieter than the active tab */
+#hide.on::before { content: "\2713"; }
+#terms { margin-top: var(--sp-3); font-size: var(--fs-sm); color: var(--muted); }
+#terms:empty { display: none; }
+
+/* ---------- the list ---------- */
+#list { margin-top: var(--sp-2); scroll-margin-top: 5rem; }
+.day { margin: var(--sp-4) 0; padding: var(--sp-3) var(--sp-3) var(--sp-1); border-radius: var(--r-lg);
+       background: color-mix(in srgb, var(--c) calc(var(--day-a) * 100%), transparent); }
+.day h2 { margin: var(--sp-1) var(--sp-1) var(--sp-3); font: var(--fs-md) / var(--lh-ui) var(--font-display); letter-spacing: var(--ls-caps); text-transform: uppercase; }
+
+/* A card: time as a small label above the title, so the title gets the full width. (A fixed 66px time column used to
+   squeeze titles to about 190px on a phone.) The three action buttons are real 44px touch targets. */
+.card { display: flex; margin-bottom: var(--sp-3); }
+.card.soldout { opacity: .55; }
+a.main { flex: 1; min-width: 0; display: block; padding: var(--sp-3) var(--sp-1) var(--sp-3) var(--sp-4); color: inherit; text-decoration: none; }
+a.main:active { opacity: .75; }
+.meta { display: flex; align-items: baseline; gap: var(--sp-2); font-size: var(--fs-sm); line-height: var(--lh-ui); color: var(--muted); }
+.time { flex: none; color: var(--text); font-weight: var(--fw-black); font-variant-numeric: tabular-nums; }
+.meta .venue::before { content: "\00B7"; margin-right: var(--sp-2); }       /* 7:30 PM · The Venue */
+.title { margin-top: var(--sp-1); font: var(--fw-strong) var(--fs-lg) / var(--lh-snug) var(--font-serif); overflow-wrap: anywhere; }
+
+.acts { display: flex; flex-direction: column; justify-content: center; padding-right: var(--sp-1); }
+.ic { display: grid; place-items: center; width: var(--tap); height: var(--tap); padding: 0; border: 0; border-radius: 50%; background: none; color: var(--text);
+      transition: transform var(--dur-fast) var(--ease), background-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease); }
+.ic svg { width: 1.25rem; height: 1.25rem; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.ic.on { color: var(--heart); }
+.ic.on svg { fill: currentColor; }
+.ic:active { transform: scale(.9); }
+.ic.pop svg { animation: pop var(--dur-base) var(--ease); }
+@keyframes pop { 50% { transform: scale(1.3); } }
+@media (hover: hover) { .ic:hover { background: color-mix(in srgb, var(--mustard) 45%, transparent); } }
+
+/* the shared "Add to calendar" popover */
+.cal-menu { position: fixed; z-index: 20; display: grid; min-width: 13rem; padding: var(--sp-1); background: var(--bg); border: 1.5px solid var(--line);
+            border-radius: var(--r-md); box-shadow: var(--lift); animation: step-in var(--dur-fast) var(--ease) both; }
+.cal-menu button { min-height: var(--tap); padding: 0 var(--sp-3); border: 0; border-radius: var(--r-sm); background: none; text-align: left;
+                   font-size: var(--fs-sm); font-weight: var(--fw-ui); }
+@media (hover: hover) { .cal-menu button:hover { background: color-mix(in srgb, var(--mustard) 45%, transparent); } }
+
+.empty { padding: var(--sp-7) 0; text-align: center; font: 500 var(--fs-xl) / var(--lh-snug) var(--font-serif); }
+
+/* ---------- pager and footer ---------- */
+.pager { display: flex; justify-content: space-between; align-items: center; margin-top: var(--sp-3); font-size: var(--fs-sm); font-weight: var(--fw-ui); }
+#footnote { margin-top: var(--sp-5); padding-top: var(--sp-3); border-top: 1.5px solid var(--line); font-size: var(--fs-sm); color: var(--muted); }
+.links { margin: var(--sp-4) 0 var(--sp-7); font-weight: var(--fw-strong); }
+.links a { display: inline-block; padding: var(--sp-2) 0; }

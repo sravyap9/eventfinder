@@ -29,7 +29,7 @@ const HOSTILE = {
 };
 
 async function newPage(browser, { storage, model } = {}) {
-  const ctx = await browser.newContext({ viewport: { width: 393, height: 852 }, acceptDownloads: true });
+  const ctx = await browser.newContext({ viewport: { width: 393, height: 852 }, acceptDownloads: true, reducedMotion: "reduce" });
   const page = await ctx.newPage();
   const log = { csp: [], errors: [], dialogs: [] };
   page.on("console", (m) => { if (/Content Security Policy/i.test(m.text())) log.csp.push(m.text()); });
@@ -63,7 +63,8 @@ async function newPage(browser, { storage, model } = {}) {
     check("classic: no CSP violations from the page's own code", log.csp.length === 0, log.csp.join(" | ").slice(0, 200));
     // calendar file: no injected lines
     const dl = page.waitForEvent("download", { timeout: 3000 }).catch(() => null);
-    await page.locator(".card", { hasText: "ics title" }).locator("[data-act=cal]").first().click().catch(() => {});
+    await page.locator(".card", { hasText: "ics title" }).locator("[data-act=calmenu]").first().click().catch(() => {});
+    await page.locator('.cal-menu [data-m="ics"]').click().catch(() => {});
     const d = await dl;
     if (d) { const txt = require("fs").readFileSync(await d.path(), "utf8"); check("classic: .ics has exactly one event (no line injection through title or venue)", (txt.match(/^BEGIN:VEVENT\r?$/gm) || []).length === 1 && (txt.match(/^END:VEVENT\r?$/gm) || []).length === 1 && !/^SUMMARY:injected/m.test(txt) && !/^ATTENDEE/m.test(txt)); }
     else check("classic: .ics download works", false, "no download event");

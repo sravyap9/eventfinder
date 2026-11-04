@@ -1,8 +1,4 @@
-export const NAMES = { luma: "Luma", eventbrite: "Eventbrite", partiful: "Partiful", pie: "Pie", do312: "Do312", donyc: "DoNYC",
-  cpl: "Chicago Public Library", cpd: "Chicago Park District", coursehorse: "CourseHorse", ra: "Resident Advisor", ticketmaster: "Ticketmaster" };
-
-// Event links come from scraped sites, so treat them as untrusted: a javascript: URL in an href runs when clicked.
-export const safeHref = (u) => (/^https?:\/\//i.test(String(u)) ? String(u) : "#");
+import { safeHref } from "../../shared/events.js";
 
 // start strings look like 2026-11-04T19:30-06:00: the date and clock in them are already the event's local time
 export function when(e) {

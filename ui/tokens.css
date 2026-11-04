@@ -1,0 +1,77 @@
+/* Design tokens and base styles shared by the classic page and the quiz page (/v2/).
+   One place to change colour, type, spacing and motion. Components use these names, never raw numbers.
+
+   TYPE SYSTEM, in one line each
+     Archivo Black  display: the brand, day headings, quiz questions. Always uppercase or very short.
+     Fraunces       editorial: event titles, tagline, empty states. Gives the list its personality.
+     system-ui      everything functional: buttons, meta, forms. Fast, familiar, crisp at small sizes.
+   Scale: 6 steps plus one fluid display size (ratio about 1.2). Nothing else is allowed in a component. */
+
+:root {
+  color-scheme: light;
+
+  /* palette: cream page, olive header, mustard band, forest text, pastel accents */
+  --cream: #F6F1E7;  --forest: #2E4A2E;  --forest-2: #4D6A4D;  --olive: #6E7F2F;  --mustard: #F2C94C;
+  --blush: #EFC3BC;  --blue: #7FA6CB;    --peri: #9EA7E3;      --apricot: #F2A65A; --ink: #1B2E1B;
+  --heart: #C4473A;  --free: #B7D7A8;    --few: #F2B8A2;       --sold: #D9D5CB;
+
+  /* semantic names, what components actually use */
+  --bg: var(--cream);        --text: var(--forest);   --muted: var(--forest-2);   --line: var(--forest);
+  --head: var(--olive);      --head-text: var(--cream);
+  --band: var(--mustard);    --band-text: var(--forest);
+  --pill-text: var(--ink);   --day-a: .38;
+
+  /* type */
+  --font-display: "Archivo Black", system-ui, sans-serif;
+  --font-serif: "Fraunces", Georgia, serif;
+  --font-ui: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --fs-xs: .75rem;   /* 12  badges, pills, captions */
+  --fs-sm: .875rem;  /* 14  buttons, meta, notes */
+  --fs-md: 1rem;     /* 16  body, inputs (16 or more stops iOS zooming on focus) */
+  --fs-lg: 1.125rem; /* 18  event titles */
+  --fs-xl: 1.375rem; /* 22  section headings, empty states */
+  --fs-2xl: 1.75rem; /* 28  quiz question on larger screens */
+  --fs-display: clamp(2rem, 1.2rem + 3.4vw, 3.5rem);  /* 32 on a phone, up to 56 on a laptop */
+  --lh-tight: 1.1;  --lh-snug: 1.25;  --lh-ui: 1.35;  --lh-body: 1.5;
+  --fw-ui: 600;     --fw-strong: 700; --fw-black: 800;
+  --ls-caps: .06em;
+
+  /* space: a 4px grid */
+  --sp-1: .25rem;  --sp-2: .5rem;  --sp-3: .75rem;  --sp-4: 1rem;  --sp-5: 1.5rem;  --sp-6: 2rem;  --sp-7: 3rem;
+  --tap: 2.75rem;  /* 44px minimum touch target */
+
+  /* shape */
+  --r-sm: .75rem;  --r-md: 1rem;  --r-lg: 1.375rem;  --r-pill: 999px;
+  --lift: 3px 3px 0 var(--text);  /* the retro hard shadow used for hover */
+
+  /* motion: nothing takes 300ms or more, even with the longest stagger (60ms + 220ms = 280ms) */
+  --dur-fast: 120ms;  --dur-base: 180ms;  --dur-slow: 220ms;
+  --ease: cubic-bezier(.2, .7, .2, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { color-scheme: light; -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  margin: 0; min-height: 100vh; min-height: 100dvh;
+  background: var(--bg); color: var(--text);
+  font: var(--fs-md) / var(--lh-body) var(--font-ui);
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+}
+h1, h2, h3, p { margin: 0; }
+button { font: inherit; color: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+a { color: inherit; }
+
+/* Page width and gutters. --wrap is set per page. Gutters respect the iPhone notch in landscape. */
+.wrap {
+  max-width: var(--wrap, 40rem); margin-inline: auto;
+  padding-inline: max(var(--sp-4), env(safe-area-inset-left), env(safe-area-inset-right));
+}
+
+/* A focus ring you can actually see: forest on cream. (The old mustard ring was about 1.5 to 1 against the page.) */
+:focus-visible { outline: 3px solid var(--text); outline-offset: 2px; }
+.head :focus-visible { outline-color: var(--head-text); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}

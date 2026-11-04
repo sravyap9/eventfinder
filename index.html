@@ -7,116 +7,34 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Sidequests</title>
+<link rel="preload" href="fonts/archivo-black-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="fonts/fonts.css">
-<style>
-:root{
-  --bg:#F6F1E7;--text:#2E4A2E;--muted:#4D6A4D;--card:#F6F1E7;--line:#2E4A2E;
-  --head:#6E7F2F;--head-text:#F6F1E7;--band:#F2C94C;--band-text:#2E4A2E;
-  --blush:#EFC3BC;--mustard:#F2C94C;--peri:#9EA7E3;--apricot:#F2A65A;--blue:#7FA6CB;
-  --block-a:.38;--chip-text:#1B2E1B;--on-bg:#2E4A2E;--on-text:#F6F1E7;--focus:#F2C94C;
-  --badge-text:#1B2E1B;
-  color-scheme:light;--heart:#C4473A;--free:#B7D7A8;--few:#F2B8A2;--sold:#D9D5CB;--sold-text:#3A3A36;--pill-text:#1B2E1B;
-}
-*{box-sizing:border-box}
-html{color-scheme:light}
-body{margin:0;background:var(--bg);color:var(--text);font:16px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
-.wrap{max-width:640px;margin:0 auto;padding:0 16px}
-header{background:var(--head);color:var(--head-text);padding:28px 0 22px}
-h1{margin:0;font:400 38px/1 "Archivo Black",system-ui,sans-serif;text-transform:uppercase;letter-spacing:.5px}
-.tag{margin:8px 0 0;font:700 18px "Fraunces",Georgia,serif;font-style:italic;text-transform:lowercase}
-.cities{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px}
-.cities[hidden]{display:none}
-.city{-webkit-appearance:none;appearance:none;-webkit-tap-highlight-color:transparent;min-height:44px;padding:8px 16px;font:inherit;font-size:16px;border-radius:14px;border:2px solid var(--text);background:var(--bg);color:var(--text);font-weight:600;cursor:pointer;transition:transform .08s,box-shadow .08s}
-.city.on{background:var(--text);color:var(--bg);font-weight:800}
-.city:active{transform:scale(.96);box-shadow:inset 0 2px 5px rgba(0,0,0,.25)}
-.city:focus-visible{outline:3px solid var(--mustard);outline-offset:2px}
-.band{background:var(--band);color:var(--band-text);position:relative;padding:12px 0 30px}
-#status{display:block;width:100%;text-align:left;font:inherit;font-size:13px;font-weight:600;padding:2px 0;border:0;background:none;color:var(--band-text);cursor:pointer}
-#status::after{content:" ▾";font-size:11px}#status[aria-expanded=true]::after{content:" ▴"}
-#srcs{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}#srcs[hidden]{display:none}
-#srcs span{font-size:12px;font-weight:700;border-radius:999px;padding:3px 10px;border:1.5px solid var(--text)}
-.band svg{position:absolute;left:0;bottom:-1px;width:100%;height:20px;display:block}
-.band path{fill:var(--bg)}
-.sticky{position:sticky;top:0;z-index:5;background:var(--bg);padding:6px 0 10px}
-.search{position:relative}
-.search svg{position:absolute;left:16px;top:50%;transform:translateY(-50%);width:18px;height:18px;stroke:var(--text);fill:none;stroke-width:2.2;stroke-linecap:round}
-#q{width:100%;font:inherit;font-size:17px;padding:12px 18px 12px 44px;border:2px solid var(--line);border-radius:999px;background:var(--card);color:var(--text);outline:none}
-#q::placeholder{color:var(--muted)}
-#q:focus{box-shadow:0 0 0 4px var(--focus)}
-.chips{display:flex;gap:8px;overflow-x:auto;padding:12px 2px 4px;scrollbar-width:none}
-.chips::-webkit-scrollbar{display:none}
-.chip{flex:none;font:inherit;font-size:14px;font-weight:600;padding:7px 15px;border:2px solid transparent;border-radius:999px;color:var(--chip-text);cursor:pointer}
-.chip.on{background:var(--on-bg)!important;color:var(--on-text)}
-
-.opts{display:flex;gap:4px;align-items:center;font-size:14px}
-.opts label{display:flex;gap:6px;align-items:center;cursor:pointer}
-.opts a{color:var(--text);font-weight:700;text-decoration:none;padding:0 6px}
-.pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:7px}
-.pill{font-size:12px;font-weight:700;border-radius:999px;padding:3px 9px;color:var(--pill-text);border:1.5px solid var(--line)}
-.pill.free{background:var(--free);border-color:transparent}
-.pill.few{background:var(--few);border-color:transparent}
-.pill.sold{background:var(--sold);color:var(--sold-text);border-color:transparent}
-.pill.wait{background:var(--peri);border-color:transparent}
-.pill.age{background:var(--blush);border-color:transparent}
-.pill.click{background:transparent;border-style:dashed}
-.pill s{font-weight:500;opacity:.8}
-.card.soldout{opacity:.55}
-#footnote{font-size:13px;color:var(--muted);margin:24px 4px 0;border-top:1.5px solid var(--line);padding-top:12px}
-#terms{font-size:13px;color:var(--muted);margin:8px 4px 0}
-.day{border-radius:22px;padding:6px 14px 8px;margin:16px 0;background:color-mix(in srgb,var(--c) calc(var(--block-a)*100%),transparent)}
-h2{margin:12px 2px 10px;font:400 17px "Archivo Black",system-ui,sans-serif;text-transform:uppercase;letter-spacing:.8px;color:var(--text)}
-.card{display:flex;margin:0 0 10px;background:var(--card);border:1.5px solid var(--line);border-radius:16px}
-a.main{display:flex;gap:14px;align-items:flex-start;flex:1;min-width:0;padding:13px 0 13px 14px;color:inherit;text-decoration:none}
-a.main:active{opacity:.75}
-.acts{display:flex;flex-direction:column;padding:6px 6px 6px 0}
-.ic{width:32px;height:32px;border:0;border-radius:50%;background:none;color:var(--text);cursor:pointer;display:grid;place-items:center;padding:0}
-.ic svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.ic.on{color:var(--heart)}.ic.on svg{fill:currentColor}
-.pill.new{background:var(--mustard);border-color:transparent}
-.quick{display:flex;gap:8px;flex-wrap:wrap;margin:12px 2px 0}
-.qc,.tab{font:inherit;font-size:14px;font-weight:600;padding:6px 14px;border:2px solid var(--line);border-radius:999px;background:transparent;color:var(--text);cursor:pointer}
-.qc.on,.tab.on{background:var(--on-bg);color:var(--on-text);border-color:var(--on-bg)}
-.tab{font-weight:700}
-.count{display:inline-block;min-width:18px;padding:0 5px;margin-left:4px;border-radius:999px;background:var(--mustard);color:var(--pill-text);font-size:12px;text-align:center}
-.bar{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:12px 2px 0}
-.tabs{display:flex;gap:6px}
-#list{scroll-margin-top:150px}
-.pager{display:flex;justify-content:space-between;align-items:center;margin:8px 2px 0;font-size:14px;font-weight:600}
-.pager button{font:inherit;font-weight:700;padding:6px 16px;border:2px solid var(--line);border-radius:999px;background:transparent;color:var(--text);cursor:pointer}
-.pager button:disabled{opacity:.35;cursor:default}
-.time{flex:none;width:66px;font-weight:800;font-size:15px;padding-top:2px}
-.body{min-width:0;flex:1}
-.title{font:700 18px/1.25 "Fraunces",Georgia,serif;overflow-wrap:anywhere}
-.row{display:flex;gap:8px;align-items:center;margin-top:7px;font-size:14px;color:var(--muted)}
-.venue{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
-.badge{flex:none;font-size:11px;font-weight:700;color:var(--badge-text);border-radius:999px;padding:3px 9px}
-.badge.luma{background:var(--peri)}.badge.eventbrite{background:var(--apricot)}.badge.partiful{background:var(--blush)}.badge.pie{background:var(--mustard)}
-.badge.do312,.badge.donyc{background:var(--blue)}
-.badge.cpl{background:var(--head);color:var(--head-text)}
-.badge.cpd{background:color-mix(in srgb,var(--head) 40%,var(--bg))}
-.badge.coursehorse{background:color-mix(in srgb,var(--apricot) 45%,var(--bg))}
-.badge.ra{background:var(--text);color:var(--bg)}
-.badge.ticketmaster{background:color-mix(in srgb,var(--peri) 45%,var(--bg))}
-.empty{text-align:center;font:500 20px "Fraunces",Georgia,serif;padding:48px 0}
-.pad{height:40px}
-</style></head><body>
-<header><div class="wrap"><h1>SIDEQUESTS</h1><p class="tag">find your next adventure (and your people)</p><div class="cities" id="cities"></div></div></header>
-<div class="band"><div class="wrap"><button id="status" type="button" aria-expanded="false" aria-controls="srcs">Loading…</button><div id="srcs" hidden></div></div>
+<link rel="stylesheet" href="ui/tokens.css">
+<link rel="stylesheet" href="ui/components.css">
+<link rel="stylesheet" href="classic.css">
+</head><body>
+<header class="head"><div class="wrap"><h1>SIDEQUESTS</h1><p class="tag">find your next adventure (and your people)</p><div class="cities" id="cities" hidden></div></div></header>
+<div class="band"><div class="wrap"><button id="status" type="button" aria-expanded="false" aria-controls="srcs">Loading events…</button><div id="srcs" hidden></div></div>
 <svg viewBox="0 0 640 20" preserveAspectRatio="none" aria-hidden="true"><path d="M0 8 Q40 -4 80 8 T160 8 T240 8 T320 8 T400 8 T480 8 T560 8 T640 8 V20 H0Z"/></svg></div>
 <div class="sticky"><div class="wrap">
   <div class="search">
-    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
-    <input id="q" type="search" placeholder="search events, e.g. painting" autocomplete="off">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+    <input id="q" type="search" placeholder="search events, e.g. painting" autocomplete="off" aria-label="Search events">
   </div>
-  <div class="chips" id="chips"></div>
 </div></div>
-<div class="wrap">
-  <div class="quick" id="quick"></div>
+<main class="wrap">
+  <div class="filters" id="filters" role="group" aria-label="Filters and topics"><button class="qc on" id="hide" type="button" aria-pressed="true">Hide sold out</button><div id="quick"></div><div id="chips"></div></div>
   <div class="bar">
     <div class="tabs"><button class="tab on" data-t="all">Results</button><button class="tab" data-t="saved">♥ Saved<span class="count" id="sc">0</span></button></div>
-    <div class="opts"><label><input type="checkbox" id="hide" checked> hide sold out</label><a href="#footnote" aria-label="about availability">*</a></div>
   </div>
   <div id="terms"></div>
-  <div id="list"></div>
-  <div class="pager" id="pager" hidden></div><p id="footnote">* Availability updates every 12 hours, so an event may be sold out even if it isn't marked here. Check the event page before you go.<br>~ A price with a tilde (like ~$15) was pulled from the event description, so it may be off. "Click for $" means no price was listed. Tap to open the event page.</p><p style="margin-top:16px"><a href="v2/" style="color:var(--text);font-weight:700">Try the new version: take a quiz and get picks →</a> · <a href="privacy.html" style="color:var(--text);font-weight:700">Privacy</a></p><div class="pad"></div></div>
-<script src="classic.js" defer></script></body></html>
+  <div id="list" aria-busy="true" aria-live="polite">
+    <div class="skel" aria-hidden="true"><i></i><i></i><i></i></div>
+    <div class="skel" aria-hidden="true"><i></i><i></i><i></i></div>
+    <div class="skel" aria-hidden="true"><i></i><i></i><i></i></div>
+  </div>
+  <div class="pager" id="pager" hidden></div>
+  <p id="footnote">* Availability updates every 12 hours, so an event may be sold out even if it isn't marked here. Check the event page before you go.<br>~ A price with a tilde (like ~$15) was pulled from the event description, so it may be off. "Click for $" means no price was listed. Tap to open the event page.</p>
+  <p class="links"><a href="v2/">Try the new version: take a quiz and get picks →</a> · <a href="privacy.html">Privacy</a></p>
+</main>
+<script type="module" src="classic/main.js"></script></body></html>

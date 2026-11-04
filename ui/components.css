@@ -1,0 +1,81 @@
+/* Components shared by the classic page and the quiz page. Needs ui/tokens.css.
+   Rules of the house: spacing, type and colour come from tokens; every animation is 280ms or less and only ever moves
+   opacity or transform (never layout), so nothing shifts under the reader's thumb. */
+
+/* ---------- source badges: one colour each, defined only here so the two pages cannot drift apart ---------- */
+.badge { flex: none; font-size: var(--fs-xs); font-weight: var(--fw-strong); line-height: var(--lh-ui); color: var(--ink);
+         border-radius: var(--r-pill); padding: var(--sp-1) var(--sp-2); }
+.badge.luma { background: var(--peri); }
+.badge.eventbrite { background: var(--apricot); }
+.badge.partiful { background: var(--blush); }
+.badge.pie { background: var(--mustard); }
+.badge.do312, .badge.donyc { background: var(--blue); }
+.badge.cpl { background: var(--head); color: var(--head-text); }
+.badge.cpd { background: color-mix(in srgb, var(--head) 40%, var(--bg)); }
+.badge.coursehorse { background: color-mix(in srgb, var(--apricot) 45%, var(--bg)); }
+.badge.ra { background: var(--text); color: var(--bg); }
+.badge.ticketmaster { background: color-mix(in srgb, var(--peri) 45%, var(--bg)); }
+
+/* ---------- price and status pills ---------- */
+.pills { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin-top: var(--sp-2); }
+.pill { font-size: var(--fs-xs); font-weight: var(--fw-strong); line-height: var(--lh-ui); color: var(--pill-text);
+        border: 1.5px solid var(--line); border-radius: var(--r-pill); padding: var(--sp-1) var(--sp-2); }
+.pill.free, .pill.few, .pill.sold, .pill.wait, .pill.age, .pill.new { border-color: transparent; }
+.pill.free { background: var(--free); }
+.pill.few  { background: var(--few); }
+.pill.sold { background: var(--sold); }
+.pill.wait { background: var(--peri); }
+.pill.age  { background: var(--blush); }
+.pill.new  { background: var(--mustard); }
+.pill.click { background: transparent; border-style: dashed; }
+.pill s { font-weight: 500; opacity: .8; }
+.venue { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+
+/* ---------- toggle buttons: filters, tabs, quiz options, pager, chips. One shape, 44px tall. ---------- */
+:where(.qc, .tab, .opt, .chip, .ghost, .pager button) {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--sp-1);
+  min-height: var(--tap); padding: 0 var(--sp-4);
+  border: 2px solid var(--line); border-radius: var(--r-pill);
+  background: transparent; color: var(--text);
+  font-size: var(--fs-sm); font-weight: var(--fw-ui); line-height: 1; white-space: nowrap;
+  transition: transform var(--dur-fast) var(--ease), background-color var(--dur-fast) var(--ease),
+              color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+}
+.qc.on, .tab.on, .opt.on { background: var(--text); color: var(--bg); }   /* same weight as off: no width jump when toggled */
+.chip { border-color: transparent; color: var(--ink); }                  /* pastel fill is set per chip */
+.chip.on { background: var(--text) !important; color: var(--bg); }       /* !important: beats each chip's inline pastel */
+:where(.qc, .tab, .opt, .chip, .ghost, .pager button):disabled { opacity: .35; cursor: default; }
+:where(.qc, .tab, .opt, .chip, .ghost, .pager button):active:not(:disabled) { transform: scale(.97); }
+.count { display: inline-block; min-width: 1.25rem; padding: 0 var(--sp-1); border-radius: var(--r-pill);
+         background: var(--mustard); color: var(--pill-text); font-size: var(--fs-xs); line-height: 1.25rem; text-align: center; }
+
+/* ---------- cards: a small lift on hover (devices that can hover), settle on press ---------- */
+.card { background: var(--bg); border: 1.5px solid var(--line); border-radius: var(--r-md);
+        transition: transform var(--dur-base) var(--ease), box-shadow var(--dur-base) var(--ease); }
+@media (hover: hover) {
+  :where(.qc, .tab, .opt, .ghost, .pager button):not(.on):not(:disabled):hover { background: color-mix(in srgb, var(--mustard) 45%, transparent); }
+  .chip:not(.on):hover { transform: translateY(-1px); }
+  .card:hover { transform: translate(-2px, -2px); box-shadow: var(--lift); }
+}
+
+/* ---------- motion ---------- */
+/* Scroll reveal: starts a little low and transparent, settles when it scrolls into view (ui/reveal.js adds .in).
+   --d is an optional stagger (0, 30 or 60ms), so the longest total is 60 + 220 = 280ms for the last of a group. */
+.reveal { opacity: 0; transform: translateY(var(--sp-3));
+          transition: opacity var(--dur-slow) var(--ease), transform var(--dur-slow) var(--ease); transition-delay: var(--d, 0ms); }
+.reveal.in { opacity: 1; transform: none; }
+/* Entering a new screen (next quiz question, results) */
+.step-in { animation: step-in var(--dur-base) var(--ease) both; }
+@keyframes step-in { from { opacity: 0; transform: translateY(var(--sp-2)); } }
+
+/* ---------- loading skeletons: the page shows its shape instantly, then real content replaces it ---------- */
+.skel { display: grid; gap: var(--sp-3); padding: var(--sp-4); margin-bottom: var(--sp-3); min-height: 7.5rem;
+        border: 1.5px solid color-mix(in srgb, var(--line) 25%, transparent); border-radius: var(--r-md); animation: skel-pulse 1.6s ease-in-out infinite; }
+.skel i { display: block; height: .75rem; border-radius: var(--r-pill); background: color-mix(in srgb, var(--text) 12%, transparent); }
+.skel i:nth-child(1) { width: 30%; } .skel i:nth-child(2) { width: 85%; height: 1rem; } .skel i:nth-child(3) { width: 55%; }
+@keyframes skel-pulse { 50% { opacity: .55; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .skel { animation: none; }
+}

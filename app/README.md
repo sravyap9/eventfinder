@@ -1,6 +1,6 @@
 # Sidequests v2 (React + quiz recommender)
 
-The classic page (`../index.html`, plain JavaScript) is untouched. This is a second page at `/v2/`.
+The classic page (`../index.html`, plain JavaScript modules in `../classic/`) is separate. This is a second page at `/v2/`. Both use the shared design tokens in `../ui/` and the shared logic in `../shared/`.
 
 - `src/ml.js` the recommender: TF-IDF + interest groups + price/time/day features, logistic regression prior from the quiz, online SGD from thumbs up/down, MMR re-ranking. No DOM code.
 - `src/ml.test.js` unit tests for it: `npm test`

@@ -2,7 +2,7 @@
 
 Find things to do in Chicago: one searchable list pulled from several public event sites, plus a quiz that learns your taste.
 
-* **Classic page** (`index.html`): plain HTML, CSS and JavaScript. Search, filters, saved events, calendar export.
+* **Classic page** (`index.html`, `classic.css`, `classic/`): plain HTML, CSS and JavaScript modules. Search, filters, saved events, calendar export.
 * **Quiz version** (`v2/`, source in `app/`): React. Take a six question quiz, get ranked picks with a reason for each, and tap thumbs up or down so the model retrains in your browser. Also has a Browse tab.
 
 Both pages are static files that read the same `events.json`.
@@ -29,6 +29,18 @@ Each event records how its price was found in `price_source`:
 
 `app/src/ml.js` is a logistic regression over TF-IDF words, interest groups, price, time of day and weekday. The quiz sets starting weights, each thumbs up or down is one step of online gradient descent, and the top results are re-ranked with MMR so near copies do not crowd the list. It runs entirely in the browser. See `app/README.md`.
 
+## Frontend structure
+
+```
+ui/        design tokens (colour, type scale, spacing, motion) and the components both pages share: badges, pills, buttons, cards, skeletons, scroll reveal
+shared/    logic both pages use, with tests: stemming and search, the "is this event safe to show" check, source names
+classic/   the classic page as small modules: time and filters (pure), calendar export, card HTML, and main.js (wiring)
+app/src/   the quiz page: components/ (card, pills, details, header, consent, model view), hooks/ (events, index, shared model, reveal), screens, ml.js
+fonts/     self hosted Archivo Black and Fraunces
+```
+
+Type: Archivo Black for display and headings, Fraunces for event titles, system-ui for everything functional, on a 6 step scale (`ui/tokens.css`). Every animation is under 300ms, only moves opacity or transform, and is switched off for people who ask for reduced motion.
+
 ## Security
 
 Scraped data is treated as hostile: it is cleaned and link checked when it is fetched, escaped again when it is shown, and a strict Content Security Policy blocks inline script as a last line. The optional database accepts anonymous inserts only. See `docs/SECURITY.md` for the full threat model and a short list of GitHub settings only the owner can turn on, `SECURITY.md` for reporting a problem, and `privacy.html` for what visitors are told.
@@ -46,7 +58,7 @@ The quiz page can log anonymous, opt in ratings to a free Supabase database, and
 ```
 python3 -m unittest discover -s tests     # fetcher, parsers (offline fixtures), alerts, training
 python3 fetch.py                          # refresh events.json (about 15 minutes)
-cd app && npm install && npm test         # recommender tests
+cd app && npm install && npm test         # recommender and shared logic tests
 cd app && npm run dev                     # quiz version on localhost
 cd app && npm run build                   # writes ../v2, commit it
 ```

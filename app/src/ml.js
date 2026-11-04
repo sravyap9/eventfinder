@@ -10,32 +10,21 @@
 // Then every thumbs up/down is one step of online SGD on the log loss, so the model moves from the
 // prior toward what this person actually taps. Results are re-ranked with MMR so ten near copies of
 // one recurring event don't fill the list.
+import { stem, words, stems, normTitle } from "../../shared/text.js";
+import { buildGroups, expandQuery, matchesAny } from "../../shared/search.js";
+export { normTitle };
+
 // ---------- text ----------
 const STOP = new Set(("the and for with you your our are this that from will have has not but all can who what when where how " +
   "more about join come get new one two out its per via any").split(" "));
 
-export function stem(w) {
-  let x = w, cut = false;
-  for (const suf of ["ing", "ers", "er", "es", "s"])
-    if (x.length > suf.length + 2 && x.endsWith(suf) && !(suf === "s" && x.endsWith("ss"))) {
-      x = x.slice(0, -suf.length); cut = suf !== "s" && suf !== "es"; break;
-    }
-  if (cut && /([^aeioulsz])\1$/.test(x)) x = x.slice(0, -1);
-  if (x.length > 3 && x.endsWith("e")) x = x.slice(0, -1);
-  return x;
-}
-const words = (t) => String(t || "").toLowerCase().match(/[a-z0-9]+/g) || [];
-const stems = (t) => words(t).map(stem);
-const phraseKey = (t) => stems(t).join(" ");
-export const normTitle = (t) => words(t).join(" ").replace(/^the /, "");
-
 // ---------- interest groups (reuse synonyms.json; "kids" is not a taste) ----------
-export let GROUPS = [];
+let GROUPS = [];
 // Inverted lookups, built once: stemmed word -> the groups it belongs to, and the few multi word phrases to search for.
 // Matching an event is then about one Map lookup per word it contains, instead of 367 substring searches.
 let WORD_GROUPS = new Map(), PHRASES = [];
 export function setGroups(syn) {
-  GROUPS = syn.filter((g) => g[0] !== "kids").map((g) => ({ name: g[0], keys: g.map(phraseKey) }));
+  GROUPS = buildGroups(syn.filter((g) => g[0] !== "kids"));
   WORD_GROUPS = new Map(); PHRASES = [];
   for (const g of GROUPS) for (const k of g.keys) {
     if (!k.includes(" ")) { if (!WORD_GROUPS.has(k)) WORD_GROUPS.set(k, new Set()); WORD_GROUPS.get(k).add(g.name); }
@@ -67,7 +56,7 @@ export const INTERESTS = {
 };
 
 // quiz vibe -> words that signal it
-export const VIBES = {
+const VIBES = {
   social: ["mixer", "meetup", "social", "community", "game night", "networking", "club", "trivia"],
   chill: ["gallery", "reading", "tea", "museum", "acoustic", "jazz", "book", "tour", "workshop"],
   energy: ["dance", "dj", "party", "workout", "run", "festival", "live music", "concert"],
@@ -77,7 +66,7 @@ export const VIBES = {
 const localDate = (e) => { const [y, m, d] = e.start.slice(0, 10).split("-").map(Number); return new Date(y, m - 1, d); };
 const localHour = (e) => Number(e.start.slice(11, 13));
 
-export function priceBucket(e) {
+function priceBucket(e) {
   if (e.is_free) return "free";
   const m = /\$\s?(\d+(?:\.\d+)?)/.exec(e.price_text || "");
   if (!m) return "unknown";
@@ -85,9 +74,9 @@ export function priceBucket(e) {
   return n <= 25 ? "low" : n <= 60 ? "mid" : "high";
 }
 
-export function timeBucket(h) { return h < 5 ? "late" : h < 12 ? "morning" : h < 17 ? "afternoon" : h < 21 ? "evening" : "late"; }
+function timeBucket(h) { return h < 5 ? "late" : h < 12 ? "morning" : h < 17 ? "afternoon" : h < 21 ? "evening" : "late"; }
 
-export function isWeekend(e) {
+function isWeekend(e) {
   const d = localDate(e).getDay(), h = localHour(e);
   return d === 6 || d === 0 || (d === 5 && h >= 17);
 }
@@ -238,14 +227,8 @@ export function topWeights(model, surface, n = 6) {
 }
 
 // ---------- search (same idea as the classic page: stemmed words, plus the other words in the same synonym group) ----------
-export function searchKeys(q) {
-  const k = phraseKey(q);
-  if (!k) return [];
-  const keys = new Set([k]);
-  for (const g of GROUPS) if (g.keys.includes(k)) g.keys.forEach((x) => keys.add(x));
-  return [...keys];
-}
-export const matchesKeys = (item, keys) => !keys.length || keys.some((k) => item.hay.includes(" " + k + " "));
+export const searchKeys = (q) => expandQuery(GROUPS, q).keys;
+export const matchesKeys = (item, keys) => matchesAny(item.hay, keys);
 
 // ---------- validation of anything that comes from outside the code ----------
 // A model arrives from ../model.json (a committed file) and from localStorage (editable by anyone with the browser, or by
