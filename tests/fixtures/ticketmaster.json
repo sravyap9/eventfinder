@@ -1,0 +1,31 @@
+{
+  "_comment": "Written by hand from the Ticketmaster Discovery API docs (v2), not recorded. Replace it with a real response once a key exists: curl 'https://app.ticketmaster.com/discovery/v2/events.json?apikey=KEY&latlong=41.88,-87.63&radius=40&unit=miles&size=5'",
+  "_embedded": {"events": [
+    {"name": "Chicago Bulls vs. Boston Celtics", "type": "event", "id": "G5vYZ1", "url": "https://www.ticketmaster.com/chicago-bulls-vs-boston-celtics/event/G5vYZ1",
+     "info": "Doors open at 6 PM. All sales final.",
+     "dates": {"start": {"localDate": "2026-11-10", "localTime": "19:00:00", "dateTime": "2026-11-11T01:00:00Z"}, "timezone": "America/Chicago", "status": {"code": "onsale"}},
+     "classifications": [{"segment": {"name": "Sports"}, "genre": {"name": "Basketball"}, "subGenre": {"name": "NBA"}}],
+     "priceRanges": [{"type": "standard", "currency": "USD", "min": 42.0, "max": 350.0}],
+     "_embedded": {"venues": [{"name": "United Center", "city": {"name": "Chicago"}, "state": {"stateCode": "IL"}}]}},
+    {"name": "Sold Out Rock Show", "type": "event", "id": "G5vYZ2", "url": "https://www.ticketmaster.com/sold-out-rock-show/event/G5vYZ2",
+     "dates": {"start": {"localDate": "2026-11-12", "localTime": "20:00:00", "dateTime": "2026-11-13T02:00:00Z"}, "status": {"code": "offsale"}},
+     "classifications": [{"segment": {"name": "Music"}, "genre": {"name": "Rock"}}],
+     "priceRanges": [{"currency": "USD", "min": 55.0, "max": 55.0}],
+     "_embedded": {"venues": [{"name": "Metro", "city": {"name": "Chicago"}}]}},
+    {"name": "Cancelled Comedy Night", "type": "event", "id": "G5vYZ3", "url": "https://www.ticketmaster.com/cancelled/event/G5vYZ3",
+     "dates": {"start": {"localDate": "2026-11-14", "localTime": "20:00:00", "dateTime": "2026-11-15T02:00:00Z"}, "status": {"code": "cancelled"}},
+     "classifications": [{"segment": {"name": "Arts & Theatre"}, "genre": {"name": "Comedy"}}],
+     "_embedded": {"venues": [{"name": "Zanies", "city": {"name": "Chicago"}}]}},
+    {"name": "Disney On Ice", "type": "event", "id": "G5vYZ4", "url": "https://www.ticketmaster.com/disney-on-ice/event/G5vYZ4",
+     "dates": {"start": {"localDate": "2026-11-15", "localTime": "14:00:00", "dateTime": "2026-11-15T20:00:00Z"}, "status": {"code": "onsale"}},
+     "classifications": [{"segment": {"name": "Arts & Theatre"}, "genre": {"name": "Family"}, "subGenre": {"name": "Children's Theatre"}}],
+     "priceRanges": [{"currency": "USD", "min": 30.0, "max": 120.0}],
+     "_embedded": {"venues": [{"name": "Allstate Arena", "city": {"name": "Rosemont"}}]}},
+    {"name": "Open Mic Free Night", "type": "event", "id": "G5vYZ5", "url": "https://www.ticketmaster.com/open-mic/event/G5vYZ5",
+     "dates": {"start": {"localDate": "2026-11-16"}, "status": {"code": "onsale"}},
+     "classifications": [{"segment": {"name": "Arts & Theatre"}, "genre": {"name": "Comedy"}}],
+     "priceRanges": [{"currency": "USD", "min": 0.0, "max": 0.0}],
+     "_embedded": {"venues": [{"name": "Laugh Factory", "city": {"name": "Chicago"}}]}}
+  ]},
+  "page": {"size": 200, "totalElements": 5, "totalPages": 1, "number": 0}
+}

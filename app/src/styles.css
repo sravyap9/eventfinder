@@ -39,6 +39,7 @@ button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var
 .badge.do312,.badge.donyc{background:var(--blue)}.badge.cpl{background:var(--head);color:var(--bg)}
 .badge.cpd{background:color-mix(in srgb,var(--head) 40%,var(--bg))}.badge.coursehorse{background:color-mix(in srgb,var(--apricot) 45%,var(--bg))}
 .badge.ra{background:var(--text);color:var(--bg)}
+.badge.ticketmaster{background:color-mix(in srgb,var(--peri) 45%,var(--bg))}
 .pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:7px}
 .pill{font-size:12px;font-weight:700;border-radius:999px;padding:3px 9px;border:1.5px solid var(--text);color:#1B2E1B}
 .pill.free{background:var(--free);border-color:transparent}.pill.few{background:var(--few);border-color:transparent}

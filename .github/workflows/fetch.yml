@@ -5,6 +5,7 @@ on:
   workflow_dispatch:
 permissions:
   contents: write
+  issues: write
 jobs:
   fetch:
     runs-on: ubuntu-latest
@@ -18,8 +19,17 @@ jobs:
         if: github.event_name == 'schedule'
         run: sleep $((RANDOM % 600))
       - run: python fetch.py
+        env:
+          # optional: official Ticketmaster Discovery API, skipped when the secret is not set (see docs/SOURCES.md)
+          TICKETMASTER_API_KEY: ${{ secrets.TICKETMASTER_API_KEY }}
       - run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
           git add events.json
           git diff --staged --quiet || git commit -m "Update events" && git push
+      - name: Open or close the "source broken" issue
+        if: always()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python tools/alert.py

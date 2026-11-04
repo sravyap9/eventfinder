@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Fetch Chicago and NYC events from several public sources into events.json."""
-import html as htmllib, json, math, random, re, sys, time, urllib.parse, urllib.request
+import html as htmllib, json, math, os, random, re, sys, time, urllib.parse, urllib.request
 from datetime import datetime, timedelta, timezone
 from http.cookiejar import CookieJar
 from zoneinfo import ZoneInfo
@@ -378,14 +378,15 @@ def fetch_pie(city):
     """The public list only has a date; the exact start time, description and price come from the
     per-plan details call, so plans already in the previous events.json are reused, not re-requested."""
     plans = json.loads(http(PIE_API + "v1/plans?" + urllib.parse.urlencode({"limit": 100, "market": city["pie_market"]})))
-    out, fails = [], 0
+    out, fails, checked = [], 0, 0
     for p in plans:
         url = "https://getpie.app/plans/" + p["planId"]
         if OLD.get(url, {}).get("source") == "pie":
             out.append(OLD[url])
             continue
-        if fails >= 3:
+        if fails >= 3 or checked >= DETAIL_CAP:
             break
+        checked += 1
         try:
             d = json.loads(http(PIE_API + "v2/plans/details/" + p["planId"]))
         except Exception as e:
@@ -708,6 +709,61 @@ def fetch_ra(city):
     return out
 
 
+# ---------- Ticketmaster Discovery API (official, free key) ----------
+TM_URL = "https://app.ticketmaster.com/discovery/v2/events.json"
+TM_KIDS = {"family", "children's theatre", "children's music", "circus & specialty acts"}
+
+
+def tm_price(x):
+    pr = (x.get("priceRanges") or [{}])[0]
+    if pr.get("min") is None:
+        return {}
+    lo, hi = float(pr["min"]), float(pr.get("max") or pr["min"])
+    if hi == 0:
+        return {"is_free": True}
+    return {"is_free": False, "price_text": ("From " if hi > lo else "") + dollars(lo)}
+
+
+def tm_event(city, x):
+    st = (x.get("dates") or {}).get("start") or {}
+    code = (((x.get("dates") or {}).get("status")) or {}).get("code", "")
+    if code in ("cancelled", "canceled", "postponed") or not (st.get("dateTime") or st.get("localDate")):
+        return None
+    start = parse_dt(st["dateTime"]) if st.get("dateTime") else parse_dt(f"{st['localDate']}T{st.get('localTime') or '00:00:00'}", ZoneInfo(city["tz"]))
+    v = ((x.get("_embedded") or {}).get("venues") or [{}])[0]
+    cls = (x.get("classifications") or [{}])[0]
+    names = [(cls.get(k) or {}).get("name", "") for k in ("segment", "genre", "subGenre")]
+    p = tm_price(x)
+    p["sold_out"] = code == "offsale"
+    return ev(city, x["name"], start, ", ".join(q for q in [v.get("name"), (v.get("city") or {}).get("name")] if q), x["url"], "ticketmaster",
+              " ".join([x.get("info") or "", x.get("pleaseNote") or ""] + names), p,
+              kids=True if any(n.lower() in TM_KIDS for n in names) else None)
+
+
+def fetch_ticketmaster(city):
+    """Weekly windows, so each stays under the API's 1,000 result paging limit. 5 requests a second, 5,000 a day by default."""
+    key = os.environ["TICKETMASTER_API_KEY"]
+    out, seen = [], set()
+    for week in range(5):
+        a = NOW.astimezone(timezone.utc) + timedelta(days=7 * week)
+        b = min(a + timedelta(days=7), CUTOFF.astimezone(timezone.utc))
+        if a >= b:
+            break
+        for page in range(5):
+            q = {"apikey": key, "latlong": f"{city['lat']},{city['lon']}", "radius": city["radius"], "unit": "miles", "size": 200, "page": page,
+                 "startDateTime": a.strftime("%Y-%m-%dT%H:%M:%SZ"), "endDateTime": b.strftime("%Y-%m-%dT%H:%M:%SZ"), "sort": "date,asc",
+                 "includeTBA": "no", "includeTBD": "no"}
+            d = json.loads(http(TM_URL + "?" + urllib.parse.urlencode(q)))
+            for x in (d.get("_embedded") or {}).get("events", []):
+                e = tm_event(city, x)
+                if e and x["id"] not in seen:
+                    seen.add(x["id"])
+                    out.append(e)
+            if page + 1 >= (d.get("page") or {}).get("totalPages", 0):
+                break
+    return out
+
+
 # ---------- main ----------
 SOURCES = {  # name -> (fetch function, applies to city); order is also the tie-break when merging duplicates
     "luma": (fetch_luma, lambda c: True),
@@ -720,8 +776,21 @@ SOURCES = {  # name -> (fetch function, applies to city); order is also the tie-
     "cpd": (fetch_cpd, lambda c: c.get("cpd")),
     "coursehorse": (fetch_coursehorse, lambda c: True),
     "ra": (fetch_ra, lambda c: True),
+    "ticketmaster": (fetch_ticketmaster, lambda c: bool(os.environ.get("TICKETMASTER_API_KEY"))),
 }
 RANK = {"a": 0, "b": 1, "c": 2, "d": 3}
+
+
+def valid(e):
+    """The bare minimum an event needs to be usable."""
+    return bool(e.get("title")) and str(e.get("url", "")).startswith("http") and bool(e.get("start"))
+
+
+def coverage(events):
+    """Share of events with each field filled, to spot a parser that silently stops finding something."""
+    n = len(events) or 1
+    return {"n": len(events), "description": round(sum(len(e.get("description") or "") > 20 for e in events) / n, 2),
+            "venue": round(sum(bool(e.get("venue")) for e in events) / n, 2)}
 
 
 def norm_title(t):
@@ -735,12 +804,14 @@ def main():
     except Exception:
         prev_data, old = {}, []
     OLD.update({e["url"]: e for e in old})
-    warnings = []
+    warnings, warned = [], set()
 
-    def warn(msg):
+    def warn(msg, key):
+        """key is "City/source". A key that warns on consecutive runs is a source that is really broken (see tools/alert.py)."""
         print("WARNING:", msg, file=sys.stderr)
         print(f"::warning::{msg}")  # shows as an annotation on the GitHub Actions run
         warnings.append(msg)
+        warned.add(key)
     events, any_fresh = [], False
     for city in CITIES:
         for name, (fn, applies) in SOURCES.items():
@@ -752,11 +823,18 @@ def main():
                 print(f"{city['name']} {name} failed: {e}", file=sys.stderr)
                 got = []
             prev = [e for e in old if e["source"] == name and e.get("city", "Chicago") == city["name"]]
-            print(f"{city['name']} / {name}: {len(got)} fetched", file=sys.stderr)
+            key = f"{city['name']}/{name}"
+            print(f"{key}: {len(got)} fetched", file=sys.stderr)
+            good = [e for e in got if valid(e)]
+            if len(got) >= 10 and len(good) < len(got) * 0.6:  # a parser that "works" but returns junk is a broken parser
+                warn(f"{key}: {len(got) - len(good)} of {len(got)} events failed basic checks (title, link, start)", key)
+                got = []
+            else:
+                got = good
             any_fresh |= bool(got)
             # a failed or suspiciously small fetch keeps this city+source's previous events
             if not got or (len(prev) >= 20 and len(got) < len(prev) * 0.25):
-                warn(f"{city['name']} {name}: {'returned nothing' if not got else f'only {len(got)} vs {len(prev)} before'}, kept the previous {len(prev)} events")
+                warn(f"{key}: {'returned nothing' if not got else f'only {len(got)} vs {len(prev)} before'}, kept the previous {len(prev)} events", key)
                 got = prev
             events += got
     if not any_fresh:
@@ -797,9 +875,20 @@ def main():
         for sname, c in per.items():
             before = (prev_data.get("counts", {}).get(n, {}) or {}).get(sname, 0)
             if before >= 30 and c < before * 0.6:
-                warn(f"{n} {sname}: {c} events now vs {before} last run")
+                warn(f"{n} {sname}: {c} events now vs {before} last run", f"{n}/{sname}")
+
+    # schema drift: the events still arrive but a field a parser used to fill has gone empty
+    quality = {n: {s: coverage([e for e in merged if e["source"] == s and e["city"] == n]) for s in per} for n, per in counts.items()}
+    for n, per in quality.items():
+        for sname, q in per.items():
+            before = (prev_data.get("quality", {}).get(n, {}) or {}).get(sname) or {}
+            for field in ("description", "venue"):
+                if before.get("n", 0) >= 30 and q["n"] >= 30 and before.get(field, 0) - q[field] > 0.4:
+                    warn(f"{n} {sname}: {field} filled on {q[field]:.0%} of events, was {before[field]:.0%}. The site may have changed.", f"{n}/{sname}")
+
+    streaks = {k: (prev_data.get("streaks", {}).get(k, 0) + 1) for k in sorted(warned)}  # consecutive runs with a warning
     json.dump({"last_updated": NOW.isoformat(timespec="seconds"), "counts": counts, "kids_dropped": drops, "price_steps": steps,
-               "warnings": warnings, "events": merged}, open(OUT, "w"), indent=1)
+               "quality": quality, "warnings": warnings, "streaks": streaks, "events": merged}, open(OUT, "w"), indent=1)
     print("counts:", json.dumps(counts))
     print("kids dropped:", json.dumps(drops))
     print("price steps:", json.dumps(steps))

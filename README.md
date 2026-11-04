@@ -10,7 +10,7 @@ Both pages are static files that read the same `events.json`.
 ## How it works
 
 1. `fetch.py` (Python standard library only) runs on a GitHub Actions schedule, twice a day.
-2. It collects upcoming events from Luma, Eventbrite, Partiful, Pie, Do312, Chicago Public Library, Chicago Park District, CourseHorse and Resident Advisor.
+2. It collects upcoming events from Luma, Eventbrite, Partiful, Pie, Do312, Chicago Public Library, Chicago Park District, CourseHorse and Resident Advisor, plus Ticketmaster when an API key is set.
 3. It drops kids events, fills in prices, and merges duplicates that appear on several sites.
 4. It writes `events.json` and commits it. GitHub Pages serves the result.
 
@@ -29,6 +29,10 @@ Each event records how its price was found in `price_source`:
 
 `app/src/ml.js` is a logistic regression over TF-IDF words, interest groups, price, time of day and weekday. The quiz sets starting weights, each thumbs up or down is one step of online gradient descent, and the top results are re-ranked with MMR so near copies do not crowd the list. It runs entirely in the browser. See `app/README.md`.
 
+## When a source breaks
+
+Scrapers break when sites change. This repo is built to fail safely: the last good events are kept, junk and silently missing fields are detected, two bad runs in a row open a GitHub issue, and every parser has an offline test against a recorded real response. See `docs/SOURCES.md` for how stable each source is, the repair steps, and how to turn on the official Ticketmaster API.
+
 ## Learning from ratings (optional)
 
 The quiz page can log anonymous, opt in ratings to a free Supabase database, and `ml/train.py` trains a shared starting model from them. Setup steps and the privacy model are in `docs/SUPABASE.md`. Nothing is sent until it is configured and a visitor says yes.
@@ -36,7 +40,7 @@ The quiz page can log anonymous, opt in ratings to a free Supabase database, and
 ## Develop
 
 ```
-python3 -m unittest discover -s tests     # fetcher and training logic
+python3 -m unittest discover -s tests     # fetcher, parsers (offline fixtures), alerts, training
 python3 fetch.py                          # refresh events.json (about 15 minutes)
 cd app && npm install && npm test         # recommender tests
 cd app && npm run dev                     # quiz version on localhost
