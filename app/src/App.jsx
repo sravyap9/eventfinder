@@ -4,11 +4,13 @@ import { answersFromHash } from "./quiz.js";
 import Quiz from "./Quiz.jsx";
 import Results from "./Results.jsx";
 import Browse from "./Browse.jsx";
+import { getConsent, logSession, logRating, startSession } from "./track.js";
 
 const KEY = "sq2";
 const load = () => { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch { return {}; } };
 const save = (v) => { try { localStorage.setItem(KEY, JSON.stringify(v)); } catch { /* private mode: run without saving */ } };
 const DATA = import.meta.env.DEV ? "/events.json" : "../events.json";
+const MODEL = import.meta.env.DEV ? "/model.json" : "../model.json";
 
 // A shared link (#a=...) carries quiz answers; use them once, then clean the address bar so reloads keep your own ratings.
 function initialState() {
@@ -31,9 +33,13 @@ export default function App() {
   const [rated, setRated] = useState(init.rated || {});
   const [undo, setUndo] = useState(null);
   const [tab, setTab] = useState("picks");
+  const [shared, setShared] = useState(null);  // optional model trained on everyone's ratings, committed as ../model.json
 
   useEffect(() => {
     fetch(DATA + "?v=" + Date.now()).then((r) => r.json()).then(setEvents).catch((e) => setError(String(e)));
+  }, []);
+  useEffect(() => {
+    fetch(MODEL + "?v=" + Date.now()).then((r) => (r.ok ? r.json() : null)).then((m) => m && m.w && setShared(m)).catch(() => {});
   }, []);
   useEffect(() => save({ answers, model, filters, rated }), [answers, model, filters, rated]);
 
@@ -41,10 +47,13 @@ export default function App() {
   const hoursOld = events ? (Date.now() - Date.parse(events.last_updated)) / 36e5 : 0;
 
   const finishQuiz = (a) => {
-    const s = fromQuiz(a);
+    const s = fromQuiz(a, shared);
+    startSession();
+    if (getConsent() === "yes") logSession(a);
     setAnswers(a); setModel(s.model); setFilters(s.filters); setRated({}); setUndo(null); setTab("picks");
   };
-  const rate = (item, label) => {
+  const rate = (item, label, meta = {}) => {
+    logRating(item, label, meta.position, meta.p ?? 0.5);
     setUndo({ model, rated });
     setModel(learn(model, item, label));
     setRated({ ...rated, [item.id]: label });

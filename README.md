@@ -29,10 +29,14 @@ Each event records how its price was found in `price_source`:
 
 `app/src/ml.js` is a logistic regression over TF-IDF words, interest groups, price, time of day and weekday. The quiz sets starting weights, each thumbs up or down is one step of online gradient descent, and the top results are re-ranked with MMR so near copies do not crowd the list. It runs entirely in the browser. See `app/README.md`.
 
+## Learning from ratings (optional)
+
+The quiz page can log anonymous, opt in ratings to a free Supabase database, and `ml/train.py` trains a shared starting model from them. Setup steps and the privacy model are in `docs/SUPABASE.md`. Nothing is sent until it is configured and a visitor says yes.
+
 ## Develop
 
 ```
-python3 -m unittest discover -s tests     # fetcher logic
+python3 -m unittest discover -s tests     # fetcher and training logic
 python3 fetch.py                          # refresh events.json (about 15 minutes)
 cd app && npm install && npm test         # recommender tests
 cd app && npm run dev                     # quiz version on localhost

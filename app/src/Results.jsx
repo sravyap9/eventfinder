@@ -3,9 +3,10 @@ import { eligible, recommend, topWeights } from "./ml.js";
 import { share } from "./util.js";
 import { answersToHash } from "./quiz.js";
 import EventCard from "./EventCard.jsx";
+import { trackingAvailable, getConsent, setConsent, logSession } from "./track.js";
 
 export default function Results({ index, model, filters, rated, answers, canUndo, onRate, onUndo, onRetake }) {
-  const [k, setK] = useState(10), [msg, setMsg] = useState("");
+  const [k, setK] = useState(10), [msg, setMsg] = useState(""), [consent, setC] = useState(getConsent());
   const cands = useMemo(() => eligible(index.items, filters, Date.now(), rated), [index, filters, rated]);
   const picks = useMemo(() => recommend(model, cands, k), [model, cands, k]);
   const tw = useMemo(() => topWeights(model, index.surface), [model, index]);
@@ -21,6 +22,16 @@ export default function Results({ index, model, filters, rated, answers, canUndo
           <button className="ghost small" onClick={onRetake}>Retake quiz</button>
         </div>
       </div>
+      {trackingAvailable && consent === null && (
+        <div className="consent" role="region" aria-label="Help improve recommendations">
+          <p><strong>Help improve the picks?</strong> If you say yes, your quiz answers and thumbs up or down are saved anonymously
+            (no name, no email) and used to train a better model. You can say no and everything still works.</p>
+          <div className="acts">
+            <button className="primary small" onClick={() => { setConsent("yes"); setC("yes"); logSession(answers); }}>Yes, share anonymously</button>
+            <button className="ghost small" onClick={() => { setConsent("no"); setC("no"); }}>No thanks</button>
+          </div>
+        </div>
+      )}
       <p className="hint">
         {cands.length.toLocaleString()} events fit your filters. Tap 👍 or 👎 and the model retrains on the spot.
         {nRated ? ` ${nRated} rated so far.` : ""}
@@ -28,7 +39,7 @@ export default function Results({ index, model, filters, rated, answers, canUndo
       </p>
       {picks.length === 0
         ? <p className="note">Nothing matches those answers. Retake the quiz with a wider window.</p>
-        : <ul className="cards">{picks.map((c) => <EventCard key={c.it.id} c={c} model={model} surface={index.surface} onRate={onRate} />)}</ul>}
+        : <ul className="cards">{picks.map((c, i) => <EventCard key={c.it.id} c={c} position={i} model={model} surface={index.surface} onRate={onRate} />)}</ul>}
       {k < 40 && picks.length === k && <div className="nav center"><button className="ghost" onClick={() => setK(k + 10)}>Show 10 more</button></div>}
       <details className="model">
         <summary>What the model has learned about you</summary>

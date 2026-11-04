@@ -133,8 +133,11 @@ export function learn(model, item, label, lr = 0.6, l2 = 0.002) {
 }
 
 // Turn quiz answers into a starting model (the prior) and hard filters.
-export function fromQuiz(a) {
+export function fromQuiz(a, shared = null) {
   const w = {};
+  // A model trained on everyone's ratings (../model.json) is the starting point when it exists;
+  // the quiz answers are added on top, so they still win for this person.
+  if (shared && shared.w) for (const k in shared.w) w[k] = shared.w[k] * 0.8;
   const add = (k, v) => { w[k] = (w[k] || 0) + v; };
   for (const label of a.interests || []) for (const g of INTERESTS[label] || []) add("g:" + g, 1.4);
   for (const word of VIBES[a.vibe] || []) add("w:" + stem(word.split(" ")[0]), 0.7);
@@ -146,7 +149,7 @@ export function fromQuiz(a) {
   for (const [b, v] of Object.entries(budgets[a.budget || "any"])) add("price:" + b, v);
   for (const t of a.times || []) add("time:" + t, 0.9);
   if (a.adults === "no") { add("age:21", -3); }
-  return { model: { bias: -1, w, n: 0 }, filters: { when: a.when || "month", adults: a.adults !== "no" } };
+  return { model: { bias: shared && typeof shared.bias === "number" ? shared.bias : -1, w, n: 0 }, filters: { when: a.when || "month", adults: a.adults !== "no" } };
 }
 
 // ---------- ranking ----------

@@ -10,7 +10,7 @@ function Pill({ e }) {
 }
 
 // c = { it, p }. Pass model + surface + onRate to show the "because" line and the thumbs.
-export default function EventCard({ c, model, surface, onRate }) {
+export default function EventCard({ c, model, surface, onRate, position }) {
   const e = c.it.e, [open, setOpen] = useState(false), [msg, setMsg] = useState("");
   const reasons = model ? why(model, c.it, surface) : [];
   return (
@@ -46,8 +46,8 @@ export default function EventCard({ c, model, surface, onRate }) {
       )}
       {onRate && (
         <div className="rate">
-          <button onClick={() => onRate(c.it, 1)} aria-label={"More like " + e.title}>👍 More like this</button>
-          <button onClick={() => onRate(c.it, 0)} aria-label={"Less like " + e.title}>👎 Not for me</button>
+          <button onClick={() => onRate(c.it, 1, { position, p: c.p })} aria-label={"More like " + e.title}>👍 More like this</button>
+          <button onClick={() => onRate(c.it, 0, { position, p: c.p })} aria-label={"Less like " + e.title}>👎 Not for me</button>
         </div>
       )}
     </li>

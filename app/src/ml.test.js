@@ -80,3 +80,12 @@ test("search: stems, and expands to the synonym group", () => {
   assert.equal(find("").length, items.length);                         // empty query matches everything
   assert.equal(find("zzzz").length, 0);
 });
+
+test("fromQuiz starts from the shared model and the quiz still adds on top", () => {
+  const shared = { bias: -0.4, w: { "g:art": 1, "price:free": 0.5 } };
+  const { model } = fromQuiz({ interests: ["Art & making"], budget: "free" }, shared);
+  assert.equal(model.bias, -0.4);
+  assert.ok(model.w["g:art"] > 1.4 * 0.9);                  // 0.8 * shared + the quiz's +1.4
+  assert.ok(model.w["price:free"] > fromQuiz({ interests: [], budget: "free" }).model.w["price:free"] - 2.5 + 0.3);
+  assert.equal(fromQuiz({ interests: [] }).model.bias, -1);  // no shared model: unchanged behaviour
+});

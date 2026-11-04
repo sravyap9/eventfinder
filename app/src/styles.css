@@ -98,3 +98,7 @@ button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var
 .pill.sold{background:#D9D5CB;border-color:transparent}.pill.wait{background:var(--peri);border-color:transparent}
 .bar{flex-wrap:wrap}
 @media (hover:hover){.more:hover,.tabs button:hover:not(.on){background:color-mix(in srgb,var(--band) 55%,var(--bg))}}
+
+.consent{margin:12px 0;padding:12px 14px;border:1.5px solid var(--text);border-radius:14px;background:color-mix(in srgb,var(--blue) 25%,var(--bg));font-size:14px}
+.consent p{margin:0 0 10px}
+.primary.small{min-height:44px;padding:6px 16px;font-size:14px}
